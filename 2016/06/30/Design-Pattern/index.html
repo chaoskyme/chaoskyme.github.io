@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -77,7 +77,7 @@
   
     
     
-    <link href="//fonts.gmirror.org/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -85,9 +85,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="设计模式,Design Pattern,SOLID," />
@@ -101,7 +101,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -176,9 +176,10 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -186,20 +187,29 @@
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://chaosky.me/2016/06/30/Design-Pattern/"/>
+
+
+
 
 
   <title> 设计模式 （Design Pattern） | Chaosky's Notes </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -229,7 +239,7 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -240,7 +250,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Getting Real.</p>
+  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -375,6 +385,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -388,13 +400,26 @@
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/06/30/Design-Pattern/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Alex Lin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Chaosky's Notes">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -413,24 +438,40 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-30T15:45:48+08:00" content="2016-06-30">
-              2016-06-30
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-30T15:45:48+08:00">
+                2016-06-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-09-27T00:17:37+08:00">
+                2016-09-27
+              </time>
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/软件设计/" itemprop="url" rel="index">
                     <span itemprop="name">软件设计</span>
                   </a>
@@ -438,19 +479,23 @@
 
                 
                 
-
               
             </span>
           
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/06/30/Design-Pattern/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/30/Design-Pattern/" itemprop="commentsCount"></span>
-                </a>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="/2016/06/30/Design-Pattern/#comments" itemprop="discussionUrl">
+                    <span class="post-comments-count hc-comment-count" data-xid="2016/06/30/Design-Pattern/" itemprop="commentsCount"></span>
+                  </a>
+                </span>
               </span>
+              <!--/noindex-->
             
           
 
@@ -459,7 +504,7 @@
           
           
              <span id="/2016/06/30/Design-Pattern/" class="leancloud_visitors" data-flag-title="设计模式 （Design Pattern）">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -469,11 +514,14 @@
           
 
           
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
+
+          
+
         </div>
       </header>
     
@@ -699,7 +747,7 @@
       
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>8小时内拼工作，8小时外拼成长！</div>
+    <div>天下大事，必作于细！</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
       <span>赏</span>
     </button>
@@ -723,15 +771,16 @@
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
-            <a href="/tags/Design-Pattern/" rel="tag">#Design Pattern</a>
+            <a href="/tags/Design-Pattern/" rel="tag"># Design Pattern</a>
           
-            <a href="/tags/SOLID/" rel="tag">#SOLID</a>
+            <a href="/tags/SOLID/" rel="tag"># SOLID</a>
           
         </div>
       
@@ -745,6 +794,8 @@
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -765,25 +816,6 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/06/30/Design-Pattern/"
-     data-title="设计模式 （Design Pattern）"
-     data-content=""
-     data-url="http://chaosky.me/2016/06/30/Design-Pattern/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -795,9 +827,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/30/Design-Pattern/"
-           data-title="设计模式 （Design Pattern）" data-url="http://chaosky.me/2016/06/30/Design-Pattern/">
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -830,8 +860,8 @@
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
                alt="Alex Lin" />
@@ -841,7 +871,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -849,7 +879,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -858,7 +888,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -879,11 +909,11 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="GitHub">
+                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -941,19 +971,27 @@
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向过程和面向对象"><span class="nav-number">1.</span> <span class="nav-text">面向过程和面向对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的基本概念"><span class="nav-number">2.</span> <span class="nav-text">面向对象的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象的3个基本要素"><span class="nav-number">3.</span> <span class="nav-text">面向对象的3个基本要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">3.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">3.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">3.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件设计终极原则：高内聚-低耦合"><span class="nav-number">4.</span> <span class="nav-text">软件设计终极原则：高内聚 低耦合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内聚"><span class="nav-number">4.1.</span> <span class="nav-text">内聚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#耦合"><span class="nav-number">4.2.</span> <span class="nav-text">耦合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内聚、耦合的区别与联系"><span class="nav-number">4.3.</span> <span class="nav-text">内聚、耦合的区别与联系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象七原则（SOLID）"><span class="nav-number">5.</span> <span class="nav-text">面向对象七原则（SOLID）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#S：单一职责原则（Single-Resposibility-Principle）"><span class="nav-number">5.1.</span> <span class="nav-text">S：单一职责原则（Single-Resposibility Principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#O：开放封闭原则（Open-Closed-principle）"><span class="nav-number">5.2.</span> <span class="nav-text">O：开放封闭原则（Open-Closed principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L：里氏替换原则（Liskov-Substituion-Principle）"><span class="nav-number">5.3.</span> <span class="nav-text">L：里氏替换原则（Liskov-Substituion Principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I：接口隔离原则（Interface-Segregation-Principle）"><span class="nav-number">5.4.</span> <span class="nav-text">I：接口隔离原则（Interface-Segregation Principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D：依赖倒置原则（Dependecy-Inversion-Principle）"><span class="nav-number">5.5.</span> <span class="nav-text">D：依赖倒置原则（Dependecy-Inversion Principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迪米特法则，又称最少知道原则（Demeter-Principle）"><span class="nav-number">5.6.</span> <span class="nav-text">迪米特法则，又称最少知道原则（Demeter Principle）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合成聚合复用原则（Composite-Reuse-Principle）"><span class="nav-number">5.7.</span> <span class="nav-text">合成聚合复用原则（Composite Reuse Principle）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式"><span class="nav-number">6.</span> <span class="nav-text">设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式简介"><span class="nav-number">6.1.</span> <span class="nav-text">设计模式简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是-GOF（四人帮，全拼-Gang-of-Four）？"><span class="nav-number">6.2.</span> <span class="nav-text">什么是 GOF（四人帮，全拼 Gang of Four）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式的类型"><span class="nav-number">6.3.</span> <span class="nav-text">设计模式的类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建型模式（5种）"><span class="nav-number">6.4.</span> <span class="nav-text">创建型模式（5种）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工厂模式"><span class="nav-number">6.5.</span> <span class="nav-text">工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">6.5.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现"><span class="nav-number">6.5.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象工厂模式"><span class="nav-number">6.6.</span> <span class="nav-text">抽象工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-1"><span class="nav-number">6.6.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-1"><span class="nav-number">6.6.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单例模式"><span class="nav-number">6.7.</span> <span class="nav-text">单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-2"><span class="nav-number">6.7.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-2"><span class="nav-number">6.7.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建造者模式"><span class="nav-number">6.8.</span> <span class="nav-text">建造者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-3"><span class="nav-number">6.8.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-3"><span class="nav-number">6.8.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型模式"><span class="nav-number">6.9.</span> <span class="nav-text">原型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-4"><span class="nav-number">6.9.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-4"><span class="nav-number">6.9.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构型模式（8种）"><span class="nav-number">6.10.</span> <span class="nav-text">结构型模式（8种）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适配器模式"><span class="nav-number">6.11.</span> <span class="nav-text">适配器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-5"><span class="nav-number">6.11.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-5"><span class="nav-number">6.11.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桥接模式"><span class="nav-number">6.12.</span> <span class="nav-text">桥接模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-6"><span class="nav-number">6.12.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-6"><span class="nav-number">6.12.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过滤器模式"><span class="nav-number">6.13.</span> <span class="nav-text">过滤器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-7"><span class="nav-number">6.13.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组合模式"><span class="nav-number">6.14.</span> <span class="nav-text">组合模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-7"><span class="nav-number">6.14.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-8"><span class="nav-number">6.14.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#装饰器模式"><span class="nav-number">6.15.</span> <span class="nav-text">装饰器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-8"><span class="nav-number">6.15.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-9"><span class="nav-number">6.15.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外观模式"><span class="nav-number">6.16.</span> <span class="nav-text">外观模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-9"><span class="nav-number">6.16.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-10"><span class="nav-number">6.16.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#享元模式"><span class="nav-number">6.17.</span> <span class="nav-text">享元模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-10"><span class="nav-number">6.17.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-11"><span class="nav-number">6.17.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理模式"><span class="nav-number">6.18.</span> <span class="nav-text">代理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-11"><span class="nav-number">6.18.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-12"><span class="nav-number">6.18.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行为型模式（12种）"><span class="nav-number">6.19.</span> <span class="nav-text">行为型模式（12种）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#责任链模式"><span class="nav-number">6.20.</span> <span class="nav-text">责任链模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-12"><span class="nav-number">6.20.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-13"><span class="nav-number">6.20.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令模式"><span class="nav-number">6.21.</span> <span class="nav-text">命令模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-13"><span class="nav-number">6.21.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-14"><span class="nav-number">6.21.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解释器模式"><span class="nav-number">6.22.</span> <span class="nav-text">解释器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-14"><span class="nav-number">6.22.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-15"><span class="nav-number">6.22.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代器模式"><span class="nav-number">6.23.</span> <span class="nav-text">迭代器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-15"><span class="nav-number">6.23.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-16"><span class="nav-number">6.23.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中介者模式"><span class="nav-number">6.24.</span> <span class="nav-text">中介者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-16"><span class="nav-number">6.24.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-17"><span class="nav-number">6.24.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#备忘录模式"><span class="nav-number">6.25.</span> <span class="nav-text">备忘录模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-17"><span class="nav-number">6.25.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-18"><span class="nav-number">6.25.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模式"><span class="nav-number">6.26.</span> <span class="nav-text">观察者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-18"><span class="nav-number">6.26.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-19"><span class="nav-number">6.26.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态模式"><span class="nav-number">6.27.</span> <span class="nav-text">状态模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-19"><span class="nav-number">6.27.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-20"><span class="nav-number">6.27.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空对象模式"><span class="nav-number">6.28.</span> <span class="nav-text">空对象模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-21"><span class="nav-number">6.28.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#策略模式"><span class="nav-number">6.29.</span> <span class="nav-text">策略模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-20"><span class="nav-number">6.29.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-22"><span class="nav-number">6.29.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板模式"><span class="nav-number">6.30.</span> <span class="nav-text">模板模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-21"><span class="nav-number">6.30.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-23"><span class="nav-number">6.30.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问者模式"><span class="nav-number">6.31.</span> <span class="nav-text">访问者模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-22"><span class="nav-number">6.31.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-24"><span class="nav-number">6.31.2.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MVC-架构模式"><span class="nav-number">6.32.</span> <span class="nav-text">MVC 架构模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实现-25"><span class="nav-number">6.32.1.</span> <span class="nav-text">实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式之间的关系"><span class="nav-number">6.33.</span> <span class="nav-text">设计模式之间的关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">7.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -976,6 +1014,7 @@
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -986,6 +1025,7 @@
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -1035,110 +1075,96 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaosky"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/06/30/Design-Pattern/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+  
+  
+
+  
 
   
 

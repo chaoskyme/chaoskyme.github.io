@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -77,7 +77,7 @@
   
     
     
-    <link href="//fonts.gmirror.org/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -85,9 +85,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="QRCode,Sensor,3D Touch," />
@@ -101,21 +101,29 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
 
 
 
-<meta name="description" content="二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
-Demo下载：QRCodeScanner">
+<meta name="description" content="更新日志
+
+更新二维码生成
+
+二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
+二维码生成12345678910111213141516- (UIImage *)qrCodeGenerator:(NSString *)msg size:(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）">
+<meta property="og:title" content="iOS 硬件（二维码、传感器、3D-Touch、蓝牙）">
 <meta property="og:url" content="http://chaosky.me/2016/02/18/iOS-Hardware/index.html">
 <meta property="og:site_name" content="Chaosky's Notes">
-<meta property="og:description" content="二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
-Demo下载：QRCodeScanner">
+<meta property="og:description" content="更新日志
+
+更新二维码生成
+
+二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
+二维码生成12345678910111213141516- (UIImage *)qrCodeGenerator:(NSString *)msg size:(">
 <meta property="og:image" content="http://7xooko.com1.z0.glb.clouddn.com/070034106495370.png">
 <meta property="og:image" content="http://7xooko.com1.z0.glb.clouddn.com/070035576334022.png">
 <meta property="og:image" content="http://7xooko.com1.z0.glb.clouddn.com/Snip20160128_1.png">
@@ -124,18 +132,23 @@ Demo下载：QRCodeScanner">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20151021/1445415797442101.png">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20151021/1445416998255315.png">
 <meta property="og:image" content="http://cc.cocimg.com/api/uploads/20151021/1445417062907362.png">
-<meta property="og:updated_time" content="2016-09-26T16:17:37.000Z">
+<meta property="og:updated_time" content="2016-11-09T07:28:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）">
-<meta name="twitter:description" content="二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
-Demo下载：QRCodeScanner">
+<meta name="twitter:title" content="iOS 硬件（二维码、传感器、3D-Touch、蓝牙）">
+<meta name="twitter:description" content="更新日志
+
+更新二维码生成
+
+二维码扫描识别iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。
+二维码生成12345678910111213141516- (UIImage *)qrCodeGenerator:(NSString *)msg size:(">
 <meta name="twitter:image" content="http://7xooko.com1.z0.glb.clouddn.com/070034106495370.png">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -143,20 +156,29 @@ Demo下载：QRCodeScanner">
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://chaosky.me/2016/02/18/iOS-Hardware/"/>
 
 
-  <title> iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙） | Chaosky's Notes </title>
+
+
+
+  <title> iOS 硬件（二维码、传感器、3D-Touch、蓝牙） | Chaosky's Notes </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -186,7 +208,7 @@ Demo下载：QRCodeScanner">
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -197,7 +219,7 @@ Demo下载：QRCodeScanner">
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Getting Real.</p>
+  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -332,6 +354,8 @@ Demo下载：QRCodeScanner">
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -345,13 +369,26 @@ Demo下载：QRCodeScanner">
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/02/18/iOS-Hardware/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Alex Lin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Chaosky's Notes">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -362,7 +399,7 @@ Demo下载：QRCodeScanner">
             
             
               
-                iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）
+                iOS 硬件（二维码、传感器、3D-Touch、蓝牙）
               
             
           </h1>
@@ -370,24 +407,40 @@ Demo下载：QRCodeScanner">
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-18T11:11:12+08:00" content="2016-02-18">
-              2016-02-18
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-02-18T11:11:12+08:00">
+                2016-02-18
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-11-09T15:28:23+08:00">
+                2016-11-09
+              </time>
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
                   </a>
@@ -395,19 +448,23 @@ Demo下载：QRCodeScanner">
 
                 
                 
-
               
             </span>
           
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/18/iOS-Hardware/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/18/iOS-Hardware/" itemprop="commentsCount"></span>
-                </a>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="/2016/02/18/iOS-Hardware/#comments" itemprop="discussionUrl">
+                    <span class="post-comments-count hc-comment-count" data-xid="2016/02/18/iOS-Hardware/" itemprop="commentsCount"></span>
+                  </a>
+                </span>
               </span>
+              <!--/noindex-->
             
           
 
@@ -415,8 +472,8 @@ Demo下载：QRCodeScanner">
 
           
           
-             <span id="/2016/02/18/iOS-Hardware/" class="leancloud_visitors" data-flag-title="iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）">
-               &nbsp; | &nbsp;
+             <span id="/2016/02/18/iOS-Hardware/" class="leancloud_visitors" data-flag-title="iOS 硬件（二维码、传感器、3D-Touch、蓝牙）">
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -426,11 +483,14 @@ Demo下载：QRCodeScanner">
           
 
           
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
+
+          
+
         </div>
       </header>
     
@@ -442,8 +502,14 @@ Demo下载：QRCodeScanner">
       
 
       
-        <h2 id="二维码扫描识别"><a href="#二维码扫描识别" class="headerlink" title="二维码扫描识别"></a>二维码扫描识别</h2><p>iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。</p>
-<h3 id="Demo下载：QRCodeScanner"><a href="#Demo下载：QRCodeScanner" class="headerlink" title="Demo下载：QRCodeScanner"></a>Demo下载：<a href="https://github.com/chaoskyme/Demo/tree/master/QRCodeScanner" target="_blank" rel="external">QRCodeScanner</a></h3><a id="more"></a>
+        <p><strong>更新日志</strong></p>
+<ul>
+<li>更新<a href="#二维码生成">二维码生成</a></li>
+</ul>
+<h2 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h2><h3 id="扫描识别"><a href="#扫描识别" class="headerlink" title="扫描识别"></a>扫描识别</h3><p>iOS中实现二维码和条形码扫描，两大开源组件 ZBarSDK 与 ZXing以及AVFoundation。AVFoundation.framework（iOS 7 ）之后才添加了二维码扫描的功能。</p>
+<h3 id="二维码生成"><a href="#二维码生成" class="headerlink" title="二维码生成"></a>二维码生成</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImage</span> *)qrCodeGenerator:(<span class="built_in">NSString</span> *)msg size:(<span class="built_in">CGSize</span>)size &#123;</div><div class="line">    <span class="built_in">NSData</span> * data = [msg dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    </div><div class="line">    <span class="built_in">NSDictionary</span> * params = @&#123;<span class="string">@"inputMessage"</span>: data, <span class="string">@"inputCorrectionLevel"</span>: <span class="string">@"H"</span>&#125;;</div><div class="line">    <span class="built_in">CIFilter</span> * qrEncoder = [<span class="built_in">CIFilter</span> filterWithName:<span class="string">@"CIQRCodeGenerator"</span> withInputParameters:params];</div><div class="line">    <span class="built_in">CIImage</span> * ciImage = qrEncoder.outputImage;</div><div class="line">    <span class="built_in">UIImage</span> * qrImage = [<span class="built_in">UIImage</span> imageWithCIImage:ciImage];</div><div class="line">    </div><div class="line">    <span class="built_in">UIGraphicsBeginImageContext</span>(size);</div><div class="line">    <span class="built_in">CGContextRef</span> context = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line">    <span class="built_in">CGContextSetInterpolationQuality</span>(context, kCGInterpolationNone);</div><div class="line">    [qrImage drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, size.width, size.height)];</div><div class="line">    qrImage = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line">    <span class="keyword">return</span> qrImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>Demo下载</strong>：<a href="https://github.com/chaoskyme/Demo/tree/master/QRCodeScanner" target="_blank" rel="external">QRCodeScanner</a></p>
+<a id="more"></a>
 <h2 id="传感器"><a href="#传感器" class="headerlink" title="传感器"></a>传感器</h2><h3 id="距离传感器（Proximity-Sensor）"><a href="#距离传感器（Proximity-Sensor）" class="headerlink" title="距离传感器（Proximity Sensor）"></a>距离传感器（Proximity Sensor）</h3><p>用于检测是否有其他物体靠近设备屏幕</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 开启距离感应功能</span></div><div class="line">[<span class="built_in">UIDevice</span> currentDevice].proximityMonitoringEnabled = <span class="literal">YES</span>;</div><div class="line"><span class="comment">// 监听距离感应的通知</span></div><div class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span></div><div class="line">selector:<span class="keyword">@selector</span>(proximityChange:)</div><div class="line">name:<span class="built_in">UIDeviceProximityStateDidChangeNotification</span></div><div class="line">object:<span class="literal">nil</span>];</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)proximityChange:(<span class="built_in">NSNotification</span> *)notification &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="built_in">UIDevice</span> currentDevice].proximityState == <span class="literal">YES</span>) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"某个物体靠近了设备屏幕"</span>); <span class="comment">// 屏幕会自动锁住</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"某个物体远离了设备屏幕"</span>); <span class="comment">// 屏幕会自动解锁</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="磁力计传感器（Magnetometer-Sensor）"><a href="#磁力计传感器（Magnetometer-Sensor）" class="headerlink" title="磁力计传感器（Magnetometer Sensor）"></a>磁力计传感器（Magnetometer Sensor）</h3><p>可以感应地球磁场， 获得方向信息， 使位置服务数据更精准。</p>
@@ -557,7 +623,7 @@ Demo下载：QRCodeScanner">
       
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>8小时内拼工作，8小时外拼成长！</div>
+    <div>天下大事，必作于细！</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
       <span>赏</span>
     </button>
@@ -581,15 +647,16 @@ Demo下载：QRCodeScanner">
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/QRCode/" rel="tag">#QRCode</a>
+            <a href="/tags/QRCode/" rel="tag"># QRCode</a>
           
-            <a href="/tags/Sensor/" rel="tag">#Sensor</a>
+            <a href="/tags/Sensor/" rel="tag"># Sensor</a>
           
-            <a href="/tags/3D-Touch/" rel="tag">#3D Touch</a>
+            <a href="/tags/3D-Touch/" rel="tag"># 3D Touch</a>
           
         </div>
       
@@ -603,6 +670,8 @@ Demo下载：QRCodeScanner">
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -623,25 +692,6 @@ Demo下载：QRCodeScanner">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/18/iOS-Hardware/"
-     data-title="iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）"
-     data-content=""
-     data-url="http://chaosky.me/2016/02/18/iOS-Hardware/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -653,9 +703,7 @@ Demo下载：QRCodeScanner">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/18/iOS-Hardware/"
-           data-title="iOS 硬件（二维码扫描、传感器、3D-Touch、蓝牙）" data-url="http://chaosky.me/2016/02/18/iOS-Hardware/">
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -688,8 +736,8 @@ Demo下载：QRCodeScanner">
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
                alt="Alex Lin" />
@@ -699,7 +747,7 @@ Demo下载：QRCodeScanner">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -707,7 +755,7 @@ Demo下载：QRCodeScanner">
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -716,7 +764,7 @@ Demo下载：QRCodeScanner">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -737,11 +785,11 @@ Demo下载：QRCodeScanner">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="GitHub">
+                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -799,19 +847,27 @@ Demo下载：QRCodeScanner">
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二维码扫描识别"><span class="nav-number">1.</span> <span class="nav-text">二维码扫描识别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo下载：QRCodeScanner"><span class="nav-number">1.1.</span> <span class="nav-text">Demo下载：QRCodeScanner</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传感器"><span class="nav-number">2.</span> <span class="nav-text">传感器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#距离传感器（Proximity-Sensor）"><span class="nav-number">2.1.</span> <span class="nav-text">距离传感器（Proximity Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力计传感器（Magnetometer-Sensor）"><span class="nav-number">2.2.</span> <span class="nav-text">磁力计传感器（Magnetometer Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境光传感器（Ambient-Light-Sensor）"><span class="nav-number">2.3.</span> <span class="nav-text">环境光传感器（Ambient Light Sensor）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoreMotion"><span class="nav-number">3.</span> <span class="nav-text">CoreMotion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加速计传感器（Motion-Accelerometer-Sensor）"><span class="nav-number">3.1.</span> <span class="nav-text">加速计传感器（Motion/Accelerometer Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陀螺仪（Gyroscope）"><span class="nav-number">3.2.</span> <span class="nav-text">陀螺仪（Gyroscope）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计步器（CMStepCounter）"><span class="nav-number">3.3.</span> <span class="nav-text">计步器（CMStepCounter）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-下载：SensorDemo"><span class="nav-number">3.4.</span> <span class="nav-text">Demo 下载：SensorDemo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-Touch"><span class="nav-number">4.</span> <span class="nav-text">3D Touch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Home-Screen-Quick-Actions"><span class="nav-number">4.1.</span> <span class="nav-text">Home Screen Quick Actions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态标签"><span class="nav-number">4.1.1.</span> <span class="nav-text">静态标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态标签"><span class="nav-number">4.1.2.</span> <span class="nav-text">动态标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应标签的行为"><span class="nav-number">4.1.3.</span> <span class="nav-text">响应标签的行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几点注意："><span class="nav-number">4.1.4.</span> <span class="nav-text">几点注意：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Peek-and-Pop"><span class="nav-number">4.2.</span> <span class="nav-text">Peek and Pop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-暗示内容预览是可使用的"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.暗示内容预览是可使用的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-展示预览-peek-，和快捷选项菜单（peek-quick-actions）"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.展示预览(peek)，和快捷选项菜单（peek quick actions）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-可选的跳转到预览中的视图-pop"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.可选的跳转到预览中的视图(pop)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch-Force-Properties"><span class="nav-number">4.3.</span> <span class="nav-text">UITouch Force Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">4.4.</span> <span class="nav-text">参考文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-下载：3D-Touch"><span class="nav-number">4.5.</span> <span class="nav-text">Demo 下载：3D-Touch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙（BlueTooth）"><span class="nav-number">5.</span> <span class="nav-text">蓝牙（BlueTooth）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二维码"><span class="nav-number">1.</span> <span class="nav-text">二维码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#扫描识别"><span class="nav-number">1.1.</span> <span class="nav-text">扫描识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维码生成"><span class="nav-number">1.2.</span> <span class="nav-text">二维码生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传感器"><span class="nav-number">2.</span> <span class="nav-text">传感器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#距离传感器（Proximity-Sensor）"><span class="nav-number">2.1.</span> <span class="nav-text">距离传感器（Proximity Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力计传感器（Magnetometer-Sensor）"><span class="nav-number">2.2.</span> <span class="nav-text">磁力计传感器（Magnetometer Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境光传感器（Ambient-Light-Sensor）"><span class="nav-number">2.3.</span> <span class="nav-text">环境光传感器（Ambient Light Sensor）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoreMotion"><span class="nav-number">3.</span> <span class="nav-text">CoreMotion</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加速计传感器（Motion-Accelerometer-Sensor）"><span class="nav-number">3.1.</span> <span class="nav-text">加速计传感器（Motion/Accelerometer Sensor）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陀螺仪（Gyroscope）"><span class="nav-number">3.2.</span> <span class="nav-text">陀螺仪（Gyroscope）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计步器（CMStepCounter）"><span class="nav-number">3.3.</span> <span class="nav-text">计步器（CMStepCounter）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-下载：SensorDemo"><span class="nav-number">3.4.</span> <span class="nav-text">Demo 下载：SensorDemo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3D-Touch"><span class="nav-number">4.</span> <span class="nav-text">3D Touch</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Home-Screen-Quick-Actions"><span class="nav-number">4.1.</span> <span class="nav-text">Home Screen Quick Actions</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态标签"><span class="nav-number">4.1.1.</span> <span class="nav-text">静态标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态标签"><span class="nav-number">4.1.2.</span> <span class="nav-text">动态标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应标签的行为"><span class="nav-number">4.1.3.</span> <span class="nav-text">响应标签的行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#几点注意："><span class="nav-number">4.1.4.</span> <span class="nav-text">几点注意：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Peek-and-Pop"><span class="nav-number">4.2.</span> <span class="nav-text">Peek and Pop</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-暗示内容预览是可使用的"><span class="nav-number">4.2.1.</span> <span class="nav-text">1.暗示内容预览是可使用的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-展示预览-peek-，和快捷选项菜单（peek-quick-actions）"><span class="nav-number">4.2.2.</span> <span class="nav-text">2.展示预览(peek)，和快捷选项菜单（peek quick actions）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-可选的跳转到预览中的视图-pop"><span class="nav-number">4.2.3.</span> <span class="nav-text">3.可选的跳转到预览中的视图(pop)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITouch-Force-Properties"><span class="nav-number">4.3.</span> <span class="nav-text">UITouch Force Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章"><span class="nav-number">4.4.</span> <span class="nav-text">参考文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Demo-下载：3D-Touch"><span class="nav-number">4.5.</span> <span class="nav-text">Demo 下载：3D-Touch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙（BlueTooth）"><span class="nav-number">5.</span> <span class="nav-text">蓝牙（BlueTooth）</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -834,6 +890,7 @@ Demo下载：QRCodeScanner">
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -844,6 +901,7 @@ Demo下载：QRCodeScanner">
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -893,110 +951,96 @@ Demo下载：QRCodeScanner">
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaosky"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/02/18/iOS-Hardware/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+  
+  
+
+  
 
   
 

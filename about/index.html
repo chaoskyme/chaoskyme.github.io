@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -77,7 +77,7 @@
   
     
     
-    <link href="//fonts.gmirror.org/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -85,9 +85,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="iOS" />
@@ -101,7 +101,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -110,29 +110,33 @@
 
 <meta name="description" content="纵有千古，横有八荒。前途似海，来日方长。
 
-嗨，我是林天祥，iOS 开发者，专注移动开发。  
-欢迎大家留言咨询，讨论技术！">
+
+嗨，我是林天祥（Alex），iOS 开发者，专注移动开发。
+热爱开源、分享与交流，欢迎关注我的微博：@阴山铺林小天、我的Github。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于我">
 <meta property="og:url" content="http://chaosky.me/about/index.html">
 <meta property="og:site_name" content="Chaosky's Notes">
 <meta property="og:description" content="纵有千古，横有八荒。前途似海，来日方长。
 
-嗨，我是林天祥，iOS 开发者，专注移动开发。  
-欢迎大家留言咨询，讨论技术！">
-<meta property="og:updated_time" content="2016-09-26T16:17:37.000Z">
+
+嗨，我是林天祥（Alex），iOS 开发者，专注移动开发。
+热爱开源、分享与交流，欢迎关注我的微博：@阴山铺林小天、我的Github。">
+<meta property="og:updated_time" content="2016-12-23T01:16:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于我">
 <meta name="twitter:description" content="纵有千古，横有八荒。前途似海，来日方长。
 
-嗨，我是林天祥，iOS 开发者，专注移动开发。  
-欢迎大家留言咨询，讨论技术！">
+
+嗨，我是林天祥（Alex），iOS 开发者，专注移动开发。
+热爱开源、分享与交流，欢迎关注我的微博：@阴山铺林小天、我的Github。">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -140,14 +144,23 @@
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://chaosky.me/about/"/>
+
+
+
 
 
   <title>
@@ -159,7 +172,7 @@
 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -189,7 +202,7 @@
   <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -200,7 +213,7 @@
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Getting Real.</p>
+  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -335,6 +348,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -345,13 +360,25 @@
             
 
   <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h2 class="post-title" itemprop="name headline">关于我</h2>
+
+
+
+</header>
+
     
     
       <blockquote>
 <p>纵有千古，<br>横有八荒。<br>前途似海，<br>来日方长。</p>
 </blockquote>
-<p>嗨，我是林天祥，iOS 开发者，专注移动开发。  </p>
-<p>欢迎大家留言咨询，讨论技术！</p>
+<ul>
+<li>嗨，我是林天祥（Alex），iOS 开发者，专注移动开发。</li>
+<li>热爱开源、分享与交流，欢迎关注我的微博：<a href="http://weibo.com/iwillcomeback" target="_blank" rel="external">@阴山铺林小天</a>、我的<a href="https://github.com/chaoskyme" target="_blank" rel="external">Github</a>。</li>
+</ul>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="http://music.163.com/outchain/player?type=2&id=730669&auto=1&height=66"></iframe>
+
 
     
   </div>
@@ -364,9 +391,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="about/index.html"
-           data-title="关于我" data-url="http://chaosky.me/about/index.html">
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -390,8 +415,8 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
                alt="Alex Lin" />
@@ -401,7 +426,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -409,7 +434,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -418,7 +443,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -439,11 +464,11 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="GitHub">
+                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -501,6 +526,9 @@
         
         
 
+        
+
+
       </section>
 
       
@@ -525,6 +553,7 @@
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -535,6 +564,7 @@
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -584,106 +614,92 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
-  
 
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaosky"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "about/index.html"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+  
+  
+
+  
 
   
 

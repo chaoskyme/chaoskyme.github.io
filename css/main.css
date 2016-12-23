@@ -495,7 +495,7 @@ pre,
 .highlight {
   overflow: auto;
   margin: 20px 0;
-  padding: 15px;
+  padding: 0;
   font-size: 13px;
   color: #4d4d4c;
   background: #f7f7f7;
@@ -507,7 +507,7 @@ code {
 }
 code {
   padding: 2px 4px;
-  word-wrap: break-all;
+  word-wrap: break-word;
   color: #4d4d4c;
   background: #f7f7f7;
   border-radius: 3px;
@@ -519,10 +519,13 @@ pre code {
   background: none;
   text-shadow: none;
 }
+.highlight {
+  border-radius: 1px;
+}
 .highlight pre {
   border: none;
   margin: 0;
-  padding: 1px;
+  padding: 10px 0;
 }
 .highlight table {
   margin: 0;
@@ -555,9 +558,16 @@ pre code {
   border-bottom-color: #4d4d4c;
 }
 .highlight .gutter pre {
-  color: #666;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #869194;
   text-align: right;
-  padding-right: 20px;
+  background-color: #eff2f3;
+}
+.highlight .code pre {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #f7f7f7;
 }
 .highlight .line {
   height: 20px;
@@ -736,6 +746,90 @@ pre .javascript .function {
 .page-archive .group-picture-column {
   max-width: 150px;
   max-height: 150px;
+}
+.note {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.note h2,
+.note h3,
+.note h4,
+.note h5,
+.note h6 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.note p:last-child {
+  margin-bottom: 0;
+}
+.note code {
+  border-radius: 3px;
+}
+.note+.note {
+  margin-top: -5px;
+}
+.default {
+  border-left-color: #777;
+}
+.default h2,
+.default h3,
+.default h4,
+.default h5,
+.default h6 {
+  color: #777;
+}
+.primary {
+  border-left-color: #428bca;
+}
+.primary h2,
+.primary h3,
+.primary h4,
+.primary h5,
+.primary h6 {
+  color: #428bca;
+}
+.success {
+  border-left-color: #5cb85c;
+}
+.success h2,
+.success h3,
+.success h4,
+.success h5,
+.success h6 {
+  color: #5cb85c;
+}
+.danger {
+  border-left-color: #d9534f;
+}
+.danger h2,
+.danger h3,
+.danger h4,
+.danger h5,
+.danger h6 {
+  color: #d9534f;
+}
+.warning {
+  border-left-color: #f0ad4e;
+}
+.warning h2,
+.warning h3,
+.warning h4,
+.warning h5,
+.warning h6 {
+  color: #f0ad4e;
+}
+.info {
+  border-left-color: #5bc0de;
+}
+.info h2,
+.info h3,
+.info h4,
+.info h5,
+.info h6 {
+  color: #5bc0de;
 }
 .btn {
   display: inline-block;
@@ -1232,7 +1326,7 @@ pre .javascript .function {
   font-size: 26px;
   text-align: center;
   word-break: break-word;
-  font-weight: 300;
+  font-weight: 400;
 }
 @media (max-width: 767px) {
   .posts-expand .post-title {
@@ -1291,8 +1385,14 @@ pre .javascript .function {
 .posts-expand .post-meta .post-category-list-link {
   color: #999;
 }
+.posts-expand .post-meta .post-description {
+  font-size: 14px;
+  margin-top: 2px;
+}
+.post-meta-divider {
+  margin: 0 0.5em;
+}
 .post-meta-item-icon {
-  display: none;
   margin-right: 3px;
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1340,20 +1440,24 @@ pre .javascript .function {
   font-size: 13px;
 }
 .post-nav {
-  overflow: hidden;
+  display: table;
   margin-top: 60px;
-  padding: 10px;
-  white-space: nowrap;
+  width: 100%;
   border-top: 1px solid #eee;
 }
+.post-nav-divider {
+  display: table-cell;
+  width: 10%;
+}
 .post-nav-item {
-  display: inline-block;
-  width: 50%;
-  white-space: normal;
+  display: table-cell;
+  padding: 10px 0 0 0;
+  width: 45%;
+  vertical-align: top;
 }
 .post-nav-item a {
   position: relative;
-  display: inline-block;
+  display: block;
   line-height: 25px;
   font-size: 14px;
   color: #555;
@@ -1366,11 +1470,24 @@ pre .javascript .function {
 .post-nav-item a:active {
   top: 2px;
 }
-.post-nav-item a i {
+.post-nav-item .fa {
+  position: absolute;
+  top: 8px;
+  left: 0;
   font-size: 12px;
+}
+.post-nav-next a {
+  padding-left: 15px;
 }
 .post-nav-prev {
   text-align: right;
+}
+.post-nav-prev a {
+  padding-right: 15px;
+}
+.post-nav-prev .fa {
+  right: 0;
+  left: auto;
 }
 .posts-expand .post-eof {
   display: block;
@@ -1679,7 +1796,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a1630d;
+  background: #3b03c1;
 }
 .links-of-blogroll {
   font-size: 13px;

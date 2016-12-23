@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -77,7 +77,7 @@
   
     
     
-    <link href="//fonts.gmirror.org/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -85,9 +85,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="公众号,微信," />
@@ -101,7 +101,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -142,9 +142,10 @@ CocoaChina微信号: cocoachinabbs
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -152,20 +153,29 @@ CocoaChina微信号: cocoachinabbs
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://chaosky.me/2016/09/21/Official-Accounts/"/>
+
+
+
 
 
   <title> 我关注的公众号 | Chaosky's Notes </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -195,7 +205,7 @@ CocoaChina微信号: cocoachinabbs
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -206,7 +216,7 @@ CocoaChina微信号: cocoachinabbs
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Getting Real.</p>
+  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -341,6 +351,8 @@ CocoaChina微信号: cocoachinabbs
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -354,13 +366,26 @@ CocoaChina微信号: cocoachinabbs
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/09/21/Official-Accounts/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Alex Lin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Chaosky's Notes">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -379,24 +404,40 @@ CocoaChina微信号: cocoachinabbs
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-21T15:47:09+08:00" content="2016-09-21">
-              2016-09-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-21T15:47:09+08:00">
+                2016-09-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-09-21T15:47:09+08:00">
+                2016-09-21
+              </time>
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/读书笔记/" itemprop="url" rel="index">
                     <span itemprop="name">读书笔记</span>
                   </a>
@@ -404,19 +445,23 @@ CocoaChina微信号: cocoachinabbs
 
                 
                 
-
               
             </span>
           
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/21/Official-Accounts/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/21/Official-Accounts/" itemprop="commentsCount"></span>
-                </a>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="/2016/09/21/Official-Accounts/#comments" itemprop="discussionUrl">
+                    <span class="post-comments-count hc-comment-count" data-xid="2016/09/21/Official-Accounts/" itemprop="commentsCount"></span>
+                  </a>
+                </span>
               </span>
+              <!--/noindex-->
             
           
 
@@ -425,7 +470,7 @@ CocoaChina微信号: cocoachinabbs
           
           
              <span id="/2016/09/21/Official-Accounts/" class="leancloud_visitors" data-flag-title="我关注的公众号">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -435,11 +480,14 @@ CocoaChina微信号: cocoachinabbs
           
 
           
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
+
+          
+
         </div>
       </header>
     
@@ -549,7 +597,7 @@ CocoaChina微信号: cocoachinabbs
       
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>8小时内拼工作，8小时外拼成长！</div>
+    <div>天下大事，必作于细！</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
       <span>赏</span>
     </button>
@@ -573,13 +621,14 @@ CocoaChina微信号: cocoachinabbs
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/公众号/" rel="tag">#公众号</a>
+            <a href="/tags/公众号/" rel="tag"># 公众号</a>
           
-            <a href="/tags/微信/" rel="tag">#微信</a>
+            <a href="/tags/微信/" rel="tag"># 微信</a>
           
         </div>
       
@@ -593,6 +642,8 @@ CocoaChina微信号: cocoachinabbs
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -613,25 +664,6 @@ CocoaChina微信号: cocoachinabbs
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/09/21/Official-Accounts/"
-     data-title="我关注的公众号"
-     data-content=""
-     data-url="http://chaosky.me/2016/09/21/Official-Accounts/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -643,9 +675,7 @@ CocoaChina微信号: cocoachinabbs
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/21/Official-Accounts/"
-           data-title="我关注的公众号" data-url="http://chaosky.me/2016/09/21/Official-Accounts/">
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -678,8 +708,8 @@ CocoaChina微信号: cocoachinabbs
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
                alt="Alex Lin" />
@@ -689,7 +719,7 @@ CocoaChina微信号: cocoachinabbs
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -697,7 +727,7 @@ CocoaChina微信号: cocoachinabbs
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -706,7 +736,7 @@ CocoaChina微信号: cocoachinabbs
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -727,11 +757,11 @@ CocoaChina微信号: cocoachinabbs
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="GitHub">
+                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -789,19 +819,27 @@ CocoaChina微信号: cocoachinabbs
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#微信公众号"><span class="nav-number">1.</span> <span class="nav-text">微信公众号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#技术"><span class="nav-number">1.1.</span> <span class="nav-text">技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iOS开发"><span class="nav-number">1.1.1.</span> <span class="nav-text">iOS开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CocoaChina"><span class="nav-number">1.1.2.</span> <span class="nav-text">CocoaChina</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Crossin的编程教室"><span class="nav-number">1.1.3.</span> <span class="nav-text">Crossin的编程教室</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#待字闺中"><span class="nav-number">1.1.4.</span> <span class="nav-text">待字闺中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序人生"><span class="nav-number">1.1.5.</span> <span class="nav-text">程序人生</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#唐巧——iOS开发"><span class="nav-number">1.1.6.</span> <span class="nav-text">唐巧——iOS开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利器"><span class="nav-number">1.1.7.</span> <span class="nav-text">利器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#论码农的自我修养"><span class="nav-number">1.1.8.</span> <span class="nav-text">论码农的自我修养</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Pinapps"><span class="nav-number">1.1.9.</span> <span class="nav-text">Pinapps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ThoughtWorks"><span class="nav-number">1.1.10.</span> <span class="nav-text">ThoughtWorks</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#人文"><span class="nav-number">1.2.</span> <span class="nav-text">人文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不止读书"><span class="nav-number">1.2.1.</span> <span class="nav-text">不止读书</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伯乐在线"><span class="nav-number">1.2.2.</span> <span class="nav-text">伯乐在线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#槽边往事"><span class="nav-number">1.2.3.</span> <span class="nav-text">槽边往事</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鬼脚七"><span class="nav-number">1.2.4.</span> <span class="nav-text">鬼脚七</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#懒人在思考"><span class="nav-number">1.2.5.</span> <span class="nav-text">懒人在思考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#老鹰说"><span class="nav-number">1.2.6.</span> <span class="nav-text">老鹰说</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连岳"><span class="nav-number">1.2.7.</span> <span class="nav-text">连岳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#罗辑思维"><span class="nav-number">1.2.8.</span> <span class="nav-text">罗辑思维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MacTalk"><span class="nav-number">1.2.9.</span> <span class="nav-text">MacTalk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#厉哥——虚拟机"><span class="nav-number">1.2.10.</span> <span class="nav-text">厉哥——虚拟机</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三表龙门阵"><span class="nav-number">1.2.11.</span> <span class="nav-text">三表龙门阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#神秘的程序员们"><span class="nav-number">1.2.12.</span> <span class="nav-text">神秘的程序员们</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tiny4Voice"><span class="nav-number">1.2.13.</span> <span class="nav-text">Tiny4Voice</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图灵访谈"><span class="nav-number">1.2.14.</span> <span class="nav-text">图灵访谈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图灵教育"><span class="nav-number">1.2.15.</span> <span class="nav-text">图灵教育</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#歪理邪说"><span class="nav-number">1.2.16.</span> <span class="nav-text">歪理邪说</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我和世界之间"><span class="nav-number">1.2.17.</span> <span class="nav-text">我和世界之间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小道消息"><span class="nav-number">1.2.18.</span> <span class="nav-text">小道消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余晟以为"><span class="nav-number">1.2.19.</span> <span class="nav-text">余晟以为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#资讯"><span class="nav-number">1.3.</span> <span class="nav-text">资讯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#桂辉最久"><span class="nav-number">1.3.1.</span> <span class="nav-text">桂辉最久</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#InfoQ"><span class="nav-number">1.3.2.</span> <span class="nav-text">InfoQ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#极客公园"><span class="nav-number">1.3.3.</span> <span class="nav-text">极客公园</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#极客邦科技Geekbang"><span class="nav-number">1.3.4.</span> <span class="nav-text">极客邦科技Geekbang</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可能吧"><span class="nav-number">1.3.5.</span> <span class="nav-text">可能吧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PingWest中文网"><span class="nav-number">1.3.6.</span> <span class="nav-text">PingWest中文网</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#商业价值"><span class="nav-number">1.3.7.</span> <span class="nav-text">商业价值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深圳湾"><span class="nav-number">1.3.8.</span> <span class="nav-text">深圳湾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#100offer说"><span class="nav-number">1.3.9.</span> <span class="nav-text">100offer说</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#36氪"><span class="nav-number">1.3.10.</span> <span class="nav-text">36氪</span></a></li></ol></li></ol></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -824,6 +862,7 @@ CocoaChina微信号: cocoachinabbs
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -834,6 +873,7 @@ CocoaChina微信号: cocoachinabbs
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -883,110 +923,96 @@ CocoaChina微信号: cocoachinabbs
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaosky"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/09/21/Official-Accounts/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+  
+  
+
+  
 
   
 

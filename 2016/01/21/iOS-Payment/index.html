@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -33,7 +33,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -77,7 +77,7 @@
   
     
     
-    <link href="//fonts.gmirror.org/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
   
 
 
@@ -85,9 +85,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="支付宝支付,微信支付,IAP,应用内支付,Apple Pay," />
@@ -101,7 +101,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -172,9 +172,10 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
@@ -182,20 +183,29 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://chaosky.me/2016/01/21/iOS-Payment/"/>
+
+
+
 
 
   <title> iOS 支付 | Chaosky's Notes </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -225,7 +235,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -236,7 +246,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
-  <p class="site-subtitle">Getting Real.</p>
+  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
 </div>
 
 <div class="site-nav-toggle">
@@ -371,6 +381,8 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -384,13 +396,26 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
     
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/01/21/iOS-Payment/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Alex Lin">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Chaosky's Notes">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -409,24 +434,40 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-21T21:50:04+08:00" content="2016-01-21">
-              2016-01-21
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-01-21T21:50:04+08:00">
+                2016-01-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              <span class="post-meta-item-text">更新于</span>
+              <time title="更新于" itemprop="dateModified" datetime="2016-09-27T00:17:37+08:00">
+                2016-09-27
+              </time>
+            
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp;
+              <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
                   </a>
@@ -434,19 +475,23 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 
                 
                 
-
               
             </span>
           
 
           
             
+            <!--noindex-->
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/21/iOS-Payment/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/21/iOS-Payment/" itemprop="commentsCount"></span>
-                </a>
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                  <a href="/2016/01/21/iOS-Payment/#comments" itemprop="discussionUrl">
+                    <span class="post-comments-count hc-comment-count" data-xid="2016/01/21/iOS-Payment/" itemprop="commentsCount"></span>
+                  </a>
+                </span>
               </span>
+              <!--/noindex-->
             
           
 
@@ -455,7 +500,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
           
              <span id="/2016/01/21/iOS-Payment/" class="leancloud_visitors" data-flag-title="iOS 支付">
-               &nbsp; | &nbsp;
+               <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
                </span>
@@ -465,11 +510,14 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
 
           
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
-              </span>
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
+
+          
+
         </div>
       </header>
     
@@ -541,7 +589,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 <li><p>在<code>Build Settings</code>中<code>Header Search Paths</code>添加头文件引用路径，<code>[文件路径]/AlipaySDK/</code></p>
 </li>
 <li><p>在需要调用AlipaySDK的文件中，增加头文件引用。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#import</span>  &lt;AlipaySDK/AlipaySDK.h&gt;</div><div class="line"><span class="selector-id">#import</span> <span class="string">"Order.h"</span></div><div class="line"><span class="selector-id">#import</span> <span class="string">"DataSigner.h"</span></div></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#<span class="keyword">import</span>  &lt;AlipaySDK/AlipaySDK.h&gt;</div><div class="line">#<span class="keyword">import</span> <span class="string">"Order.h"</span></div><div class="line">#<span class="keyword">import</span> <span class="string">"DataSigner.h"</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>生成订单信息及签名</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将商品信息赋予AlixPayOrder的成员变量</span></div><div class="line"><span class="keyword">Order</span> *<span class="keyword">order</span> = [[<span class="keyword">Order</span> alloc] init];</div><div class="line"><span class="keyword">order</span>.partner = PartnerID; <span class="comment">// 商户ID</span></div><div class="line"><span class="keyword">order</span>.seller = SellerID; <span class="comment">// 账号ID</span></div><div class="line"><span class="keyword">order</span>.tradeNO = @<span class="string">"20150923"</span>; <span class="comment">//订单ID（由商家自行制定）</span></div><div class="line"><span class="keyword">order</span>.productName = @<span class="string">"iPhone6s"</span>; <span class="comment">//商品标题</span></div><div class="line"><span class="keyword">order</span>.productDescription = @<span class="string">"新年打折"</span>; <span class="comment">//商品描述</span></div><div class="line"><span class="keyword">order</span>.amount = @<span class="string">"0.01"</span>; <span class="comment">//商品价格(单位：元)</span></div><div class="line"><span class="keyword">order</span>.notifyURL =  @<span class="string">"http://www.chaosky.me"</span>; <span class="comment">//回调URL，支付成功或者失败回调通知自己的服务器进行订单状态变更</span></div><div class="line"><span class="keyword">order</span>.service = @<span class="string">"mobile.securitypay.pay"</span>;</div><div class="line"><span class="keyword">order</span>.paymentType = @<span class="string">"1"</span>;</div><div class="line"><span class="keyword">order</span>.inputCharset = @<span class="string">"utf-8"</span>;</div><div class="line"><span class="keyword">order</span>.itBPay = @<span class="string">"30m"</span>;</div><div class="line"><span class="keyword">order</span>.showUrl = @<span class="string">"m.alipay.com"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 应用注册scheme,在AlixPayDemo-Info.plist定义URL types</span></div><div class="line">NSString *appScheme = @<span class="string">"AliPayDemo"</span>;</div><div class="line"></div><div class="line"><span class="comment">//将商品信息拼接成字符串</span></div><div class="line">NSString *orderSpec = [<span class="keyword">order</span> description];</div><div class="line">NSLog(@<span class="string">"orderSpec = %@"</span>,orderSpec);</div><div class="line"></div><div class="line"><span class="comment">//获取私钥并将商户信息签名,外部商户可以根据情况存放私钥和签名,只需要遵循RSA签名规范,并将签名字符串base64编码和UrlEncode</span></div><div class="line">id&lt;DataSigner&gt; signer = CreateRSADataSigner(PartnerPrivKey);</div><div class="line">NSString *signedString = [signer signString:orderSpec];</div><div class="line"></div><div class="line"><span class="comment">//将签名成功字符串格式化为订单字符串,请严格按照该格式</span></div><div class="line">NSString *orderString = nil;</div><div class="line"><span class="keyword">if</span> (signedString != nil) &#123;</div><div class="line">    orderString = [NSString stringWithFormat:@<span class="string">"%@&amp;sign=\"</span>%@\<span class="string">"&amp;sign_type=\"</span>%@\<span class="string">""</span>,</div><div class="line">                   orderSpec, signedString, @<span class="string">"RSA"</span>];</div><div class="line"></div><div class="line">    [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary * resultDic) &#123;</div><div class="line">        NSLog(@<span class="string">"reslut = %@"</span>,resultDic);</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -824,7 +872,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
       
         
   <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>8小时内拼工作，8小时外拼成长！</div>
+    <div>天下大事，必作于细！</div>
     <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
       <span>赏</span>
     </button>
@@ -848,19 +896,20 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/支付宝支付/" rel="tag">#支付宝支付</a>
+            <a href="/tags/支付宝支付/" rel="tag"># 支付宝支付</a>
           
-            <a href="/tags/微信支付/" rel="tag">#微信支付</a>
+            <a href="/tags/微信支付/" rel="tag"># 微信支付</a>
           
-            <a href="/tags/IAP/" rel="tag">#IAP</a>
+            <a href="/tags/IAP/" rel="tag"># IAP</a>
           
-            <a href="/tags/应用内支付/" rel="tag">#应用内支付</a>
+            <a href="/tags/应用内支付/" rel="tag"># 应用内支付</a>
           
-            <a href="/tags/Apple-Pay/" rel="tag">#Apple Pay</a>
+            <a href="/tags/Apple-Pay/" rel="tag"># Apple Pay</a>
           
         </div>
       
@@ -874,6 +923,8 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -894,25 +945,6 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/01/21/iOS-Payment/"
-     data-title="iOS 支付"
-     data-content=""
-     data-url="http://chaosky.me/2016/01/21/iOS-Payment/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -924,9 +956,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/21/iOS-Payment/"
-           data-title="iOS 支付" data-url="http://chaosky.me/2016/01/21/iOS-Payment/">
-      </div>
+      <div id="hypercomments_widget"></div>
     
   </div>
 
@@ -959,8 +989,8 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
                alt="Alex Lin" />
@@ -970,7 +1000,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">54</span>
+              <span class="site-state-item-count">57</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -978,7 +1008,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -987,7 +1017,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">82</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1008,11 +1038,11 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="GitHub">
+                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                  Github
                 </a>
               </span>
             
@@ -1070,19 +1100,27 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方支付"><span class="nav-number">1.</span> <span class="nav-text">第三方支付</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#弹出方式"><span class="nav-number">1.1.</span> <span class="nav-text">弹出方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#网页"><span class="nav-number">1.1.1.</span> <span class="nav-text">网页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用APP"><span class="nav-number">1.1.2.</span> <span class="nav-text">调用APP</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付宝支付"><span class="nav-number">1.2.</span> <span class="nav-text">支付宝支付</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关资料"><span class="nav-number">1.2.1.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支付流程"><span class="nav-number">1.2.2.</span> <span class="nav-text">支付流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码集成流程"><span class="nav-number">1.2.3.</span> <span class="nav-text">代码集成流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信支付"><span class="nav-number">1.3.</span> <span class="nav-text">微信支付</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相关文档"><span class="nav-number">1.3.1.</span> <span class="nav-text">相关文档</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支付流程-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">支付流程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用内支付（In-App-Purchase）"><span class="nav-number">2.</span> <span class="nav-text">应用内支付（In-App Purchase）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料-1"><span class="nav-number">2.1.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付流程-2"><span class="nav-number">2.2.</span> <span class="nav-text">支付流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置App-ID"><span class="nav-number">2.2.1.</span> <span class="nav-text">配置App ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置iTunes-Connect"><span class="nav-number">2.2.2.</span> <span class="nav-text">配置iTunes Connect</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要代码实现"><span class="nav-number">2.2.3.</span> <span class="nav-text">主要代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">2.3.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#苹果支付（-Pay）"><span class="nav-number">3.</span> <span class="nav-text">苹果支付（ Pay）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先决条件"><span class="nav-number">3.1.</span> <span class="nav-text">先决条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支付流程-3"><span class="nav-number">3.2.</span> <span class="nav-text">支付流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-Merchant-ID（商家ID）"><span class="nav-number">3.2.1.</span> <span class="nav-text">配置 Merchant ID（商家ID）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置-App-ID"><span class="nav-number">3.2.2.</span> <span class="nav-text">配置 App ID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">3.2.3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Xcode工程配置"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">Xcode工程配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断用户是否能够支付"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">判断用户是否能够支付</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#显示支付按钮"><span class="nav-number">3.2.3.3.</span> <span class="nav-text">显示支付按钮</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建支付请求"><span class="nav-number">3.2.3.4.</span> <span class="nav-text">创建支付请求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一系列的支付汇总项"><span class="nav-number">3.2.3.4.1.</span> <span class="nav-text">一系列的支付汇总项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配送方式的支付汇总项"><span class="nav-number">3.2.3.4.2.</span> <span class="nav-text">配送方式的支付汇总项</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#指定应用程序支持的支付处理机制"><span class="nav-number">3.2.3.4.3.</span> <span class="nav-text">指定应用程序支持的支付处理机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#配送信息和账单信息"><span class="nav-number">3.2.3.4.4.</span> <span class="nav-text">配送信息和账单信息</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#授权支付"><span class="nav-number">3.2.3.5.</span> <span class="nav-text">授权支付</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#使用委托方法更新配送方式与配送费用"><span class="nav-number">3.2.3.5.1.</span> <span class="nav-text">使用委托方法更新配送方式与配送费用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#支付被授权时创建支付令牌"><span class="nav-number">3.2.3.5.2.</span> <span class="nav-text">支付被授权时创建支付令牌</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#授权支付完成"><span class="nav-number">3.2.3.5.3.</span> <span class="nav-text">授权支付完成</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#处理支付"><span class="nav-number">3.2.3.6.</span> <span class="nav-text">处理支付</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">3.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-Pay-VS-In-App-Purchase"><span class="nav-number">4.</span> <span class="nav-text"> Pay VS In-App Purchase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码下载"><span class="nav-number">5.</span> <span class="nav-text">代码下载</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -1105,6 +1143,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -1115,6 +1154,7 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -1164,110 +1204,96 @@ iOS支付分为两类，第三方支付和应用内支付（内购）。
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"chaosky"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-
-  
-    
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
-
-
-
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/01/21/iOS-Payment/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+  
+  
+
+  
 
   
 
