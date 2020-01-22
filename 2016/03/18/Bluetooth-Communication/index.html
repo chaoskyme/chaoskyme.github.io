@@ -1,127 +1,66 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Chaosky's Notes" type="application/atom+xml">
+  <meta name="google-site-verification" content="yGwNBR-9-6B60StDh4ueJp0Io9gjnzwX0IiXkPL4Pqc">
+  <meta name="msvalidate.01" content="562E828CD9FA60A6D3CDFE1BD31D3FF3">
+  <meta name="baidu-site-verification" content="iYaX85B5Bg">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
 
-  <meta name="google-site-verification" content="0wsQzlCw_nicXQs7QbZ6n_aTyfoSkbeNQw6xpj3ScWo" />
-
-
-
-
-  <meta name="baidu-site-verification" content="QJ33ASIjWB" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Bluetooth,BLE,MultipeerConnectivity,iBeacon," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Chaosky's Notes" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="蓝牙(Bluetooth)去App Store搜索并下载『LightBlue』这个App，对调试你的app和理解Core Bluetooth会很有帮助。
-蓝牙常见名称和缩写
-MFI —— make for ipad ,iphone, itouch 专门为苹果设备制作的设备
-BLE —— buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE
-peripheral,ce">
+  <meta name="description" content="蓝牙(Bluetooth)去App Store搜索并下载『LightBlue』这个App，对调试你的app和理解Core Bluetooth会很有帮助。 蓝牙常见名称和缩写 MFI —— make for ipad ,iphone, itouch 专门为苹果设备制作的设备 BLE —— buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE peripheral,ce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝牙通信">
-<meta property="og:url" content="http://chaosky.me/2016/03/18/Bluetooth-Communication/index.html">
-<meta property="og:site_name" content="Chaosky's Notes">
-<meta property="og:description" content="蓝牙(Bluetooth)去App Store搜索并下载『LightBlue』这个App，对调试你的app和理解Core Bluetooth会很有帮助。
-蓝牙常见名称和缩写
-MFI —— make for ipad ,iphone, itouch 专门为苹果设备制作的设备
-BLE —— buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE
-peripheral,ce">
+<meta property="og:url" content="http://chaosky.tech/2016/03/18/Bluetooth-Communication/index.html">
+<meta property="og:site_name" content="Chaosky&#39;s Notes">
+<meta property="og:description" content="蓝牙(Bluetooth)去App Store搜索并下载『LightBlue』这个App，对调试你的app和理解Core Bluetooth会很有帮助。 蓝牙常见名称和缩写 MFI —— make for ipad ,iphone, itouch 专门为苹果设备制作的设备 BLE —— buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE peripheral,ce">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/CBDevices1_2x.png">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/AdvertisingAndDiscovery_2x.png">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/CBPeripheralData_Example_2x.png">
@@ -129,64 +68,40 @@ peripheral,ce">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/TreeOfServicesAndCharacteristics_Remote_2x.png">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/CBObjects_PeripheralSide_2x.png">
 <meta property="og:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/TreeOfServicesAndCharacteristics_Local_2x.png">
-<meta property="og:image" content="http://7xooko.com1.z0.glb.clouddn.com/CoreBluetoothFramework.jpeg">
-<meta property="og:updated_time" content="2016-09-26T16:17:37.000Z">
+<meta property="og:image" content="http://file.blog.chaosky.tech/CoreBluetoothFramework.jpeg">
+<meta property="article:published_time" content="2016-03-18T08:38:46.000Z">
+<meta property="article:modified_time" content="2020-01-22T12:21:32.127Z">
+<meta property="article:author" content="Alex Lin">
+<meta property="article:tag" content="Bluetooth">
+<meta property="article:tag" content="BLE">
+<meta property="article:tag" content="MultipeerConnectivity">
+<meta property="article:tag" content="iBeacon">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="蓝牙通信">
-<meta name="twitter:description" content="蓝牙(Bluetooth)去App Store搜索并下载『LightBlue』这个App，对调试你的app和理解Core Bluetooth会很有帮助。
-蓝牙常见名称和缩写
-MFI —— make for ipad ,iphone, itouch 专门为苹果设备制作的设备
-BLE —— buletouch low energy，蓝牙4.0设备因为低耗电，所以也叫做BLE
-peripheral,ce">
 <meta name="twitter:image" content="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/CBDevices1_2x.png">
 
+<link rel="canonical" href="http://chaosky.tech/2016/03/18/Bluetooth-Communication/">
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
   };
 </script>
 
-
-
-  <link rel="canonical" href="http://chaosky.me/2016/03/18/Bluetooth-Communication/"/>
-
-
-
-
-
-  <title> 蓝牙通信 | Chaosky's Notes </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>蓝牙通信 | Chaosky's Notes</title>
   
 
 
-
-
-
-  <script type="text/javascript">
+  <script>
+    var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=54252577";
+      hm.src = "https://hm.baidu.com/hm.js?QJ33ASIjWB";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -195,308 +110,205 @@ peripheral,ce">
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-  
-  
-    
-  
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Chaosky's Notes</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chaosky's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">源码之前，了无秘密。</h1>
+      
   </div>
-  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
 <nav class="site-nav">
   
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">57</span></a>
+
+  </li>
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">11</span></a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">85</span></a>
+
+  </li>
         <li class="menu-item menu-item-workspace">
-          <a href="/workspace" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-cubes"></i> <br />
-            
-            工作空间
-          </a>
-        </li>
-      
-        
+
+    <a href="/workspace/" rel="section"><i class="fa fa-fw fa-cubes"></i>工作空间</a>
+
+  </li>
         <li class="menu-item menu-item-skillmap">
-          <a href="/skillmap" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
-            
-            技能树
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-gate">
-          <a href="/gate" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            任意门
-          </a>
-        </li>
-      
-        
+
+    <a href="/skillmap/" rel="section"><i class="fa fa-fw fa-list"></i>技能树</a>
+
+  </li>
+        <li class="menu-item menu-item-quotes">
+
+    <a href="/quotes/" rel="section"><i class="fa fa-fw fa-quote-left"></i>引言</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="st-search-show-outputs">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
-  
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
+  </li>
+  </ul>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'WVe9S1RCHgLaWK_3xm3y','2.0.0');
-</script>
-
-
-
-    </div>
-  
 </nav>
-
-
-
- </div>
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/chaoskyme" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/03/18/Bluetooth-Communication/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/03/18/Bluetooth-Communication/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Alex Lin">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Chaosky's Notes">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="嗨，我是林天祥，iOS 开发者，专注移动软件开发。">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                蓝牙通信
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          蓝牙通信<a href="https://github.com/chaoskyme/chaoskyme.github.io/edit/source/source/_posts/2016-03-18-Bluetooth-Communication.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-18T16:38:46+08:00">
-                2016-03-18
-              </time>
-            
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
+              <time title="创建时间：2016-03-18 16:38:46" itemprop="dateCreated datePublished" datetime="2016-03-18T16:38:46+08:00">2016-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-22 20:21:32" itemprop="dateModified" datetime="2020-01-22T20:21:32+08:00">2020-01-22</time>
               </span>
-              <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-09-27T00:17:37+08:00">
-                2016-09-27
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
                   </a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                  <a href="/2016/03/18/Bluetooth-Communication/#comments" itemprop="discussionUrl">
-                    <span class="post-comments-count hc-comment-count" data-xid="2016/03/18/Bluetooth-Communication/" itemprop="commentsCount"></span>
-                  </a>
-                </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
               </span>
-              <!--/noindex-->
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/03/18/Bluetooth-Communication/" class="leancloud_visitors" data-flag-title="蓝牙通信">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>20k</span>
             </span>
-          
-
-          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>18 分钟</span>
+            </span>
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
-
-      
-      
 
       
         <h1 id="蓝牙-Bluetooth"><a href="#蓝牙-Bluetooth" class="headerlink" title="蓝牙(Bluetooth)"></a>蓝牙(Bluetooth)</h1><p>去App Store搜索并下载<strong>『LightBlue』</strong>这个App，对调试你的app和理解Core Bluetooth会很有帮助。</p>
@@ -510,6 +322,7 @@ peripheral,ce">
 <p>MFI —— 开发使用ExternalAccessory 框架</p>
 <p>4.0 BLE —— 开发使用CoreBluetooth 框架</p>
 <a id="more"></a>
+
 <h2 id="Core-Bluetooth概述"><a href="#Core-Bluetooth概述" class="headerlink" title="Core Bluetooth概述"></a>Core Bluetooth概述</h2><p>CoreBluetooth框架能够让你的iOS和Mac App能够和支持BLE的设备进行通信。比如，你的应用程序可以发现、搜索、以及和这些支持BLE的外围设备进行交互，比如心率监测器、数字温控器，甚至其他的iOS设备。</p>
 <p>该框架基于BLE4.0规范，直接适用于蓝牙低功率设备的使用。是对于蓝牙 4.0规范的一个抽象，该框架隐藏了很多开发规范的底层实现细节，使您更容易开发出与蓝牙低功耗设备进行交互的App。因为该说明中涉及到蓝牙框架的一些概念和术语在本说明中已经被广泛采用，本文将向你介绍这个 Core Bluetooth 框架中的一些关键术语和概念。</p>
 <h2 id="中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则"><a href="#中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则" class="headerlink" title="中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则"></a>中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则</h2><p>所有涉及蓝牙低功耗的交互中有两个主要的角色：中心<code>Central</code>和外围设备<code>Perpheral</code>。根据一些传统的<code>客户端-服务端</code>结构，<code>Peripheral</code>通常具有其他设备所需要的数据，而<code>Central</code>通常通过使用<code>Perpheral</code>的信息来实现一些特定的功能。如下图所示，例如，一个心率监听器可能含有一些有用的信息，你的 Mac/iOS app 可能需要以用户友好的方式显示用户的心率。</p>
@@ -532,7 +345,9 @@ peripheral,ce">
 <p><img src="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/CBObjects_PeripheralSide_2x.png" alt=""></p>
 <h4 id="本地-Peripheral-数据表示为-CBMutableService-和-CBMutableCharacteristic"><a href="#本地-Peripheral-数据表示为-CBMutableService-和-CBMutableCharacteristic" class="headerlink" title="本地 Peripheral 数据表示为 CBMutableService 和 CBMutableCharacteristic"></a>本地 Peripheral 数据表示为 CBMutableService 和 CBMutableCharacteristic</h4><p>当你建立和本地Peripheral(表示为CBPeripheralManager)数据交互，你其实是在处理Service和Characteristic的可变版本。就可以处理Service和Characteristic的可变版本。在Core Bluetooth框架中，本地Peripheral的Service表示为CBMutableService。相应的本地Peripheral中Service的Characteristic表示为CBMutableCharacteristic。下图阐述了本地外围服务和特征的基本结构。</p>
 <p><img src="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/Art/TreeOfServicesAndCharacteristics_Local_2x.png" alt=""></p>
-<h2 id="蓝牙开发流程"><a href="#蓝牙开发流程" class="headerlink" title="蓝牙开发流程"></a>蓝牙开发流程</h2><p>CoreBluetooth框架的核心其实是两个东西，peripheral和central, 可以理解成外设和中心。对应他们分别有一组相关的API和类。<br><img src="http://7xooko.com1.z0.glb.clouddn.com/CoreBluetoothFramework.jpeg" alt=""><br>这两组api分别对应不同的业务场景，左侧叫做中心模式，就是以你的app作为中心，连接其他的外设的场景，而右侧称为外设模式，使用手机作为外设别其他中心设备操作的场景。<br>服务和特征，特征的属性(service and characteristic)：每个设备都会有一些服务，每个服务里面都会有一些特征，特征就是具体键值对，提供数据的地方。每个特征属性分为这么几种：读，写，通知这么几种方式。<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//objcetive c特征的定义枚举</div><div class="line">typedef <span class="type">NS_OPTIONS</span>(<span class="type">NSUInteger</span>, <span class="type">CBCharacteristicProperties</span>) &#123;</div><div class="line">  <span class="type">CBCharacteristicPropertyBroadcast</span>												= 0x01,</div><div class="line">  <span class="type">CBCharacteristicPropertyRead</span>													= 0x02,</div><div class="line">  <span class="type">CBCharacteristicPropertyWriteWithoutResponse</span>									= 0x04,</div><div class="line">  <span class="type">CBCharacteristicPropertyWrite</span>													= 0x08,</div><div class="line">  <span class="type">CBCharacteristicPropertyNotify</span>													= 0x10,</div><div class="line">  <span class="type">CBCharacteristicPropertyIndicate</span>												= 0x20,</div><div class="line">  <span class="type">CBCharacteristicPropertyAuthenticatedSignedWrites</span>								= 0x40,</div><div class="line">  <span class="type">CBCharacteristicPropertyExtendedProperties</span>										= 0x80,</div><div class="line">  <span class="type">CBCharacteristicPropertyNotifyEncryptionRequired</span> <span class="type">NS_ENUM_AVAILABLE</span>(<span class="type">NA</span>, 6_0)		= 0x100,</div><div class="line">  <span class="type">CBCharacteristicPropertyIndicateEncryptionRequired</span> <span class="type">NS_ENUM_AVAILABLE</span>(<span class="type">NA</span>, 6_0)	= 0x200</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="蓝牙开发流程"><a href="#蓝牙开发流程" class="headerlink" title="蓝牙开发流程"></a>蓝牙开发流程</h2><p>CoreBluetooth框架的核心其实是两个东西，peripheral和central, 可以理解成外设和中心。对应他们分别有一组相关的API和类。<br><img src="http://file.blog.chaosky.tech/CoreBluetoothFramework.jpeg" alt=""><br>这两组api分别对应不同的业务场景，左侧叫做中心模式，就是以你的app作为中心，连接其他的外设的场景，而右侧称为外设模式，使用手机作为外设别其他中心设备操作的场景。<br>服务和特征，特征的属性(service and characteristic)：每个设备都会有一些服务，每个服务里面都会有一些特征，特征就是具体键值对，提供数据的地方。每个特征属性分为这么几种：读，写，通知这么几种方式。</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//objcetive c特征的定义枚举</span><br><span class="line">typedef <span class="type">NS_OPTIONS</span>(<span class="type">NSUInteger</span>, <span class="type">CBCharacteristicProperties</span>) &#123;</span><br><span class="line">  <span class="type">CBCharacteristicPropertyBroadcast</span>												= 0x01,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyRead</span>													= 0x02,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyWriteWithoutResponse</span>									= 0x04,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyWrite</span>													= 0x08,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyNotify</span>													= 0x10,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyIndicate</span>												= 0x20,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyAuthenticatedSignedWrites</span>								= 0x40,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyExtendedProperties</span>										= 0x80,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyNotifyEncryptionRequired</span> <span class="type">NS_ENUM_AVAILABLE</span>(<span class="type">NA</span>, 6_0)		= 0x100,</span><br><span class="line">  <span class="type">CBCharacteristicPropertyIndicateEncryptionRequired</span> <span class="type">NS_ENUM_AVAILABLE</span>(<span class="type">NA</span>, 6_0)	= 0x200</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <h3 id="蓝牙中心模式流程"><a href="#蓝牙中心模式流程" class="headerlink" title="蓝牙中心模式流程"></a>蓝牙中心模式流程</h3><ol>
 <li>建立中心角色</li>
 <li>扫描外设（discover）</li>
@@ -561,13 +376,13 @@ peripheral,ce">
 <li>从设备（Slave）：作为从设备连接到其他设备。</li>
 </ol>
 <h3 id="蓝牙设备的五种工作状态"><a href="#蓝牙设备的五种工作状态" class="headerlink" title="蓝牙设备的五种工作状态"></a>蓝牙设备的五种工作状态</h3><p>准备（standby）<br>广播（advertising）<br>监听扫描（Scanning<br>发起连接（Initiating）<br>已连接（Connected）</p>
-<h2 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h2><p><a href="https://github.com/coolnameismy/BabyBluetooth">https://github.com/coolnameismy/BabyBluetooth</a></p>
+<h2 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h2><p>&lt;<a href="https://github.com/coolnameismy/BabyBluetooth&gt;" target="_blank" rel="noopener">https://github.com/coolnameismy/BabyBluetooth&gt;</a></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li>官网文档：<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothOverview/CoreBluetoothOverview.html" target="_blank" rel="external">https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothOverview/CoreBluetoothOverview.html</a></li>
-<li><a href="http://lynchwong.com/2014/12/15/iOS蓝牙，CoreBluetooth框架简介及入门使用/" target="_blank" rel="external">http://lynchwong.com/2014/12/15/iOS蓝牙，CoreBluetooth框架简介及入门使用/</a></li>
-<li><a href="http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html" target="_blank" rel="external">http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html</a></li>
-<li><a href="http://www.jianshu.com/p/760f042a1d81" target="_blank" rel="external">http://www.jianshu.com/p/760f042a1d81</a></li>
-<li><a href="http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/" target="_blank" rel="external">http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/</a></li>
+<li>官网文档：<a href="https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothOverview/CoreBluetoothOverview.html" target="_blank" rel="noopener">https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/CoreBluetooth_concepts/CoreBluetoothOverview/CoreBluetoothOverview.html</a></li>
+<li><a href="http://lynchwong.com/2014/12/15/iOS蓝牙，CoreBluetooth框架简介及入门使用/" target="_blank" rel="noopener">http://lynchwong.com/2014/12/15/iOS蓝牙，CoreBluetooth框架简介及入门使用/</a></li>
+<li><a href="http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html" target="_blank" rel="noopener">http://liuyanwei.jumppo.com/2015/07/17/ios-BLE-0.html</a></li>
+<li><a href="http://www.jianshu.com/p/760f042a1d81" target="_blank" rel="noopener">http://www.jianshu.com/p/760f042a1d81</a></li>
+<li><a href="http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/" target="_blank" rel="noopener">http://southpeak.github.io/blog/2014/07/29/core-bluetoothkuang-jia-zhi-%5B%3F%5D-:centralyu-peripheral/</a></li>
 </ol>
 <h1 id="多点通信（MultipeerConnectivity）"><a href="#多点通信（MultipeerConnectivity）" class="headerlink" title="多点通信（MultipeerConnectivity）"></a>多点通信（MultipeerConnectivity）</h1><p>去App Store搜索并下载 <strong>『FireChat』</strong> 这个App，对理解<code>Multipeer Connectivity</code>框架会很有帮助。</p>
 <h2 id="MultipeerConnectivity概述"><a href="#MultipeerConnectivity概述" class="headerlink" title="MultipeerConnectivity概述"></a>MultipeerConnectivity概述</h2><p>那么Multipeer Connectivity框架到底能实现什么样的功能？即使在没有Wi-Fi和移动网络的情况下，利用Multipeer Connectivity框架，iOS设备之间也可以在一定范围内通过蓝牙和点对点的Wi-Fi连接进行通讯，这与利用Air Drop传输文件非常类似。</p>
@@ -577,32 +392,44 @@ peripheral,ce">
 <h3 id="Advertising-amp-Discovering"><a href="#Advertising-amp-Discovering" class="headerlink" title="Advertising &amp; Discovering"></a>Advertising &amp; Discovering</h3><p>通信的第一步是让大家互相知道彼此，我们通过广播(Advertising)和发现(discovering)服务来实现。</p>
 <p>广播作为服务器搜索附近的节点，而节点同时也去搜索附近的广播。在许多情况下，客户端同时广播并发现同一个服务，这将导致一些混乱，尤其是在client-server模式中。</p>
 <p>每一个服务都应有一个类型（标示符），它是由ASCII字母、数字和“-”组成的短文本串，最多15个字符。通常，一个服务的名字应该由应用程序的名字开始，后边跟“-”和一个独特的描述符号。(作者认为这和 com.apple.* 标示符很像)，就像下边：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> XXServiceType = <span class="string">@"xx-service"</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> XXServiceType = <span class="string">@"xx-service"</span>;</span><br></pre></td></tr></table></figure>
+
 <p>一个节点有一个唯一标示MCPeerID对象，使用展示名称进行初始化，它可能是用户指定的昵称，或是单纯的设备名称。</p>
-<figure class="highlight inform7"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MCPeerID *localPeerID = <span class="comment">[<span class="comment">[MCPeerID alloc]</span> initWithDisplayName:<span class="comment">[<span class="comment">[UIDevice currentDevice]</span> name]</span>]</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MCPeerID *localPeerID = <span class="comment">[<span class="comment">[MCPeerID alloc]</span> initWithDisplayName:<span class="comment">[<span class="comment">[UIDevice currentDevice]</span> name]</span>]</span>;</span><br></pre></td></tr></table></figure>
+
 <h4 id="Creating-a-Session"><a href="#Creating-a-Session" class="headerlink" title="Creating a Session"></a>Creating a Session</h4><p>创建session，并在接受邀请连接时传递到节点。</p>
 <p>MCSession有两个初始化方式：</p>
-<figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (instance<span class="keyword">type</span>)initWithPeer:(<span class="type">MCPeerID</span> *)myPeerID</div><div class="line">- (instance<span class="keyword">type</span>)initWithPeer:(<span class="type">MCPeerID</span> *)myPeerID securityIdentity:(<span class="type">NSArray</span> *)identity encryptionPreference:(<span class="type">MCEncryptionPreference</span>)encryptionPreference</div></pre></td></tr></table></figure>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (instance<span class="keyword">type</span>)initWithPeer:(<span class="type">MCPeerID</span> *)myPeerID</span><br><span class="line">- (instance<span class="keyword">type</span>)initWithPeer:(<span class="type">MCPeerID</span> *)myPeerID securityIdentity:(<span class="type">NSArray</span> *)identity encryptionPreference:(<span class="type">MCEncryptionPreference</span>)encryptionPreference</span><br></pre></td></tr></table></figure>
+
 <p>myPeerID：本地节点标识符</p>
 <p>securityIdentity：可选参数。通过X.509证书，它允许节点安全识别并连接其他节点。</p>
 <p>encryptionPreference：指定是否加密节点之间的通信。MCEncryptionPreference枚举提供的三种值是:</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">MCEncryptionOptional:</span>会话更喜欢使用加密,但会接受未加密的连接。</div><div class="line"><span class="symbol">MCEncryptionRequired:</span>会话需要加密。</div><div class="line"><span class="symbol">MCEncryptionNone:</span>会话不应该加密。</div></pre></td></tr></table></figure>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">MCEncryptionOptional:</span>会话更喜欢使用加密,但会接受未加密的连接。</span><br><span class="line"><span class="symbol">MCEncryptionRequired:</span>会话需要加密。</span><br><span class="line"><span class="symbol">MCEncryptionNone:</span>会话不应该加密。</span><br></pre></td></tr></table></figure>
+
 <p>启用加密会显著降低传输速率，所以除非你的应用程序很特别，需要对用户敏感信息的处理，否则建议使用MCEncryptionNone。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MCSession *session = [[MCSession alloc] <span class="string">initWithPeer:</span>localPeerID <span class="string">securityIdentity:</span>nil <span class="string">encryptionPreference:</span>MCEncryptionNone];</div><div class="line">session.delegate = self;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MCSession *session = [[MCSession alloc] <span class="string">initWithPeer:</span>localPeerID <span class="string">securityIdentity:</span>nil <span class="string">encryptionPreference:</span>MCEncryptionNone];</span><br><span class="line">session.delegate = self;</span><br></pre></td></tr></table></figure>
+
 <p>MCSessionDelegate协议将会在发送和接受信息的部分被覆盖。</p>
 <h4 id="Advertising"><a href="#Advertising" class="headerlink" title="Advertising"></a>Advertising</h4><h5 id="MCNearbyServiceAdvertiser"><a href="#MCNearbyServiceAdvertiser" class="headerlink" title="MCNearbyServiceAdvertiser"></a>MCNearbyServiceAdvertiser</h5><p>服务的广播通过MCNearbyServiceAdvertiser来操作，初始化时带着本地节点、服务类型以及任何可与发现该服务的节点进行通信的可选信息。</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MCNearbyServiceAdvertiser *advertiser = [[MCNearbyServiceAdvertiser alloc] initWithPeer:localPeerID <span class="keyword">discoveryInfo:nil </span>serviceType:XXServiceType]<span class="comment">;</span></div><div class="line">advertiser.delegate = self<span class="comment">;</span></div><div class="line">[advertiser startAdvertisingPeer]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MCNearbyServiceAdvertiser *advertiser = [[MCNearbyServiceAdvertiser alloc] <span class="string">initWithPeer:</span>localPeerID <span class="string">discoveryInfo:</span>nil <span class="string">serviceType:</span>XXServiceType];</span><br><span class="line">advertiser.delegate = self;</span><br><span class="line">[advertiser startAdvertisingPeer];</span><br></pre></td></tr></table></figure>
+
 <p>相关事件由advertiser的代理来处理，需遵从MCNearbyServiceAdvertiserDelegate协议。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 广播失败</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">advertiser</span><span class="selector-pseudo">:(MCNearbyServiceAdvertiser</span> *)<span class="selector-tag">advertiser</span> <span class="selector-tag">didNotStartAdvertisingPeer</span><span class="selector-pseudo">:(NSError</span> *)<span class="selector-tag">error</span></div><div class="line"><span class="comment">// 是否接受或拒绝传入连接请求，并有权以拒绝或屏蔽任何来自该节点的后续请求选项</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">advertiser</span><span class="selector-pseudo">:(MCNearbyServiceAdvertiser</span> *)<span class="selector-tag">advertiser</span> <span class="selector-tag">didReceiveInvitationFromPeer</span><span class="selector-pseudo">:(MCPeerID</span> *)<span class="selector-tag">peerID</span> <span class="selector-tag">withContext</span><span class="selector-pseudo">:(NSData</span> *)<span class="selector-tag">context</span> <span class="selector-tag">invitationHandler</span><span class="selector-pseudo">:(void</span> (^)(BOOL accept, MCSession *session))<span class="selector-tag">invitationHandler</span></div></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 广播失败</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">advertiser</span><span class="selector-pseudo">:(MCNearbyServiceAdvertiser</span> *)<span class="selector-tag">advertiser</span> <span class="selector-tag">didNotStartAdvertisingPeer</span><span class="selector-pseudo">:(NSError</span> *)<span class="selector-tag">error</span></span><br><span class="line"><span class="comment">// 是否接受或拒绝传入连接请求，并有权以拒绝或屏蔽任何来自该节点的后续请求选项</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">advertiser</span><span class="selector-pseudo">:(MCNearbyServiceAdvertiser</span> *)<span class="selector-tag">advertiser</span> <span class="selector-tag">didReceiveInvitationFromPeer</span><span class="selector-pseudo">:(MCPeerID</span> *)<span class="selector-tag">peerID</span> <span class="selector-tag">withContext</span><span class="selector-pseudo">:(NSData</span> *)<span class="selector-tag">context</span> <span class="selector-tag">invitationHandler</span><span class="selector-pseudo">:(void</span> (^)(BOOL accept, MCSession *session))<span class="selector-tag">invitationHandler</span></span><br></pre></td></tr></table></figure>
+
 <h5 id="MCAdvertiserAssistant"><a href="#MCAdvertiserAssistant" class="headerlink" title="MCAdvertiserAssistant"></a>MCAdvertiserAssistant</h5><p>服务的广播通过MCAdvertiserAssistant来操作，初始化时带着服务类型以及Session信息。</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MCAdvertiserAssistant *advertiser = [[MCAdvertiserAssistant alloc]<span class="string">initWithServiceType:</span>XXServiceType <span class="string">discoveryInfo:</span>nil <span class="string">session:</span>session];</div><div class="line"><span class="comment">//开始广播</span></div><div class="line">[advertiser start];</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MCAdvertiserAssistant *advertiser = [[MCAdvertiserAssistant alloc]<span class="string">initWithServiceType:</span>XXServiceType <span class="string">discoveryInfo:</span>nil <span class="string">session:</span>session];</span><br><span class="line"><span class="comment">//开始广播</span></span><br><span class="line">[advertiser start];</span><br></pre></td></tr></table></figure>
+
 <h4 id="Discovering"><a href="#Discovering" class="headerlink" title="Discovering"></a>Discovering</h4><p>客户端使用MCNearbyServiceBrowser来发现广播，它需要local peer标识符，以及非常类似MCNearbyServiceAdvertiser的服务类型来初始化：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">MCNearbyServiceBrowser</span> *<span class="keyword">browser </span>= [[MCNearbyServiceBrowser alloc] initWithPeer:localPeerID serviceType:XXServiceType]<span class="comment">;</span></div><div class="line"><span class="keyword">browser.delegate </span>= <span class="keyword">self;</span></div><div class="line">// 开始发现</div><div class="line">[<span class="keyword">browser </span>startBrowsingForPeers]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">MCNearbyServiceBrowser</span> *<span class="keyword">browser </span>= [[MCNearbyServiceBrowser alloc] initWithPeer:localPeerID serviceType:XXServiceType]<span class="comment">;</span></span><br><span class="line"><span class="keyword">browser.delegate </span>= <span class="keyword">self;</span></span><br><span class="line"><span class="keyword">// </span>开始发现</span><br><span class="line">[<span class="keyword">browser </span>startBrowsingForPeers]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
 <p>可能会有很多节点广播一个特定的服务，所以为了方便用户（或开发者），MCBrowserViewController将提供一个内置的、标准的方式来呈现链接到广播节点：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">MCBrowserViewController</span> *<span class="keyword">browserViewController </span>=</div><div class="line">    [[MCBrowserViewController alloc] initWithBrowser:<span class="keyword">browser</span></div><div class="line"><span class="symbol">                                             session:</span>session]<span class="comment">;</span></div><div class="line"><span class="keyword">browserViewController.delegate </span>= <span class="keyword">self;</span></div><div class="line">[<span class="keyword">self </span>presentViewController:<span class="keyword">browserViewController</span></div><div class="line"><span class="symbol">                   animated:</span>YES</div><div class="line"><span class="symbol">                 completion:</span></div><div class="line">^&#123;</div><div class="line">    // 开始发现</div><div class="line">    [<span class="keyword">browser </span>startBrowsingForPeers]<span class="comment">;</span></div><div class="line">&#125;]<span class="comment">;</span></div></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">MCBrowserViewController</span> *<span class="keyword">browserViewController </span>=</span><br><span class="line">    [[MCBrowserViewController alloc] initWithBrowser:<span class="keyword">browser</span></span><br><span class="line"><span class="keyword"> </span>                                            session:session]<span class="comment">;</span></span><br><span class="line"><span class="keyword">browserViewController.delegate </span>= <span class="keyword">self;</span></span><br><span class="line"><span class="keyword">[self </span>presentViewController:<span class="keyword">browserViewController</span></span><br><span class="line"><span class="keyword"> </span>                  animated:YES</span><br><span class="line"><span class="symbol">                 completion:</span></span><br><span class="line">^&#123;</span><br><span class="line">    // 开始发现</span><br><span class="line">    [<span class="keyword">browser </span>startBrowsingForPeers]<span class="comment">;</span></span><br><span class="line">&#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
 <p>当browser完成节点连接后，它将使用它的delegate调用browserViewControllerDidFinish:，以通知展示视图控制器–它应该更新UI以适应新连接的客户端。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#param mark - MCNearbyServiceBrowserDelegate</span></div><div class="line"><span class="comment">// 发现服务错误</span></div><div class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(<span class="built_in">NSError</span> *)error</div><div class="line"><span class="comment">// 发现附近的广播者</span></div><div class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="built_in">NSString</span> *&gt; *)info</div><div class="line"><span class="comment">// 附近的广播者停止广播</span></div><div class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID</div></pre></td></tr></table></figure>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#param</span> <span class="selector-tag">mark</span> <span class="selector-tag">-</span> <span class="selector-tag">MCBrowserViewControllerDelegate</span></div><div class="line"><span class="comment">// 点击完成按钮</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">browserViewControllerDidFinish</span><span class="selector-pseudo">:(MCBrowserViewController</span> *)<span class="selector-tag">browserViewController</span></div><div class="line"><span class="comment">// 点击取消按钮</span></div><div class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">browserViewControllerWasCancelled</span><span class="selector-pseudo">:(MCBrowserViewController</span> *)<span class="selector-tag">browserViewController</span></div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#param mark - MCNearbyServiceBrowserDelegate</span></span><br><span class="line"><span class="comment">// 发现服务错误</span></span><br><span class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser didNotStartBrowsingForPeers:(<span class="built_in">NSError</span> *)error</span><br><span class="line"><span class="comment">// 发现附近的广播者</span></span><br><span class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser foundPeer:(MCPeerID *)peerID withDiscoveryInfo:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="built_in">NSString</span> *&gt; *)info</span><br><span class="line"><span class="comment">// 附近的广播者停止广播</span></span><br><span class="line">- (<span class="keyword">void</span>)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#param</span> <span class="selector-tag">mark</span> <span class="selector-tag">-</span> <span class="selector-tag">MCBrowserViewControllerDelegate</span></span><br><span class="line"><span class="comment">// 点击完成按钮</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">browserViewControllerDidFinish</span><span class="selector-pseudo">:(MCBrowserViewController</span> *)<span class="selector-tag">browserViewController</span></span><br><span class="line"><span class="comment">// 点击取消按钮</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">browserViewControllerWasCancelled</span><span class="selector-pseudo">:(MCBrowserViewController</span> *)<span class="selector-tag">browserViewController</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="Sending-amp-Receiving-Information"><a href="#Sending-amp-Receiving-Information" class="headerlink" title="Sending &amp; Receiving Information"></a>Sending &amp; Receiving Information</h3><p>一旦节点彼此相连，它们将能互传信息。Multipeer Connectivity框架区分三种不同形式的数据传输：</p>
 <ul>
 <li>Messages：定义明确的信息，比如端文本或者小序列化对象。</li>
@@ -610,30 +437,37 @@ peripheral,ce">
 <li>Resources：是图片、电影以及文档的文件。</li>
 </ul>
 <h4 id="Messages"><a href="#Messages" class="headerlink" title="Messages"></a>Messages</h4><p>Messages使用-sendData:toPeers:withMode:error::方法发送。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *message = <span class="string">@"Hello, World!"</span>;</div><div class="line"><span class="built_in">NSData</span> *data = [message dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</div><div class="line"><span class="keyword">if</span> (![<span class="keyword">self</span>.session sendData:data</div><div class="line">                    toPeers:peers</div><div class="line">                   withMode:MCSessionSendDataReliable</div><div class="line">                      error:&amp;error]) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *message = <span class="string">@"Hello, World!"</span>;</span><br><span class="line"><span class="built_in">NSData</span> *data = [message dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"><span class="keyword">if</span> (![<span class="keyword">self</span>.session sendData:data</span><br><span class="line">                    toPeers:peers</span><br><span class="line">                   withMode:MCSessionSendDataReliable</span><br><span class="line">                      error:&amp;error]) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>通过MCSessionDelegate方法 -sessionDidReceiveData:fromPeer:收取信息。以下是如何解码先前示例代码中发送的消息：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - MCSessionDelegate</span></div><div class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</div><div class="line"> didReceiveData:(<span class="built_in">NSData</span> *)data</div><div class="line">       fromPeer:(MCPeerID *)peerID</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSString</span> *message =</div><div class="line">        [[<span class="built_in">NSString</span> alloc] initWithData:data</div><div class="line">                              encoding:<span class="built_in">NSUTF8StringEncoding</span>];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, message);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - MCSessionDelegate</span></span><br><span class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</span><br><span class="line"> didReceiveData:(<span class="built_in">NSData</span> *)data</span><br><span class="line">       fromPeer:(MCPeerID *)peerID</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *message =</span><br><span class="line">        [[<span class="built_in">NSString</span> alloc] initWithData:data</span><br><span class="line">                              encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>另一种方法是发送NSKeyedArchiver编码的对象：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">id</span> &lt;<span class="built_in">NSSecureCoding</span>&gt; object = <span class="comment">// ...;</span></div><div class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:object];</div><div class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</div><div class="line"><span class="keyword">if</span> (![<span class="keyword">self</span>.session sendData:data</div><div class="line">                    toPeers:peers</div><div class="line">                   withMode:MCSessionSendDataReliable</div><div class="line">                      error:&amp;error]) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</div><div class="line">&#125;</div><div class="line"><span class="meta">#pragma mark - MCSessionDelegate</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</div><div class="line"> didReceiveData:(<span class="built_in">NSData</span> *)data</div><div class="line">       fromPeer:(MCPeerID *)peerID</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSKeyedUnarchiver</span> *unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc] initForReadingWithData:data];</div><div class="line">    unarchiver.requiresSecureCoding = <span class="literal">YES</span>;</div><div class="line">    <span class="keyword">id</span> object = [unarchiver decodeObject];</div><div class="line">    [unarchiver finishDecoding];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>为了防范对象替换攻击,设置requiresSecureCoding为YES是很重要的，这样如果根对象类没有遵从\<nssecurecoding\>，就会抛出一个异常。</nssecurecoding\></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> &lt;<span class="built_in">NSSecureCoding</span>&gt; object = <span class="comment">// ...;</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSKeyedArchiver</span> archivedDataWithRootObject:object];</span><br><span class="line"><span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"><span class="keyword">if</span> (![<span class="keyword">self</span>.session sendData:data</span><br><span class="line">                    toPeers:peers</span><br><span class="line">                   withMode:MCSessionSendDataReliable</span><br><span class="line">                      error:&amp;error]) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - MCSessionDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</span><br><span class="line"> didReceiveData:(<span class="built_in">NSData</span> *)data</span><br><span class="line">       fromPeer:(MCPeerID *)peerID</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSKeyedUnarchiver</span> *unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc] initForReadingWithData:data];</span><br><span class="line">    unarchiver.requiresSecureCoding = <span class="literal">YES</span>;</span><br><span class="line">    <span class="keyword">id</span> object = [unarchiver decodeObject];</span><br><span class="line">    [unarchiver finishDecoding];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了防范对象替换攻击,设置requiresSecureCoding为YES是很重要的，这样如果根对象类没有遵从&lt;NSSecureCoding&gt;，就会抛出一个异常。</p>
 <h4 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h4><p>Streams 使用 -startStreamWithName:toPeer:方法发送：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSOutputStream</span> *outputStream =</div><div class="line">    [session startStreamWithName:name</div><div class="line">                          toPeer:peer];</div><div class="line">stream.delegate = <span class="keyword">self</span>;</div><div class="line">[stream scheduleInRunLoop:[<span class="built_in">NSRunLoop</span> mainRunLoop]</div><div class="line">                forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</div><div class="line">[stream open];</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NSOutputStream *outputStream =</span><br><span class="line">    [<span class="meta">session startStreamWithName:name</span></span><br><span class="line"><span class="meta">                          toPeer:peer</span>];</span><br><span class="line">stream.<span class="keyword">delegate</span> = self;</span><br><span class="line">[<span class="meta">stream scheduleInRunLoop:[NSRunLoop mainRunLoop</span>]</span><br><span class="line">                forMode:NSDefaultRunLoopMode];</span><br><span class="line">[<span class="meta">stream open</span>];</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
 <p>Streams通过MCSessionDelegate的方法session:didReceiveStream:withName:fromPeer:来接收：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">#pragma</span> <span class="keyword">mark </span>- MCSessionDelegate</div><div class="line"></div><div class="line">- (void)session:(MCSession *)session</div><div class="line"><span class="symbol">didReceiveStream</span>:(NSInputStream *)<span class="keyword">stream</span></div><div class="line"><span class="symbol">       withName:</span>(NSString *)<span class="keyword">streamName</span></div><div class="line"><span class="symbol">       fromPeer:</span>(MCPeerID *)peerID</div><div class="line">&#123;</div><div class="line">    <span class="keyword">stream.delegate </span>= <span class="keyword">self;</span></div><div class="line">    [<span class="keyword">stream </span>scheduleInRunLoop:[NSRunLoop mainRunLoop]</div><div class="line"><span class="symbol">                      forMode:</span>NSDefaultRunLoopMode]<span class="comment">;</span></div><div class="line">    [<span class="keyword">stream </span>open]<span class="comment">;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - MCSessionDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</span><br><span class="line">didReceiveStream:(<span class="built_in">NSInputStream</span> *)stream</span><br><span class="line">       withName:(<span class="built_in">NSString</span> *)streamName</span><br><span class="line">       fromPeer:(MCPeerID *)peerID</span><br><span class="line">&#123;</span><br><span class="line">    stream.delegate = <span class="keyword">self</span>;</span><br><span class="line">    [stream scheduleInRunLoop:[<span class="built_in">NSRunLoop</span> mainRunLoop]</span><br><span class="line">                      forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br><span class="line">    [stream open];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>输入和输出的streams必须安排好并打开，然后才能使用它们。一旦这样做，streams就可以被读出和写入。</p>
 <h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p>Resources 发送使用 -sendResourceAtURL:withName:toPeer:withCompletionHandler::</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSURL</span> *fileURL = [<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"path/to/resource"</span>];</div><div class="line"><span class="built_in">NSProgress</span> *progress =</div><div class="line">    [<span class="keyword">self</span>.session sendResourceAtURL:fileURL</div><div class="line">                           withName:[fileURL lastPathComponent]</div><div class="line">                             toPeer:peer</div><div class="line">                  withCompletionHandler:^(<span class="built_in">NSError</span> *error)</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSURL</span> *fileURL = [<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"path/to/resource"</span>];</span><br><span class="line"><span class="built_in">NSProgress</span> *progress =</span><br><span class="line">    [<span class="keyword">self</span>.session sendResourceAtURL:fileURL</span><br><span class="line">                           withName:[fileURL lastPathComponent]</span><br><span class="line">                             toPeer:peer</span><br><span class="line">                  withCompletionHandler:^(<span class="built_in">NSError</span> *error)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
 <p>返回的NSProgress对象可以是通过KVO(Key-Value Observed)来监视文件传输的进度，并且它提供取消传输的方法：-cancel。</p>
 <p>接收资源实现MCSessionDelegate两种方法：-session:didStartReceivingResourceWithName:fromPeer:withProgress: 和 -session:didFinishReceivingResourceWithName:fromPeer:atURL:withError:</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - MCSessionDelegate</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</div><div class="line">didStartReceivingResourceWithName:(<span class="built_in">NSString</span> *)resourceName</div><div class="line">       fromPeer:(MCPeerID *)peerID</div><div class="line">   withProgress:(<span class="built_in">NSProgress</span> *)progress</div><div class="line">&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</div><div class="line">didFinishReceivingResourceWithName:(<span class="built_in">NSString</span> *)resourceName</div><div class="line">       fromPeer:(MCPeerID *)peerID</div><div class="line">          atURL:(<span class="built_in">NSURL</span> *)localURL</div><div class="line">      withError:(<span class="built_in">NSError</span> *)error</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSURL</span> *destinationURL = [<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"/path/to/destination"</span>];</div><div class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</div><div class="line">    <span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> defaultManager] moveItemAtURL:localURL</div><div class="line">                                                 toURL:destinationURL</div><div class="line">                                                 error:&amp;error]) &#123;</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - MCSessionDelegate</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</span><br><span class="line">didStartReceivingResourceWithName:(<span class="built_in">NSString</span> *)resourceName</span><br><span class="line">       fromPeer:(MCPeerID *)peerID</span><br><span class="line">   withProgress:(<span class="built_in">NSProgress</span> *)progress</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)session:(MCSession *)session</span><br><span class="line">didFinishReceivingResourceWithName:(<span class="built_in">NSString</span> *)resourceName</span><br><span class="line">       fromPeer:(MCPeerID *)peerID</span><br><span class="line">          atURL:(<span class="built_in">NSURL</span> *)localURL</span><br><span class="line">      withError:(<span class="built_in">NSError</span> *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSURL</span> *destinationURL = [<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"/path/to/destination"</span>];</span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (![[<span class="built_in">NSFileManager</span> defaultManager] moveItemAtURL:localURL</span><br><span class="line">                                                 toURL:destinationURL</span><br><span class="line">                                                 error:&amp;error]) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"[Error] %@"</span>, error);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>再次说明，在传输期间NSProgress parameter in -session:didStartReceivingResourceWithName:fromPeer:withProgress:允许接收节点来监控文件传输进度。在-session:didFinishReceivingResourceWithName:fromPeer:atURL:withError:中,delegate的责任是从临时localURL移动文件至永久位置。</p>
 <p>Multipeer是突破性的API，其价值才刚刚开始被理解。虽然完整的支持功能比如AirDrop目前仅限于最新的设备，你应该会看到它将成为让所有人盼望的功能。</p>
 <h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="http://www.cocoachina.com/industry/20140408/8118.html" target="_blank" rel="external">http://www.cocoachina.com/industry/20140408/8118.html</a></li>
-<li><a href="https://www.objc.io/issues/18-games/multipeer-connectivity-for-games/" target="_blank" rel="external">https://www.objc.io/issues/18-games/multipeer-connectivity-for-games/</a></li>
-<li><a href="http://blog.csdn.net/daiyibo123/article/details/48287079" target="_blank" rel="external">http://blog.csdn.net/daiyibo123/article/details/48287079</a></li>
-<li><a href="http://www.jianshu.com/p/84b479039797" target="_blank" rel="external">http://www.jianshu.com/p/84b479039797</a></li>
-<li><a href="http://www.jianshu.com/p/d1401793eeea" target="_blank" rel="external">http://www.jianshu.com/p/d1401793eeea</a></li>
+<li><a href="http://www.cocoachina.com/industry/20140408/8118.html" target="_blank" rel="noopener">http://www.cocoachina.com/industry/20140408/8118.html</a></li>
+<li><a href="https://www.objc.io/issues/18-games/multipeer-connectivity-for-games/" target="_blank" rel="noopener">https://www.objc.io/issues/18-games/multipeer-connectivity-for-games/</a></li>
+<li><a href="http://blog.csdn.net/daiyibo123/article/details/48287079" target="_blank" rel="noopener">http://blog.csdn.net/daiyibo123/article/details/48287079</a></li>
+<li><a href="http://www.jianshu.com/p/84b479039797" target="_blank" rel="noopener">http://www.jianshu.com/p/84b479039797</a></li>
+<li><a href="http://www.jianshu.com/p/d1401793eeea" target="_blank" rel="noopener">http://www.jianshu.com/p/d1401793eeea</a></li>
 </ol>
 <h1 id="iBeacon"><a href="#iBeacon" class="headerlink" title="iBeacon"></a>iBeacon</h1><h2 id="iBeacon概述"><a href="#iBeacon概述" class="headerlink" title="iBeacon概述"></a>iBeacon概述</h2><p>维基百科定义</p>
 <blockquote>
@@ -663,353 +497,347 @@ peripheral,ce">
 <p>当消费者走进某个商场时，会扫描到一个 beacon。这个 beacon 有三个标志符，proximityUUID 是一个整个公司（所有连锁商场）统一的值，可以用来标识这个公司，major 值用来标识特定的连锁商场，比如消费者正在走进的商场，minor 值标识了特定的一个位置的 beacon，例如定位到消费者正在门口。</p>
 <p>这时商场的 app 会被系统唤醒，app 可以运行一个比较短的时间。在这段时间内，app 可以根据 beacon 的属性查询到用户的地理位置（通过查询服务器或者本地数据），例如在化妆品专柜，之后就可以通过一个 local notification 推送化妆品的促销信息。用户可以点击这次 local notification 来查看更详细的信息，这样一次促销行为就完成了。</p>
 <h2 id="iBeacon使用"><a href="#iBeacon使用" class="headerlink" title="iBeacon使用"></a>iBeacon使用</h2><p>使用iBeacon需要添加2个库的支持，CoreLocation.framework、CoreBluetooth.framework</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;CoreLocation/CoreLocation.h&gt;</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;CoreBluetooth/CoreBluetooth.h&gt;</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;CoreLocation/CoreLocation.h&gt;</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;CoreBluetooth/CoreBluetooth.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
 <p>宏定义</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#define</span> <span class="selector-tag">UUID</span> @"<span class="keyword">E2C56DB5</span>-<span class="keyword">DFFB</span>-<span class="keyword">48D2</span>-<span class="keyword">B060</span>-<span class="keyword">D0F5A71096E4</span>"</div><div class="line">#define IDENTIFIER [NSBundle mainBundle].bundleIdentifier</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UUID @<span class="meta-string">"E2C56DB5-DFFB-48D2-B060-D0F5A71096E4"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IDENTIFIER [NSBundle mainBundle].bundleIdentifier</span></span><br></pre></td></tr></table></figure>
+
 <p>成员变量</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建立iBeacon服务端，只负责发送出去数据</span></div><div class="line"><span class="built_in">CLBeaconRegion</span> * serverBeaconRegion;</div><div class="line">CBPeripheralManager * peripheralMsg;</div><div class="line"></div><div class="line"><span class="comment">//建立iBeacon客户端,只负责接收数据</span></div><div class="line"><span class="built_in">CLLocationManager</span> * locationManager;</div><div class="line"><span class="built_in">CLBeaconRegion</span> * findBeaconRegion;</div><div class="line"><span class="comment">//对于商场应用，我们多数可能只需要客户端，而不一定需要服务端</span></div><div class="line"></div><div class="line"><span class="comment">//我们还需要字典，记录发送端的返回数据</span></div><div class="line"><span class="built_in">NSMutableDictionary</span> * regionData;</div></pre></td></tr></table></figure>
-<h3 id="使用-iOS-设备作为-iBeacon"><a href="#使用-iOS-设备作为-iBeacon" class="headerlink" title="使用 iOS 设备作为 iBeacon"></a>使用 iOS 设备作为 iBeacon</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 服务端设置主频和副频 unsigned short最大数不超过65535</span></div><div class="line"><span class="comment">//主频(最有效值)</span></div><div class="line">CLBeaconMajorValue major=<span class="number">1430</span>;</div><div class="line"><span class="comment">//副频(最低有效值)</span></div><div class="line">CLBeaconMinorValue minor= <span class="number">1000</span>;</div><div class="line"><span class="comment">//创建UUID</span></div><div class="line">NSUUID * user = [[NSUUID alloc]<span class="string">initWithUUIDString:</span>UUID];</div><div class="line"></div><div class="line"><span class="comment">//创建发现信息</span></div><div class="line">serverBeaconRegion = [[CLBeaconRegion alloc]<span class="string">initWithProximityUUID:</span>user <span class="string">major:</span>major <span class="string">minor:</span>minor <span class="string">identifier:</span>IDENTIFIER];</div><div class="line"><span class="comment">//发现信息计算成字典</span></div><div class="line">regionData = [serverBeaconRegion <span class="string">peripheralDataWithMeasuredPower:</span>nil];</div><div class="line"></div><div class="line"><span class="comment">//创建服务</span></div><div class="line">peripheralMsg = [[CBPeripheralManager alloc]<span class="string">initWithDelegate:</span>self <span class="string">queue:</span>dispatch_get_main_queue()];</div></pre></td></tr></table></figure>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#pragma mark - CBPeripheralManagerDelegate</span></div><div class="line">-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral</div><div class="line">&#123;</div><div class="line">    //检测状态</div><div class="line">    if (peripheral.<span class="keyword">state</span>==CBPeripheralManagerStatePoweredOn) &#123;</div><div class="line">        //可以开始</div><div class="line">        [peripheral startAdvertising:regionData];</div><div class="line">    &#125;else&#123;</div><div class="line">        if (peripheral.<span class="keyword">state</span>==CBPeripheralManagerStatePoweredOff) &#123;</div><div class="line">            //关闭</div><div class="line">            [peripheral stopAdvertising];</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="使用-iOS-设备发现-iBeacon"><a href="#使用-iOS-设备发现-iBeacon" class="headerlink" title="使用 iOS 设备发现 iBeacon"></a>使用 iOS 设备发现 iBeacon</h3><p>不用设置主频和副频，需要设置UUID<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">NSUUID *user = [[NSUUID alloc]<span class="string">initWithUUIDString:</span>UUID];</div><div class="line"><span class="comment">//注意这里初始化和服务端的初始化有所区别</span></div><div class="line">findBeaconRegion = [[CLBeaconRegion alloc]<span class="string">initWithProximityUUID:</span>user <span class="string">identifier:</span>IDENTIFIER];</div><div class="line">locationManager = [[CLLocationManager alloc]init];</div><div class="line">locationManager.delegate=self;</div><div class="line"><span class="comment">// NSLocationAlwaysUsageDescription</span></div><div class="line"><span class="comment">// 请求用户定位权限</span></div><div class="line">[locationManager requestAlwaysAuthorization];</div><div class="line"><span class="comment">//开启搜索</span></div><div class="line">[locationManager <span class="string">startRangingBeaconsInRegion:</span>findBeaconRegion];</div><div class="line">[locationManager <span class="string">startMonitoringForRegion:</span>findBeaconRegion];</div><div class="line">[locationManager <span class="string">requestStateForRegion:</span>findBeaconRegion];</div></pre></td></tr></table></figure></p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - CLLocationManagerDelegate</span></div><div class="line"><span class="comment">// 用户定位授权回调</span></div><div class="line">- (<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didChangeAuthorizationStatus:(<span class="built_in">CLAuthorizationStatus</span>)status</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways) &#123;</div><div class="line">        <span class="comment">//开启iBeacon搜索</span></div><div class="line">        [manager startRangingBeaconsInRegion:findBeaconRegion];</div><div class="line">        [manager startMonitoringForRegion:findBeaconRegion];</div><div class="line">        [manager requestStateForRegion:findBeaconRegion];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 近距离回调</span></div><div class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didDetermineState:(<span class="built_in">CLRegionState</span>)state forRegion:(<span class="built_in">CLRegion</span> *)region</div><div class="line">&#123;</div><div class="line">    <span class="comment">//近距离回调，有三个状态，三个状态分别在我们距离1米以内的时候触发</span></div><div class="line">    <span class="keyword">if</span> (state==<span class="built_in">CLRegionStateInside</span>) &#123;</div><div class="line">        <span class="comment">//在1米以内</span></div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">if</span> (state==<span class="built_in">CLRegionStateOutside</span>) &#123;</div><div class="line">            <span class="comment">//在1米以外</span></div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">//不知道CLRegionStateUnknown;</span></div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didEnterRegion:(<span class="built_in">CLRegion</span> *)region</div><div class="line">&#123;</div><div class="line">    <span class="comment">//该方法在推出后台，并且锁屏情况下依然可以触发，我们可以设置当我们进入后台时候，设置本地推送来提示用户进入一个范围即可</span></div><div class="line">    <span class="comment">//判断是否在后台</span></div><div class="line">    <span class="built_in">UIApplicationState</span> back=[<span class="built_in">UIApplication</span> sharedApplication].applicationState;</div><div class="line">    <span class="keyword">if</span> (back==<span class="built_in">UIApplicationStateBackground</span>) &#123;</div><div class="line">        <span class="comment">//在后台，我们需要执行推送告知用户</span></div><div class="line">        <span class="built_in">UILocalNotification</span>*local=[[<span class="built_in">UILocalNotification</span> alloc]init];</div><div class="line">        <span class="comment">//设置时间</span></div><div class="line">        local.fireDate=[<span class="built_in">NSDate</span> date];</div><div class="line">        <span class="comment">//设置文字</span></div><div class="line">        local.alertBody=<span class="string">@"我们进入一个店铺"</span>;</div><div class="line">        <span class="comment">//加入推送</span></div><div class="line">        [[<span class="built_in">UIApplication</span> sharedApplication]scheduleLocalNotification:local];</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"进入了一个iBeacon，欢迎光临"</span>);</div><div class="line"></div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didExitRegion:(<span class="built_in">CLRegion</span> *)region</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"离开了一个iBeacon，欢迎再次光临"</span>);</div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didRangeBeacons:(<span class="built_in">NSArray</span> *)beacons inRegion:(<span class="built_in">CLBeaconRegion</span> *)region</div><div class="line">&#123;</div><div class="line">    <span class="comment">//扫描结果</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"扫描结果，该函数会一直调用"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;beacons.count; i++) &#123;</div><div class="line">        <span class="comment">//读取灯塔</span></div><div class="line">        <span class="built_in">CLBeacon</span>*beacon=beacons[i];</div><div class="line">        <span class="comment">//其中的数据转换为字符串</span></div><div class="line">        <span class="built_in">NSString</span>*message= [<span class="keyword">self</span> beaconValue:beacon];</div><div class="line"></div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"beacon~~~%@"</span>,message);</div><div class="line"></div><div class="line">        <span class="comment">//设置复用过程</span></div><div class="line">        <span class="built_in">UITextView</span>*textView=(<span class="built_in">UITextView</span>*)[<span class="keyword">self</span>.view viewWithTag:beacon.minor.integerValue];</div><div class="line">        <span class="keyword">if</span> (textView) &#123;</div><div class="line">            textView.text=message;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="comment">//创建</span></div><div class="line"></div><div class="line">            textView=[[<span class="built_in">UITextView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(num%<span class="number">3</span>*<span class="number">110</span>, num/<span class="number">3</span>*<span class="number">200</span>+<span class="number">64</span>, <span class="number">100</span>, <span class="number">190</span>)];</div><div class="line">            textView.backgroundColor=[<span class="built_in">UIColor</span> blackColor];</div><div class="line">            textView.textColor=[<span class="built_in">UIColor</span> whiteColor];</div><div class="line">            <span class="comment">//复用的关键</span></div><div class="line">            textView.tag=beacon.minor.integerValue;</div><div class="line">            [<span class="keyword">self</span>.view addSubview:textView];</div><div class="line">            <span class="comment">//设置num+1</span></div><div class="line">            num=num+<span class="number">1</span>;</div><div class="line">            textView.text=message;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line">-(<span class="built_in">NSString</span>*)beaconValue:(<span class="built_in">CLBeacon</span>*)beacon&#123;</div><div class="line">    <span class="comment">//获取主频和副频</span></div><div class="line">    <span class="built_in">NSString</span>*major=beacon.major.stringValue;</div><div class="line">    <span class="built_in">NSString</span>*minor=beacon.minor.stringValue;</div><div class="line">    <span class="comment">//获取距离</span></div><div class="line">    <span class="built_in">NSString</span>*acc=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%lf"</span>,beacon.accuracy];</div><div class="line">    <span class="comment">//获取感知，当距离非常近的时候告诉我接近程度 proximity是一个枚举</span></div><div class="line">    <span class="built_in">NSString</span>*px=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,beacon.proximity];</div><div class="line">    <span class="comment">//信号强度</span></div><div class="line">    <span class="built_in">NSString</span>*rssi=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,beacon.rssi];</div><div class="line"></div><div class="line">    <span class="comment">//组装字符串</span></div><div class="line">    <span class="built_in">NSString</span>*message=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"主频~%@\n副频~%@\n距离~%@\n感知~%@\n信号强度~%@\n"</span>,major,minor,acc,px,rssi];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> message;</div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager rangingBeaconsDidFailForRegion:(<span class="built_in">CLBeaconRegion</span> *)region withError:(<span class="built_in">NSError</span> *)error</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"扫描失败"</span>);</div><div class="line">    <span class="comment">//当扫描启动失败以后，也就是用户没有开启蓝牙导致的失败，我们需要提示用户如何打开iBeacon，这个过程其实是诱导用户打开，判断是否在后台如果在后台就不进行任何操作了</span></div><div class="line">    <span class="comment">//该功能在iOS7下的各个版本表现不一样，iOS7.0时候启动失败，就算打开蓝牙开关也无效，只能通过重启手机办法才可以做到，iOS7.1.2的时候，苹果明确说明了特意修复了该功能，但是实际表现结果依然差劲，还是需要重启解决，但是这个说明在上线时候，苹果对审核的时候，也表示可以理解，并在会发一封致歉信给苹果开发者</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建立iBeacon服务端，只负责发送出去数据</span></span><br><span class="line"><span class="built_in">CLBeaconRegion</span> * serverBeaconRegion;</span><br><span class="line">CBPeripheralManager * peripheralMsg;</span><br><span class="line"></span><br><span class="line"><span class="comment">//建立iBeacon客户端,只负责接收数据</span></span><br><span class="line"><span class="built_in">CLLocationManager</span> * locationManager;</span><br><span class="line"><span class="built_in">CLBeaconRegion</span> * findBeaconRegion;</span><br><span class="line"><span class="comment">//对于商场应用，我们多数可能只需要客户端，而不一定需要服务端</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//我们还需要字典，记录发送端的返回数据</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> * regionData;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-iOS-设备作为-iBeacon"><a href="#使用-iOS-设备作为-iBeacon" class="headerlink" title="使用 iOS 设备作为 iBeacon"></a>使用 iOS 设备作为 iBeacon</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 服务端设置主频和副频 unsigned short最大数不超过65535</span></span><br><span class="line"><span class="comment">//主频(最有效值)</span></span><br><span class="line">CLBeaconMajorValue major=<span class="number">1430</span>;</span><br><span class="line"><span class="comment">//副频(最低有效值)</span></span><br><span class="line">CLBeaconMinorValue minor= <span class="number">1000</span>;</span><br><span class="line"><span class="comment">//创建UUID</span></span><br><span class="line">NSUUID * user = [[NSUUID alloc]<span class="string">initWithUUIDString:</span>UUID];</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建发现信息</span></span><br><span class="line">serverBeaconRegion = [[CLBeaconRegion alloc]<span class="string">initWithProximityUUID:</span>user <span class="string">major:</span>major <span class="string">minor:</span>minor <span class="string">identifier:</span>IDENTIFIER];</span><br><span class="line"><span class="comment">//发现信息计算成字典</span></span><br><span class="line">regionData = [serverBeaconRegion <span class="string">peripheralDataWithMeasuredPower:</span>nil];</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建服务</span></span><br><span class="line">peripheralMsg = [[CBPeripheralManager alloc]<span class="string">initWithDelegate:</span>self <span class="string">queue:</span>dispatch_get_main_queue()];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#pragma mark - CBPeripheralManagerDelegate</span></span><br><span class="line">-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral</span><br><span class="line">&#123;</span><br><span class="line">    //检测状态</span><br><span class="line">    if (peripheral.<span class="keyword">state</span>==CBPeripheralManagerStatePoweredOn) &#123;</span><br><span class="line">        //可以开始</span><br><span class="line">        [peripheral startAdvertising:regionData];</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        if (peripheral.<span class="keyword">state</span>==CBPeripheralManagerStatePoweredOff) &#123;</span><br><span class="line">            //关闭</span><br><span class="line">            [peripheral stopAdvertising];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-iOS-设备发现-iBeacon"><a href="#使用-iOS-设备发现-iBeacon" class="headerlink" title="使用 iOS 设备发现 iBeacon"></a>使用 iOS 设备发现 iBeacon</h3><p>不用设置主频和副频，需要设置UUID</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">NSUUID *user = [[NSUUID alloc]<span class="string">initWithUUIDString:</span>UUID];</span><br><span class="line"><span class="comment">//注意这里初始化和服务端的初始化有所区别</span></span><br><span class="line">findBeaconRegion = [[CLBeaconRegion alloc]<span class="string">initWithProximityUUID:</span>user <span class="string">identifier:</span>IDENTIFIER];</span><br><span class="line">locationManager = [[CLLocationManager alloc]init];</span><br><span class="line">locationManager.delegate=self;</span><br><span class="line"><span class="comment">// NSLocationAlwaysUsageDescription</span></span><br><span class="line"><span class="comment">// 请求用户定位权限</span></span><br><span class="line">[locationManager requestAlwaysAuthorization];</span><br><span class="line"><span class="comment">//开启搜索</span></span><br><span class="line">[locationManager <span class="string">startRangingBeaconsInRegion:</span>findBeaconRegion];</span><br><span class="line">[locationManager <span class="string">startMonitoringForRegion:</span>findBeaconRegion];</span><br><span class="line">[locationManager <span class="string">requestStateForRegion:</span>findBeaconRegion];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> mark - CLLocationManagerDelegate</span></span><br><span class="line"><span class="comment">// 用户定位授权回调</span></span><br><span class="line">- (<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didChangeAuthorizationStatus:(<span class="built_in">CLAuthorizationStatus</span>)status</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (status == kCLAuthorizationStatusAuthorizedAlways) &#123;</span><br><span class="line">        <span class="comment">//开启iBeacon搜索</span></span><br><span class="line">        [manager startRangingBeaconsInRegion:findBeaconRegion];</span><br><span class="line">        [manager startMonitoringForRegion:findBeaconRegion];</span><br><span class="line">        [manager requestStateForRegion:findBeaconRegion];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 近距离回调</span></span><br><span class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didDetermineState:(<span class="built_in">CLRegionState</span>)state forRegion:(<span class="built_in">CLRegion</span> *)region</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//近距离回调，有三个状态，三个状态分别在我们距离1米以内的时候触发</span></span><br><span class="line">    <span class="keyword">if</span> (state==<span class="built_in">CLRegionStateInside</span>) &#123;</span><br><span class="line">        <span class="comment">//在1米以内</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (state==<span class="built_in">CLRegionStateOutside</span>) &#123;</span><br><span class="line">            <span class="comment">//在1米以外</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//不知道CLRegionStateUnknown;</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didEnterRegion:(<span class="built_in">CLRegion</span> *)region</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//该方法在推出后台，并且锁屏情况下依然可以触发，我们可以设置当我们进入后台时候，设置本地推送来提示用户进入一个范围即可</span></span><br><span class="line">    <span class="comment">//判断是否在后台</span></span><br><span class="line">    <span class="built_in">UIApplicationState</span> back=[<span class="built_in">UIApplication</span> sharedApplication].applicationState;</span><br><span class="line">    <span class="keyword">if</span> (back==<span class="built_in">UIApplicationStateBackground</span>) &#123;</span><br><span class="line">        <span class="comment">//在后台，我们需要执行推送告知用户</span></span><br><span class="line">        <span class="built_in">UILocalNotification</span>*local=[[<span class="built_in">UILocalNotification</span> alloc]init];</span><br><span class="line">        <span class="comment">//设置时间</span></span><br><span class="line">        local.fireDate=[<span class="built_in">NSDate</span> date];</span><br><span class="line">        <span class="comment">//设置文字</span></span><br><span class="line">        local.alertBody=<span class="string">@"我们进入一个店铺"</span>;</span><br><span class="line">        <span class="comment">//加入推送</span></span><br><span class="line">        [[<span class="built_in">UIApplication</span> sharedApplication]scheduleLocalNotification:local];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"进入了一个iBeacon，欢迎光临"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didExitRegion:(<span class="built_in">CLRegion</span> *)region</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"离开了一个iBeacon，欢迎再次光临"</span>);</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager didRangeBeacons:(<span class="built_in">NSArray</span> *)beacons inRegion:(<span class="built_in">CLBeaconRegion</span> *)region</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//扫描结果</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"扫描结果，该函数会一直调用"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;beacons.count; i++) &#123;</span><br><span class="line">        <span class="comment">//读取灯塔</span></span><br><span class="line">        <span class="built_in">CLBeacon</span>*beacon=beacons[i];</span><br><span class="line">        <span class="comment">//其中的数据转换为字符串</span></span><br><span class="line">        <span class="built_in">NSString</span>*message= [<span class="keyword">self</span> beaconValue:beacon];</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"beacon~~~%@"</span>,message);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置复用过程</span></span><br><span class="line">        <span class="built_in">UITextView</span>*textView=(<span class="built_in">UITextView</span>*)[<span class="keyword">self</span>.view viewWithTag:beacon.minor.integerValue];</span><br><span class="line">        <span class="keyword">if</span> (textView) &#123;</span><br><span class="line">            textView.text=message;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//创建</span></span><br><span class="line"></span><br><span class="line">            textView=[[<span class="built_in">UITextView</span> alloc]initWithFrame:<span class="built_in">CGRectMake</span>(num%<span class="number">3</span>*<span class="number">110</span>, num/<span class="number">3</span>*<span class="number">200</span>+<span class="number">64</span>, <span class="number">100</span>, <span class="number">190</span>)];</span><br><span class="line">            textView.backgroundColor=[<span class="built_in">UIColor</span> blackColor];</span><br><span class="line">            textView.textColor=[<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">            <span class="comment">//复用的关键</span></span><br><span class="line">            textView.tag=beacon.minor.integerValue;</span><br><span class="line">            [<span class="keyword">self</span>.view addSubview:textView];</span><br><span class="line">            <span class="comment">//设置num+1</span></span><br><span class="line">            num=num+<span class="number">1</span>;</span><br><span class="line">            textView.text=message;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">-(<span class="built_in">NSString</span>*)beaconValue:(<span class="built_in">CLBeacon</span>*)beacon&#123;</span><br><span class="line">    <span class="comment">//获取主频和副频</span></span><br><span class="line">    <span class="built_in">NSString</span>*major=beacon.major.stringValue;</span><br><span class="line">    <span class="built_in">NSString</span>*minor=beacon.minor.stringValue;</span><br><span class="line">    <span class="comment">//获取距离</span></span><br><span class="line">    <span class="built_in">NSString</span>*acc=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%lf"</span>,beacon.accuracy];</span><br><span class="line">    <span class="comment">//获取感知，当距离非常近的时候告诉我接近程度 proximity是一个枚举</span></span><br><span class="line">    <span class="built_in">NSString</span>*px=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,beacon.proximity];</span><br><span class="line">    <span class="comment">//信号强度</span></span><br><span class="line">    <span class="built_in">NSString</span>*rssi=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>,beacon.rssi];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//组装字符串</span></span><br><span class="line">    <span class="built_in">NSString</span>*message=[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"主频~%@\n副频~%@\n距离~%@\n感知~%@\n信号强度~%@\n"</span>,major,minor,acc,px,rssi];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> message;</span><br><span class="line">&#125;</span><br><span class="line">-(<span class="keyword">void</span>)locationManager:(<span class="built_in">CLLocationManager</span> *)manager rangingBeaconsDidFailForRegion:(<span class="built_in">CLBeaconRegion</span> *)region withError:(<span class="built_in">NSError</span> *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"扫描失败"</span>);</span><br><span class="line">    <span class="comment">//当扫描启动失败以后，也就是用户没有开启蓝牙导致的失败，我们需要提示用户如何打开iBeacon，这个过程其实是诱导用户打开，判断是否在后台如果在后台就不进行任何操作了</span></span><br><span class="line">    <span class="comment">//该功能在iOS7下的各个版本表现不一样，iOS7.0时候启动失败，就算打开蓝牙开关也无效，只能通过重启手机办法才可以做到，iOS7.1.2的时候，苹果明确说明了特意修复了该功能，但是实际表现结果依然差劲，还是需要重启解决，但是这个说明在上线时候，苹果对审核的时候，也表示可以理解，并在会发一封致歉信给苹果开发者</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="参考资料-2"><a href="#参考资料-2" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
-<li><a href="https://zh.wikipedia.org/wiki/IBeacon" target="_blank" rel="external">https://zh.wikipedia.org/wiki/IBeacon</a></li>
-<li><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="external">https://developer.apple.com/ibeacon/</a></li>
-<li><a href="https://github.com/nixzhu/dev-blog/blob/master/2014-04-23-ios7-ibeacons-tutorial.md" target="_blank" rel="external">https://github.com/nixzhu/dev-blog/blob/master/2014-04-23-ios7-ibeacons-tutorial.md</a></li>
-<li><a href="http://tech.meituan.com/iBeacaon-first-glance.html" target="_blank" rel="external">http://tech.meituan.com/iBeacaon-first-glance.html</a></li>
-<li><a href="http://www.jianshu.com/p/7816b016ceac" target="_blank" rel="external">http://www.jianshu.com/p/7816b016ceac</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/IBeacon" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/IBeacon</a></li>
+<li><a href="https://developer.apple.com/ibeacon/" target="_blank" rel="noopener">https://developer.apple.com/ibeacon/</a></li>
+<li><a href="https://github.com/nixzhu/dev-blog/blob/master/2014-04-23-ios7-ibeacons-tutorial.md" target="_blank" rel="noopener">https://github.com/nixzhu/dev-blog/blob/master/2014-04-23-ios7-ibeacons-tutorial.md</a></li>
+<li><a href="http://tech.meituan.com/iBeacaon-first-glance.html" target="_blank" rel="noopener">http://tech.meituan.com/iBeacaon-first-glance.html</a></li>
+<li><a href="http://www.jianshu.com/p/7816b016ceac" target="_blank" rel="noopener">http://www.jianshu.com/p/7816b016ceac</a></li>
 </ol>
-<h1 id="Demo-下载"><a href="#Demo-下载" class="headerlink" title="Demo 下载"></a>Demo 下载</h1><p><a href="https://github.com/chaoskyme/Demo/tree/master/Bluetooth" target="_blank" rel="external">https://github.com/chaoskyme/Demo/tree/master/Bluetooth</a></p>
+<h1 id="Demo-下载"><a href="#Demo-下载" class="headerlink" title="Demo 下载"></a>Demo 下载</h1><p><a href="https://github.com/chaoskyme/Demo/tree/master/Bluetooth" target="_blank" rel="noopener">https://github.com/chaoskyme/Demo/tree/master/Bluetooth</a></p>
 
-      
     </div>
 
-    <div>
+    
+    
+    
       
-        
+        <div class="reward-container">
+  <div>天下大事，必作于细！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WeChatPay.png" alt="Alex Lin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="Alex Lin 支付宝">
+        <p>支付宝</p>
+      </div>
 
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>天下大事，必作于细！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/WeChatPay.png" alt="Alex Lin WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/AliPay.png" alt="Alex Lin Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
   </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alex Lin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chaosky.tech/2016/03/18/Bluetooth-Communication/" title="蓝牙通信">http://chaosky.tech/2016/03/18/Bluetooth-Communication/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
 
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Bluetooth/" rel="tag"># Bluetooth</a>
-          
-            <a href="/tags/BLE/" rel="tag"># BLE</a>
-          
-            <a href="/tags/MultipeerConnectivity/" rel="tag"># MultipeerConnectivity</a>
-          
-            <a href="/tags/iBeacon/" rel="tag"># iBeacon</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/03/18/iOS-Checklist/" rel="next" title="iOS 清单">
-                <i class="fa fa-chevron-left"></i> iOS 清单
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bluetooth/" rel="tag"># Bluetooth</a>
+              <a href="/tags/BLE/" rel="tag"># BLE</a>
+              <a href="/tags/MultipeerConnectivity/" rel="tag"># MultipeerConnectivity</a>
+              <a href="/tags/iBeacon/" rel="tag"># iBeacon</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/05/Alcatraz/" rel="prev" title="Alcatraz：Xcode 插件管理">
-                Alcatraz：Xcode 插件管理 <i class="fa fa-chevron-right"></i>
-              </a>
-            
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2016/03/18/iOS-Checklist/" rel="next" title="iOS 清单">
+                  <i class="fa fa-chevron-left"></i> iOS 清单
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2016/04/05/Alcatraz/" rel="prev" title="Alcatraz：Xcode 插件管理">
+                  Alcatraz：Xcode 插件管理 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </div>
-      
-
-      
-      
-    </footer>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div id="hypercomments_widget"></div>
-    
-  </div>
-
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
-               alt="Alex Lin" />
-          <p class="site-author-name" itemprop="name">Alex Lin</p>
-          <p class="site-description motion-element" itemprop="description">嗨，我是林天祥，iOS 开发者，专注移动开发。</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">57</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">84</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  Github
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/iwillcomeback" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.v2ex.com/member/error" target="_blank" title="V2EX">
-                  
-                    <i class="fa fa-fw fa-rocket"></i>
-                  
-                  V2EX
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://coding.net/u/chaosky" target="_blank" title="Coding">
-                  
-                    <i class="fa fa-fw fa-git"></i>
-                  
-                  Coding
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://music.163.com/#/user/home?id=684084" target="_blank" title="Music">
-                  
-                    <i class="fa fa-fw fa-music"></i>
-                  
-                  Music
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.linkedin.com/in/chaosky" target="_blank" title="Linkedin">
-                  
-                    <i class="fa fa-fw fa-linkedin"></i>
-                  
-                  Linkedin
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#蓝牙-Bluetooth"><span class="nav-number">1.</span> <span class="nav-text">蓝牙(Bluetooth)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙常见名称和缩写"><span class="nav-number">1.1.</span> <span class="nav-text">蓝牙常见名称和缩写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-Bluetooth概述"><span class="nav-number">1.2.</span> <span class="nav-text">Core Bluetooth概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则"><span class="nav-number">1.3.</span> <span class="nav-text">中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-发现并连接广播中的-Peripheral"><span class="nav-number">1.3.1.</span> <span class="nav-text">Central 发现并连接广播中的 Peripheral</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据在-Peripheral-中如何构成"><span class="nav-number">1.3.2.</span> <span class="nav-text">数据在 Peripheral 中如何构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-在-Peripheral-上的数据探索及交互"><span class="nav-number">1.3.3.</span> <span class="nav-text">Central 在 Peripheral 上的数据探索及交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Central、Peripherals及Peripheral数据的表示"><span class="nav-number">1.4.</span> <span class="nav-text">Central、Peripherals及Peripheral数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-端的对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">Central 端的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Central-和远程-Peripheral"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">本地 Central 和远程 Peripheral</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程-Peripheral-数据表示为-CBService-和CBCharacteristic"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">远程 Peripheral 数据表示为 CBService 和CBCharacteristic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Peripheral-端的对象"><span class="nav-number">1.4.2.</span> <span class="nav-text">Peripheral 端的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Peripheral-和远程-Central"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">本地 Peripheral 和远程 Central</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Peripheral-数据表示为-CBMutableService-和-CBMutableCharacteristic"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">本地 Peripheral 数据表示为 CBMutableService 和 CBMutableCharacteristic</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙开发流程"><span class="nav-number">1.5.</span> <span class="nav-text">蓝牙开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙中心模式流程"><span class="nav-number">1.5.1.</span> <span class="nav-text">蓝牙中心模式流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙外设模式流程"><span class="nav-number">1.5.2.</span> <span class="nav-text">蓝牙外设模式流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙设备状态"><span class="nav-number">1.5.3.</span> <span class="nav-text">蓝牙设备状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙设备的五种工作状态"><span class="nav-number">1.5.4.</span> <span class="nav-text">蓝牙设备的五种工作状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库"><span class="nav-number">1.6.</span> <span class="nav-text">第三方库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.7.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多点通信（MultipeerConnectivity）"><span class="nav-number">2.</span> <span class="nav-text">多点通信（MultipeerConnectivity）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MultipeerConnectivity概述"><span class="nav-number">2.1.</span> <span class="nav-text">MultipeerConnectivity概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发流程"><span class="nav-number">2.2.</span> <span class="nav-text">开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advertising-amp-Discovering"><span class="nav-number">2.2.1.</span> <span class="nav-text">Advertising & Discovering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Creating-a-Session"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Creating a Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Advertising"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Advertising</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MCNearbyServiceAdvertiser"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">MCNearbyServiceAdvertiser</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MCAdvertiserAssistant"><span class="nav-number">2.2.1.2.2.</span> <span class="nav-text">MCAdvertiserAssistant</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Discovering"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Discovering</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sending-amp-Receiving-Information"><span class="nav-number">2.2.2.</span> <span class="nav-text">Sending & Receiving Information</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Messages"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Messages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Streams"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">Streams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resources"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">Resources</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-1"><span class="nav-number">2.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iBeacon"><span class="nav-number">3.</span> <span class="nav-text">iBeacon</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon概述"><span class="nav-number">3.1.</span> <span class="nav-text">iBeacon概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">3.3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon使用"><span class="nav-number">3.4.</span> <span class="nav-text">iBeacon使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-iOS-设备作为-iBeacon"><span class="nav-number">3.4.1.</span> <span class="nav-text">使用 iOS 设备作为 iBeacon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-iOS-设备发现-iBeacon"><span class="nav-number">3.4.2.</span> <span class="nav-text">使用 iOS 设备发现 iBeacon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-2"><span class="nav-number">3.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo-下载"><span class="nav-number">4.</span> <span class="nav-text">Demo 下载</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#蓝牙-Bluetooth"><span class="nav-number">1.</span> <span class="nav-text">蓝牙(Bluetooth)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙常见名称和缩写"><span class="nav-number">1.1.</span> <span class="nav-text">蓝牙常见名称和缩写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Core-Bluetooth概述"><span class="nav-number">1.2.</span> <span class="nav-text">Core Bluetooth概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则"><span class="nav-number">1.3.</span> <span class="nav-text">中央（Central）和外围设备（Peripheral）以及它们之间蓝牙通信的规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-发现并连接广播中的-Peripheral"><span class="nav-number">1.3.1.</span> <span class="nav-text">Central 发现并连接广播中的 Peripheral</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据在-Peripheral-中如何构成"><span class="nav-number">1.3.2.</span> <span class="nav-text">数据在 Peripheral 中如何构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-在-Peripheral-上的数据探索及交互"><span class="nav-number">1.3.3.</span> <span class="nav-text">Central 在 Peripheral 上的数据探索及交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Central、Peripherals及Peripheral数据的表示"><span class="nav-number">1.4.</span> <span class="nav-text">Central、Peripherals及Peripheral数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Central-端的对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">Central 端的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Central-和远程-Peripheral"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">本地 Central 和远程 Peripheral</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程-Peripheral-数据表示为-CBService-和CBCharacteristic"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">远程 Peripheral 数据表示为 CBService 和CBCharacteristic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Peripheral-端的对象"><span class="nav-number">1.4.2.</span> <span class="nav-text">Peripheral 端的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Peripheral-和远程-Central"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">本地 Peripheral 和远程 Central</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地-Peripheral-数据表示为-CBMutableService-和-CBMutableCharacteristic"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">本地 Peripheral 数据表示为 CBMutableService 和 CBMutableCharacteristic</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#蓝牙开发流程"><span class="nav-number">1.5.</span> <span class="nav-text">蓝牙开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙中心模式流程"><span class="nav-number">1.5.1.</span> <span class="nav-text">蓝牙中心模式流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙外设模式流程"><span class="nav-number">1.5.2.</span> <span class="nav-text">蓝牙外设模式流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙设备状态"><span class="nav-number">1.5.3.</span> <span class="nav-text">蓝牙设备状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#蓝牙设备的五种工作状态"><span class="nav-number">1.5.4.</span> <span class="nav-text">蓝牙设备的五种工作状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方库"><span class="nav-number">1.6.</span> <span class="nav-text">第三方库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.7.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多点通信（MultipeerConnectivity）"><span class="nav-number">2.</span> <span class="nav-text">多点通信（MultipeerConnectivity）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#MultipeerConnectivity概述"><span class="nav-number">2.1.</span> <span class="nav-text">MultipeerConnectivity概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发流程"><span class="nav-number">2.2.</span> <span class="nav-text">开发流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advertising-amp-Discovering"><span class="nav-number">2.2.1.</span> <span class="nav-text">Advertising &amp; Discovering</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Creating-a-Session"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Creating a Session</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Advertising"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Advertising</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#MCNearbyServiceAdvertiser"><span class="nav-number">2.2.1.2.1.</span> <span class="nav-text">MCNearbyServiceAdvertiser</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#MCAdvertiserAssistant"><span class="nav-number">2.2.1.2.2.</span> <span class="nav-text">MCAdvertiserAssistant</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Discovering"><span class="nav-number">2.2.1.3.</span> <span class="nav-text">Discovering</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sending-amp-Receiving-Information"><span class="nav-number">2.2.2.</span> <span class="nav-text">Sending &amp; Receiving Information</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Messages"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">Messages</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Streams"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">Streams</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Resources"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">Resources</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-1"><span class="nav-number">2.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iBeacon"><span class="nav-number">3.</span> <span class="nav-text">iBeacon</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon概述"><span class="nav-number">3.1.</span> <span class="nav-text">iBeacon概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">3.3.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iBeacon使用"><span class="nav-number">3.4.</span> <span class="nav-text">iBeacon使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-iOS-设备作为-iBeacon"><span class="nav-number">3.4.1.</span> <span class="nav-text">使用 iOS 设备作为 iBeacon</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-iOS-设备发现-iBeacon"><span class="nav-number">3.4.2.</span> <span class="nav-text">使用 iOS 设备发现 iBeacon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-2"><span class="nav-number">3.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Demo-下载"><span class="nav-number">4.</span> <span class="nav-text">Demo 下载</span></a></li></ol></div>
+      </div>
       <!--/noindex-->
-      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Alex Lin"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Alex Lin</p>
+  <div class="site-description" itemprop="description">嗨，我是林天祥，iOS 开发者，专注移动软件开发。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chaoskyme" title="GitHub &rarr; https://github.com/chaoskyme" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chaosky.me@gmail.com" title="E-Mail &rarr; mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ChaoskyX" title="Twitter &rarr; https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/chaosky" title="Telegram &rarr; https://t.me/chaosky" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://www.v2ex.com/member/error" title="V2EX &rarr; http://www.v2ex.com/member/error" rel="noopener" target="_blank"><i class="fa fa-fw fa-rocket"></i>V2EX</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://music.163.com/#/user/home?id=684084" title="Music &rarr; http://music.163.com/#/user/home?id=684084" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://macshuo.com/" title="http://macshuo.com/" rel="noopener" target="_blank">MacTalk</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.devtang.com" title="http://blog.devtang.com" rel="noopener" target="_blank">唐巧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://coolshell.cn" title="http://coolshell.cn" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.codingnow.com" title="http://blog.codingnow.com" rel="noopener" target="_blank">云风</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://axiaoxin.com" title="http://axiaoxin.com" rel="noopener" target="_blank">信妈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://huxos.me" title="http://huxos.me" rel="noopener" target="_blank">胡骏</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.h2ero.cn/" title="http://blog.h2ero.cn/" rel="noopener" target="_blank">h2ero</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://nleo.me" title="https://nleo.me" rel="noopener" target="_blank">胡中华</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.jianshu.com/u/bbf6898c0002" title="http://www.jianshu.com/u/bbf6898c0002" rel="noopener" target="_blank">jackfrued</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.exiatian.com/" title="http://www.exiatian.com/" rel="noopener" target="_blank">唐雷</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Alex Lin</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-
         
 
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<div class="copyright">
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
-
-  
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
-  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alex Lin</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">270k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:05</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
         
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  <script>
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','WVe9S1RCHgLaWK_3xm3y','2.0.0');
 </script>
 
 
@@ -1020,215 +848,32 @@ peripheral,ce">
 
 
 
-  
 
 
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
 
 
   
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
-
-  
-
-
-
-
-	
-
-		<script type="text/javascript">
-		_hcwp = window._hcwp || [];
-
-		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
-
-		
-		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/03/18/Bluetooth-Communication/"});
-		
-
-		(function() {
-		if("HC_LOAD_INIT" in window)return;
-		HC_LOAD_INIT = true;
-		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hcc, s.nextSibling);
-		})();
-		</script>
-
-	
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("eB68LUN0RozWUhG9EPHGOv7A-gzGzoHsz", "rVLoe96MWG2qWRXz9OJnGSpz");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '7468cea68feda45ca013',
+      clientSecret: 'ec0a5262da8e48c4393f7a3dac909e0e4d69d83b',
+      repo: 'chaoskyme.github.io',
+      owner: 'chaoskyme',
+      admin: ['chaoskyme'],
+      id: '4f0b8b765b64d2b7f70643032636e83f',
+        language: '',
+      distractionFreeMode: 'true'
     });
-  </script>
-
-
-
-  
-
-  
-
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>

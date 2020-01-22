@@ -1,186 +1,96 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="Chaosky's Notes" type="application/atom+xml">
+  <meta name="google-site-verification" content="yGwNBR-9-6B60StDh4ueJp0Io9gjnzwX0IiXkPL4Pqc">
+  <meta name="msvalidate.01" content="562E828CD9FA60A6D3CDFE1BD31D3FF3">
+  <meta name="baidu-site-verification" content="iYaX85B5Bg">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-  <meta name="google-site-verification" content="0wsQzlCw_nicXQs7QbZ6n_aTyfoSkbeNQw6xpj3ScWo" />
-
-
-
-
-  <meta name="baidu-site-verification" content="QJ33ASIjWB" />
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-      
-    
-
-    
-  
-
-  
-    
-    
-    <link href="//fonts.lug.ustc.edu.cn/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="CocoaPods,Carthage," />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Chaosky's Notes" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="更新日志
-
-2016-11-13 重新整理 iOS的包依赖管理工具，更新到最新安装方法
-
-CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。
-使用CocoaPods的目的是让我们能自动化的、集中的、直">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS 依赖库管理工具">
-<meta property="og:url" content="http://chaosky.me/2016/11/13/Cocoa-Dependency-Manager/index.html">
-<meta property="og:site_name" content="Chaosky's Notes">
-<meta property="og:description" content="更新日志
-
-2016-11-13 重新整理 iOS的包依赖管理工具，更新到最新安装方法
-
-CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。
-使用CocoaPods的目的是让我们能自动化的、集中的、直">
-<meta property="og:updated_time" content="2016-11-13T12:31:44.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 依赖库管理工具">
-<meta name="twitter:description" content="更新日志
-
-2016-11-13 重新整理 iOS的包依赖管理工具，更新到最新安装方法
-
-CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。
-使用CocoaPods的目的是让我们能自动化的、集中的、直">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
     algolia: {
-      applicationID: '',
+      appID: '',
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
   };
 </script>
 
+  <meta name="description" content="CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。 使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 依赖库管理工具">
+<meta property="og:url" content="http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/index.html">
+<meta property="og:site_name" content="Chaosky&#39;s Notes">
+<meta property="og:description" content="CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。 使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-11-13T12:31:44.000Z">
+<meta property="article:modified_time" content="2020-01-22T15:37:52.571Z">
+<meta property="article:author" content="Alex Lin">
+<meta property="article:tag" content="CocoaPods">
+<meta property="article:tag" content="Carthage">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/">
 
 
-  <link rel="canonical" href="http://chaosky.me/2016/11/13/Cocoa-Dependency-Manager/"/>
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
 
-
-
-
-
-  <title> iOS 依赖库管理工具 | Chaosky's Notes </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>iOS 依赖库管理工具 | Chaosky's Notes</title>
   
 
 
-
-
-
-  <script type="text/javascript">
+  <script>
+    var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//tajs.qq.com/stats?sId=54252577";
+      hm.src = "https://hm.baidu.com/hm.js?QJ33ASIjWB";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -189,334 +99,232 @@ CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依�
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-  
-  
-    
-  
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Chaosky's Notes</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Chaosky's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <h1 class="site-subtitle" itemprop="description">源码之前，了无秘密。</h1>
+      
   </div>
-  <p class="site-subtitle">Getting Real。源码之前，了无秘密。</p>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
 
 <nav class="site-nav">
   
-
-  
-    <ul id="menu" class="menu">
-      
-        
+  <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">57</span></a>
+
+  </li>
         <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">11</span></a>
+
+  </li>
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">85</span></a>
+
+  </li>
         <li class="menu-item menu-item-workspace">
-          <a href="/workspace" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-cubes"></i> <br />
-            
-            工作空间
-          </a>
-        </li>
-      
-        
+
+    <a href="/workspace/" rel="section"><i class="fa fa-fw fa-cubes"></i>工作空间</a>
+
+  </li>
         <li class="menu-item menu-item-skillmap">
-          <a href="/skillmap" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-list"></i> <br />
-            
-            技能树
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-gate">
-          <a href="/gate" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            任意门
-          </a>
-        </li>
-      
-        
+
+    <a href="/skillmap/" rel="section"><i class="fa fa-fw fa-list"></i>技能树</a>
+
+  </li>
+        <li class="menu-item menu-item-quotes">
+
+    <a href="/quotes/" rel="section"><i class="fa fa-fw fa-quote-left"></i>引言</a>
+
+  </li>
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
 
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="st-search-show-outputs">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
 
-  
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
+  </li>
+  </ul>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'WVe9S1RCHgLaWK_3xm3y','2.0.0');
-</script>
-
-
-
-    </div>
-  
 </nav>
-
-
-
- </div>
+</div>
     </header>
 
-    <main id="main" class="main">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/chaoskyme" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content">
+          
+
+          <div class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
+  <div class="posts-expand">
+      
   
   
-  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://chaosky.me/2016/11/13/Cocoa-Dependency-Manager/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Alex Lin">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Chaosky's Notes">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Chaosky's Notes" src="">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="嗨，我是林天祥，iOS 开发者，专注移动软件开发。">
     </span>
-  </span>
 
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
       <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                iOS 依赖库管理工具
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          iOS 依赖库管理工具<a href="https://github.com/chaoskyme/chaoskyme.github.io/edit/source/source/_posts/2016-11-13-Cocoa-Dependency-Manager.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h2>
 
         <div class="post-meta">
-          <span class="post-time">
-            
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-13T20:31:44+08:00">
-                2016-11-13
-              </time>
-            
 
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
+              <time title="创建时间：2016-11-13 20:31:44" itemprop="dateCreated datePublished" datetime="2016-11-13T20:31:44+08:00">2016-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-22 23:37:52" itemprop="dateModified" datetime="2020-01-22T23:37:52+08:00">2020-01-22</time>
               </span>
-              <span class="post-meta-item-text">更新于</span>
-              <time title="更新于" itemprop="dateModified" datetime="2016-11-13T20:31:44+08:00">
-                2016-11-13
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
+            <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
                   </a>
                 </span>
-
-                
-                
-              
             </span>
-          
 
           
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                  <a href="/2016/11/13/Cocoa-Dependency-Manager/#comments" itemprop="discussionUrl">
-                    <span class="post-comments-count hc-comment-count" data-xid="2016/11/13/Cocoa-Dependency-Manager/" itemprop="commentsCount"></span>
-                  </a>
-                </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
               </span>
-              <!--/noindex-->
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/13/Cocoa-Dependency-Manager/" class="leancloud_visitors" data-flag-title="iOS 依赖库管理工具">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
               </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
             </span>
-          
-
-          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
 
         </div>
       </header>
+
     
-
-
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
-      
-
-      
-        <p><strong>更新日志</strong></p>
-<ul>
-<li>2016-11-13 重新整理 iOS的包依赖管理工具，更新到最新安装方法</li>
-</ul>
-<h2 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h2><h3 id="CocoaPods-简介"><a href="#CocoaPods-简介" class="headerlink" title="CocoaPods 简介"></a>CocoaPods 简介</h3><p>CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。</p>
+        <h2 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h2><h3 id="CocoaPods-简介"><a href="#CocoaPods-简介" class="headerlink" title="CocoaPods 简介"></a>CocoaPods 简介</h3><p>CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。</p>
 <p>使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。</p>
 <a id="more"></a>
+
 <h3 id="检查Mac是否安装Ruby和gem"><a href="#检查Mac是否安装Ruby和gem" class="headerlink" title="检查Mac是否安装Ruby和gem"></a>检查Mac是否安装Ruby和gem</h3><p>在终端中输入命令：<code>ruby --version</code> 和<code>gem --version</code></p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ruby --version</div><div class="line">ruby <span class="number">2.0</span><span class="number">.0</span>p643 (<span class="number">2015</span><span class="number">-02</span><span class="number">-25</span> revision <span class="number">49749</span>) [x86_64-darwin14<span class="number">.3</span><span class="number">.0</span>]</div><div class="line">$ gem --version</div><div class="line"><span class="number">2.4</span><span class="number">.8</span></div></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ruby --version</span><br><span class="line">ruby <span class="number">2.0</span><span class="number">.0</span>p643 (<span class="number">2015</span><span class="number">-02</span><span class="number">-25</span> revision <span class="number">49749</span>) [x86_64-darwin14<span class="number">.3</span><span class="number">.0</span>]</span><br><span class="line">$ gem --version</span><br><span class="line"><span class="number">2.4</span><span class="number">.8</span></span><br></pre></td></tr></table></figure>
+
 <p>Ruby 是一门开发语言，gem 为 Ruby 第三方库管理工具，CocoaPods 是用 Ruby 写的一个第三方工具。</p>
 <p><strong>Ruby的版本需要大于 2.2.2版本。如果小于该版本，通过以下方式安装更高版本的 Ruby。</strong></p>
 <h3 id="安装-Ruby-环境"><a href="#安装-Ruby-环境" class="headerlink" title="安装 Ruby 环境"></a>安装 Ruby 环境</h3><ol>
-<li>安装 Xcode 及 Command Line Tools。安装 Command Line Tools 命令：<code>xcode-select --install</code></li>
-<li><p>安装 RVM，Ruby 的多版本管理工具。并通过 RVM 安装更高版本的 Ruby。</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">$</span> curl -L https:<span class="comment">//get.rvm.io | bash -s stable</span></div><div class="line"><span class="symbol">$</span> source ~/.rvm/scripts/rvm</div><div class="line"><span class="symbol">$</span> rvm install <span class="number">2.3</span><span class="number">.0</span></div><div class="line"><span class="symbol">$</span> rvm use <span class="number">2.3</span><span class="number">.0</span></div><div class="line"><span class="symbol">$</span> /bin/bash --login</div></pre></td></tr></table></figure>
+<li><p>安装 Xcode 及 Command Line Tools。安装 Command Line Tools 命令：<code>xcode-select --install</code></p>
 </li>
+<li><p>安装 RVM，Ruby 的多版本管理工具。并通过 RVM 安装更高版本的 Ruby。</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span> curl -L https:<span class="comment">//get.rvm.io | bash -s stable</span></span><br><span class="line"><span class="symbol">$</span> source ~/.rvm/scripts/rvm</span><br><span class="line"><span class="symbol">$</span> rvm install <span class="number">2.3</span><span class="number">.0</span></span><br><span class="line"><span class="symbol">$</span> rvm use <span class="number">2.3</span><span class="number">.0</span></span><br><span class="line"><span class="symbol">$</span> /bin/bash --login</span><br></pre></td></tr></table></figure></li>
 <li><p>修改 gem 镜像</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</div><div class="line">$ gem sources -<span class="keyword">l</span></div><div class="line">http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.org</div><div class="line"># 确保只有 gems.<span class="keyword">ruby</span>-china.org</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</span><br><span class="line">$ gem sources -<span class="keyword">l</span></span><br><span class="line">http<span class="variable">s:</span>//gems.<span class="keyword">ruby</span>-china.org</span><br><span class="line"># 确保只有 gems.<span class="keyword">ruby</span>-china.org</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h3 id="安装-CocoaPods"><a href="#安装-CocoaPods" class="headerlink" title="安装 CocoaPods"></a>安装 CocoaPods</h3><p>安装</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gem <span class="keyword">install</span> cocoapods</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem <span class="keyword">install</span> cocoapods</span><br></pre></td></tr></table></figure>
+
 <p>初始化 CocoaPods 环境</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="built_in">setup</span></div></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="built_in">setup</span></span><br></pre></td></tr></table></figure>
+
 <p>初始化环境需要更新下载 CocoaPods 仓库，该步骤花费很长时间。更简便的方式是：从其他已初始化好的电脑上，拷贝目录 <code>~/.cocoapods/repos/</code> 到本机的相同目录中。</p>
 <h3 id="使用-CocoaPods"><a href="#使用-CocoaPods" class="headerlink" title="使用 CocoaPods"></a>使用 CocoaPods</h3><ol>
 <li><p>创建 Xcode 工程并切换到该工程路径</p>
@@ -524,21 +332,22 @@ CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依�
 <li><p>使用命令 <code>pod init</code> 在当前文件夹下生成一个 <strong>Podfile</strong> 文件</p>
 </li>
 <li><p>编辑 Podfile，输入如下类似信息：</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>vim Podfile</div><div class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></div><div class="line"><span class="comment"># 屏蔽 CocoaPods 库里面的所有警告</span></div><div class="line">inhibit_all_warnings!</div><div class="line">	</div><div class="line">target <span class="string">'CocoaPodsDemo'</span> <span class="keyword">do</span></div><div class="line">  <span class="comment"># 可以用framework的pod替代静态库</span></div><div class="line">  <span class="comment"># use_frameworks!</span></div><div class="line">	</div><div class="line">  <span class="comment"># Pods for CocoaPodsDemo</span></div><div class="line">  pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.5.4"</span></div><div class="line">  pod <span class="string">'SDWebImage'</span></div><div class="line">  pod <span class="string">'KVNProgress'</span></div><div class="line">	</div><div class="line">  target <span class="string">'CocoaPodsDemoTests'</span> <span class="keyword">do</span></div><div class="line">    inherit! <span class="symbol">:search_paths</span></div><div class="line">    <span class="comment"># Pods for testing</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">	</div><div class="line">  target <span class="string">'CocoaPodsDemoUITests'</span> <span class="keyword">do</span></div><div class="line">    inherit! <span class="symbol">:search_paths</span></div><div class="line">    <span class="comment"># Pods for testing</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">	</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+ <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>vim Podfile</span><br><span class="line">platform <span class="symbol">:ios</span>, <span class="string">'8.0'</span></span><br><span class="line"><span class="comment"># 屏蔽 CocoaPods 库里面的所有警告</span></span><br><span class="line">inhibit_all_warnings!</span><br><span class="line">	</span><br><span class="line">target <span class="string">'CocoaPodsDemo'</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># 可以用framework的pod替代静态库</span></span><br><span class="line">  <span class="comment"># use_frameworks!</span></span><br><span class="line">	</span><br><span class="line">  <span class="comment"># Pods for CocoaPodsDemo</span></span><br><span class="line">  pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.5.4"</span></span><br><span class="line">  pod <span class="string">'SDWebImage'</span></span><br><span class="line">  pod <span class="string">'KVNProgress'</span></span><br><span class="line">	</span><br><span class="line">  target <span class="string">'CocoaPodsDemoTests'</span> <span class="keyword">do</span></span><br><span class="line">    inherit! <span class="symbol">:search_paths</span></span><br><span class="line">    <span class="comment"># Pods for testing</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">	</span><br><span class="line">  target <span class="string">'CocoaPodsDemoUITests'</span> <span class="keyword">do</span></span><br><span class="line">    inherit! <span class="symbol">:search_paths</span></span><br><span class="line">    <span class="comment"># Pods for testing</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>Pod 语法格式为：<code>pod &#39;第三库名称&#39;, &#39;版本号&#39;</code>，一个依赖项通过pod名和可选的版本号来声明。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.5.4'</span></div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 2.5.4'</span></span><br></pre></td></tr></table></figure>
 <p>最新版本的依赖，可以忽略版本号，这样写：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span></div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span></span><br></pre></td></tr></table></figure>
 <p>指定Pod固定版本，可以写上具体的版本号来指定：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span>, <span class="string">'2.5.4'</span></div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pod</span> <span class="string">'AFNetworking'</span>, <span class="string">'2.5.4'</span></span><br></pre></td></tr></table></figure>
 <p>版本号标识区别：</p>
 <blockquote>
-<p><strong>&gt;1.0</strong>        高于1.0的任何版本<br><strong>>= 1.0</strong>    至少版本为1.0<br><strong>&lt;1.0</strong>        低于1.0的任何版本<br><strong>&lt;=1.0</strong>        版本1.0和任何低于1.0的版本<br><strong>~&gt; 1.0</strong>     兼容1.0版本的最新版<br><strong>== 1.0或1.0</strong>    都表示指定版本</p>
+<p><strong>&gt;1.0</strong>        高于1.0的任何版本<br><strong>&gt;= 1.0</strong>    至少版本为1.0<br><strong>&lt;1.0</strong>        低于1.0的任何版本<br><strong>&lt;=1.0</strong>        版本1.0和任何低于1.0的版本<br><strong>~&gt; 1.0</strong>     兼容1.0版本的最新版<br><strong>== 1.0或1.0</strong>    都表示指定版本</p>
 </blockquote>
 <p><strong>inhibit_all_warnings!</strong>：屏蔽 CocoaPods 库里面的所有警告<br><strong>use_frameworks!</strong>：可以用framework的pod替代静态库</p>
 </li>
 <li><p>安装工程依赖的第三方库</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ pod <span class="keyword">install</span></div><div class="line">Updating <span class="keyword">local</span> specs repositories</div><div class="line">Analyzing dependencies</div><div class="line">Downloading dependencies</div><div class="line">Installing AFNetworking (<span class="number">2.5</span><span class="number">.4</span>)</div><div class="line">Installing KVNProgress (<span class="number">2.2</span><span class="number">.2</span>)</div><div class="line">Installing SDWebImage (<span class="number">3.7</span><span class="number">.3</span>)</div><div class="line">Generating Pods <span class="keyword">project</span></div><div class="line">Integrating <span class="keyword">client</span> <span class="keyword">project</span></div><div class="line">[!] Please <span class="keyword">close</span> <span class="keyword">any</span> <span class="keyword">current</span> Xcode sessions <span class="keyword">and</span> <span class="keyword">use</span> <span class="string">`CocoaPodsDemo.xcworkspace`</span> <span class="keyword">for</span> this <span class="keyword">project</span> <span class="keyword">from</span> <span class="keyword">now</span> on.</div><div class="line">Sending stats</div><div class="line">Pod installation <span class="keyword">complete</span>! There <span class="keyword">are</span> <span class="number">3</span> dependencies <span class="keyword">from</span> the Podfile <span class="keyword">and</span> <span class="number">3</span> total</div><div class="line">pods installed.</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ pod <span class="keyword">install</span></span><br><span class="line">Updating <span class="keyword">local</span> specs repositories</span><br><span class="line">Analyzing dependencies</span><br><span class="line">Downloading dependencies</span><br><span class="line">Installing AFNetworking (<span class="number">2.5</span><span class="number">.4</span>)</span><br><span class="line">Installing KVNProgress (<span class="number">2.2</span><span class="number">.2</span>)</span><br><span class="line">Installing SDWebImage (<span class="number">3.7</span><span class="number">.3</span>)</span><br><span class="line">Generating Pods <span class="keyword">project</span></span><br><span class="line">Integrating <span class="keyword">client</span> <span class="keyword">project</span></span><br><span class="line">[!] Please <span class="keyword">close</span> <span class="keyword">any</span> <span class="keyword">current</span> Xcode sessions <span class="keyword">and</span> <span class="keyword">use</span> <span class="string">`CocoaPodsDemo.xcworkspace`</span> <span class="keyword">for</span> this <span class="keyword">project</span> <span class="keyword">from</span> <span class="keyword">now</span> on.</span><br><span class="line">Sending stats</span><br><span class="line">Pod installation <span class="keyword">complete</span>! There <span class="keyword">are</span> <span class="number">3</span> dependencies <span class="keyword">from</span> the Podfile <span class="keyword">and</span> <span class="number">3</span> total</span><br><span class="line">pods installed.</span><br></pre></td></tr></table></figure>
+
 <p>若出现<code>pods installed</code>字样表示安装成功。</p>
 </li>
 <li><p>关闭Xcode工程，打开.xcworkspace文件。</p>
@@ -548,30 +357,33 @@ CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依�
 </ol>
 <p>更多用法参考本文提供的参考链接。</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
-<li><a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">http://code4app.com/article/cocoapods-install-usage</a></li>
-<li><a href="http://blog.csdn.net/wzzvictory/article/details/18737437" target="_blank" rel="external">http://blog.csdn.net/wzzvictory/article/details/18737437</a></li>
-<li><a href="http://blog.csdn.net/wzzvictory/article/details/19178709" target="_blank" rel="external">http://blog.csdn.net/wzzvictory/article/details/19178709</a></li>
+<li><a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="noopener">http://code4app.com/article/cocoapods-install-usage</a></li>
+<li><a href="http://blog.csdn.net/wzzvictory/article/details/18737437" target="_blank" rel="noopener">http://blog.csdn.net/wzzvictory/article/details/18737437</a></li>
+<li><a href="http://blog.csdn.net/wzzvictory/article/details/19178709" target="_blank" rel="noopener">http://blog.csdn.net/wzzvictory/article/details/19178709</a></li>
 </ol>
 <h2 id="Carthage"><a href="#Carthage" class="headerlink" title="Carthage"></a>Carthage</h2><h3 id="Carthage-简介"><a href="#Carthage-简介" class="headerlink" title="Carthage 简介"></a>Carthage 简介</h3><p>Carthage的目标是用最简单的方式来管理Cocoa第三方框架。</p>
 <p>Carthage编译你的依赖，并提供框架的二进制文件，但你仍然保留对项目的结构和设置的完整控制。Carthage不会自动的修改你的项目文件或编译设置。</p>
 <p><strong>Carthage只正式支持动态框架，动态框架能够在任何版本的OS X上使用，但只能在iOS 8及以上版本使用。</strong></p>
 <h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><p>OS X 不可或缺的套件管理器，用于安装命令工具。</p>
 <p>终端中执行如下命令：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/usr/</span>bin<span class="regexp">/ruby -e "$(curl -fsSL https:/</span><span class="regexp">/raw.githubusercontent.com/</span>Homebrew<span class="regexp">/install/m</span>aster<span class="regexp">/install)"</span></div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>bin<span class="regexp">/ruby -e "$(curl -fsSL https:/</span><span class="regexp">/raw.githubusercontent.com/</span>Homebrew<span class="regexp">/install/m</span>aster<span class="regexp">/install)"</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="安装-Carthage"><a href="#安装-Carthage" class="headerlink" title="安装 Carthage"></a>安装 Carthage</h3><p>终端执行命令安装Carthage</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span>update</div><div class="line"><span class="keyword">brew </span><span class="keyword">install </span>carthage</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">brew </span>update</span><br><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>carthage</span><br></pre></td></tr></table></figure>
+
 <h3 id="使用Carthage"><a href="#使用Carthage" class="headerlink" title="使用Carthage"></a>使用Carthage</h3><ol>
-<li>创建Xcode工程并切换到该工程路径</li>
-<li><p>创建一个<code>Cartfile</code>，将你想要使用的框架列在里面</p>
-<figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">github <span class="string">"AFNetworking/AFNetworking"</span><span class="function"> ~&gt;</span> <span class="number">3.0</span></div><div class="line">github <span class="string">"rs/SDWebImage"</span></div></pre></td></tr></table></figure>
+<li><p>创建Xcode工程并切换到该工程路径</p>
 </li>
+<li><p>创建一个<code>Cartfile</code>，将你想要使用的框架列在里面</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">github <span class="string">"AFNetworking/AFNetworking"</span><span class="function"> ~&gt;</span> <span class="number">3.0</span></span><br><span class="line">github <span class="string">"rs/SDWebImage"</span></span><br></pre></td></tr></table></figure></li>
 <li><p>运行<code>carthage update</code>，将获取依赖文件到一个<code>Carthage.checkout</code>文件夹，然后编译每个依赖</p>
 </li>
-<li>在你的应用程序target的<code>General</code>设置标签中的<code>Embedded Binaries</code>区域，将框架从<code>Carthage.build</code>文件夹拖拽进去。</li>
+<li><p>在你的应用程序target的<code>General</code>设置标签中的<code>Embedded Binaries</code>区域，将框架从<code>Carthage.build</code>文件夹拖拽进去。</p>
+</li>
 </ol>
 <h3 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
-<li><a href="http://www.cocoachina.com/ios/20141204/10528.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20141204/10528.html</a></li>
-<li><a href="https://github.com/Carthage/Carthage" target="_blank" rel="external">官方文档</a></li>
+<li><a href="http://www.cocoachina.com/ios/20141204/10528.html" target="_blank" rel="noopener">http://www.cocoachina.com/ios/20141204/10528.html</a></li>
+<li><a href="https://github.com/Carthage/Carthage" target="_blank" rel="noopener">官方文档</a></li>
 </ol>
 <h2 id="Carthage与CocoaPods的不同"><a href="#Carthage与CocoaPods的不同" class="headerlink" title="Carthage与CocoaPods的不同"></a>Carthage与CocoaPods的不同</h2><ol>
 <li><p>Carthage只支持iOS 8及以上版本使用。</p>
@@ -591,369 +403,349 @@ CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依�
 </ol>
 <h2 id="Swift-Package-Manager"><a href="#Swift-Package-Manager" class="headerlink" title="Swift Package Manager"></a>Swift Package Manager</h2><p>Swift包管理器是一个用于管理Swift代码分发的工具。它与Swift构建系统集成，自动化处理下载、编译和链接依赖关系。</p>
 <p>软件包管理器包含在Swift 3.0及更高版本中。</p>
-<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><h4 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h4><p>下载安装 <a href="https://developer.apple.com/download/" target="_blank" rel="external">Xcode 8.1</a>。</p>
+<h3 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h3><h4 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h4><p>下载安装 <a href="https://developer.apple.com/download/" target="_blank" rel="noopener">Xcode 8.1</a>。</p>
 <h4 id="Ubuntu-Linux"><a href="#Ubuntu-Linux" class="headerlink" title="Ubuntu Linux"></a>Ubuntu Linux</h4><ol>
 <li><p>安装以下Linux 系统包：</p>
- <figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></div><div class="line">$ sudo apt-<span class="built_in">get</span> install clang libicu-<span class="built_in">dev</span> libcurl4-openssl-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>从 <a href="https://swift.org/download/" target="_blank" rel="external">swift.org</a> 下载 Swift 工具链。</p>
+ <figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">$ sudo apt-<span class="built_in">get</span> install clang libicu-<span class="built_in">dev</span> libcurl4-openssl-<span class="built_in">dev</span> libssl-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure></li>
+<li><p>从 <a href="https://swift.org/download/" target="_blank" rel="noopener">swift.org</a> 下载 Swift 工具链。</p>
 </li>
 <li><p>解压缩 <strong>.tar.gz</strong> 文件，更新 <strong>PATH</strong> 环境变量，包含以下工具：</p>
- <figure class="highlight dos"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ export <span class="built_in">PATH</span>=&lt;<span class="built_in">path</span> to uncompressed tar contents&gt;/usr/bin:$<span class="built_in">PATH</span></div></pre></td></tr></table></figure>
+ <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="builtin-name">export</span> <span class="attribute">PATH</span>=&lt;path <span class="keyword">to</span> uncompressed tar contents&gt;/usr/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><ol>
 <li><p>创建工程路径</p>
- <figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">mkdir</span> myFirstProject</div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> myFirstProject</span><br></pre></td></tr></table></figure></li>
 <li><p>使用 Swift 包管理器创建 Swift 工程</p>
- <figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">cd</span> myFirstProject</div><div class="line">$ swift package init --<span class="built_in">type</span> <span class="built_in">executable</span></div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> myFirstProject</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> swift package init --<span class="built_in">type</span> executable</span></span><br></pre></td></tr></table></figure></li>
 <li><p>在 <strong>myFirstProject</strong> 目录下的目录结构如下</p>
- <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">myFirstProject</div><div class="line">├── Package<span class="selector-class">.swift</span></div><div class="line">├── Sources</div><div class="line">│   └── main<span class="selector-class">.swift</span></div><div class="line">└── Tests</div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">myFirstProject</span></span><br><span class="line">├── Package.<span class="keyword">swift</span></span><br><span class="line"><span class="keyword">├── </span>Sources</span><br><span class="line">│   └── main.<span class="keyword">swift</span></span><br><span class="line"><span class="keyword">└── </span>Tests</span><br></pre></td></tr></table></figure></li>
 <li><p>在 <strong>Package.swift</strong> 中添加依赖项</p>
- <figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> PackageDescription</div><div class="line"></div><div class="line">let <span class="keyword">package</span> = <span class="keyword">Package</span>(</div><div class="line">    name: <span class="string">"myFirstProject"</span>,</div><div class="line">    <span class="keyword">dependencies</span>: [</div><div class="line">        .<span class="keyword">Package</span>(url: <span class="string">"https://github.com/IBM-Swift/Kitura.git"</span>, majorVersion: <span class="number">1</span>, minor: <span class="number">1</span>)</div><div class="line">    ])</div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PackageDescription</span><br><span class="line"></span><br><span class="line">let <span class="keyword">package</span> = <span class="keyword">Package</span>(</span><br><span class="line">    name: <span class="string">"myFirstProject"</span>,</span><br><span class="line">    <span class="keyword">dependencies</span>: [</span><br><span class="line">        .<span class="keyword">Package</span>(url: <span class="string">"https://github.com/IBM-Swift/Kitura.git"</span>, majorVersion: <span class="number">1</span>, minor: <span class="number">1</span>)</span><br><span class="line">    ])</span><br></pre></td></tr></table></figure></li>
 <li><p>编译程序</p>
- <figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">swift </span><span class="keyword">build</span></div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">swift </span><span class="keyword">build</span></span><br></pre></td></tr></table></figure></li>
 <li><p>在代码中就可以通过 <code>import Kitura</code> 导入模块。<br> 在 <strong>Sources/main.swift</strong> 添加如下代码：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">  import Kitura</div><div class="line"></div><div class="line">// <span class="keyword">Create</span> a <span class="keyword">new</span> router</div><div class="line">let router = Router()</div><div class="line"></div><div class="line">// Handle <span class="keyword">HTTP</span> <span class="keyword">GET</span> requests <span class="keyword">to</span> /</div><div class="line">router.get(<span class="string">"/"</span>) &#123;</div><div class="line">    request, response, <span class="keyword">next</span> <span class="keyword">in</span></div><div class="line">    response.send(<span class="string">"Hello, World!"</span>)</div><div class="line">    <span class="keyword">next</span>()</div><div class="line">&#125;</div><div class="line"></div><div class="line">// <span class="keyword">Add</span> an <span class="keyword">HTTP</span> <span class="keyword">server</span> <span class="keyword">and</span> <span class="keyword">connect</span> it <span class="keyword">to</span> the router</div><div class="line">Kitura.addHTTPServer(onPort: <span class="number">8090</span>, <span class="keyword">with</span>: router)</div><div class="line"></div><div class="line">// <span class="keyword">Start</span> the Kitura runloop (this <span class="keyword">call</span> <span class="keyword">never</span> <span class="keyword">returns</span>)</div><div class="line">Kitura.run()</div></pre></td></tr></table></figure>
-</li>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  import Kitura</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a new router</span></span><br><span class="line"><span class="keyword">let</span> router = <span class="constructor">Router()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Handle HTTP GET requests to /</span></span><br><span class="line">router.get(<span class="string">"/"</span>) &#123;</span><br><span class="line">    request, response, next <span class="keyword">in</span></span><br><span class="line">    response.send(<span class="string">"Hello, World!"</span>)</span><br><span class="line">    next<span class="literal">()</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add an HTTP server and connect it to the router</span></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Kitura</span>.</span></span>add<span class="constructor">HTTPServer(<span class="params">onPort</span>: 8090, <span class="params">with</span>: <span class="params">router</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Start the Kitura runloop (this call never returns)</span></span><br><span class="line"><span class="module-access"><span class="module"><span class="identifier">Kitura</span>.</span></span>run<span class="literal">()</span></span><br></pre></td></tr></table></figure></li>
 <li><p>运行</p>
- <figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ .build<span class="regexp">/debug/my</span>FirstProject</div></pre></td></tr></table></figure>
-</li>
+ <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ .build<span class="regexp">/debug/my</span>FirstProject</span><br></pre></td></tr></table></figure></li>
 <li><p>在 macOS 上可以生成 Xcode 工程</p>
- <figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ swift <span class="keyword">package</span> <span class="keyword">generate</span>-xcodeproj</div></pre></td></tr></table></figure>
+ <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ swift <span class="keyword">package</span> <span class="keyword">generate</span>-xcodeproj</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
-      
     </div>
 
-    <div>
+    
+    
+    
       
-        
+        <div class="reward-container">
+  <div>天下大事，必作于细！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WeChatPay.png" alt="Alex Lin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="Alex Lin 支付宝">
+        <p>支付宝</p>
+      </div>
 
-      
-    </div>
-
-    <div>
-      
-        
-  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-    <div>天下大事，必作于细！</div>
-    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-      <span>赏</span>
-    </button>
-    <div id="QR" style="display: none;">
-      
-        <div id="wechat" style="display: inline-block">
-          <img id="wechat_qr" src="/images/WeChatPay.png" alt="Alex Lin WeChat Pay"/>
-          <p>微信打赏</p>
-        </div>
-      
-      
-        <div id="alipay" style="display: inline-block">
-          <img id="alipay_qr" src="/images/AliPay.png" alt="Alex Lin Alipay"/>
-          <p>支付宝打赏</p>
-        </div>
-      
-    </div>
   </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alex Lin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/" title="iOS 依赖库管理工具">http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
 
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
-          
-            <a href="/tags/Carthage/" rel="tag"># Carthage</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/11/11/Effective-Objective-C-2-0/" rel="next" title="Effective Objective-C 2.0 要点">
-                <i class="fa fa-chevron-left"></i> Effective Objective-C 2.0 要点
-              </a>
-            
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CocoaPods/" rel="tag"># CocoaPods</a>
+              <a href="/tags/Carthage/" rel="tag"># Carthage</a>
           </div>
 
-          <span class="post-nav-divider"></span>
+        
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/" rel="prev" title="非官方iOS9.2-iOS9.3.3越狱图文教程">
-                非官方iOS9.2-iOS9.3.3越狱图文教程 <i class="fa fa-chevron-right"></i>
-              </a>
-            
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2016/11/11/Effective-Objective-C-2-0/" rel="next" title="Effective Objective-C 2.0 要点">
+                  <i class="fa fa-chevron-left"></i> Effective Objective-C 2.0 要点
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/" rel="prev" title="非官方iOS9.2-iOS9.3.3越狱图文教程">
+                  非官方iOS9.2-iOS9.3.3越狱图文教程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-        </div>
-      
-
-      
-      
-    </footer>
+      </footer>
+    
   </article>
+  
+  
+  
 
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
           </div>
           
-
-
-          
-  <div class="comments" id="comments">
-    
-      <div id="hypercomments_widget"></div>
-    
-  </div>
-
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
-        
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://7xooko.com1.z0.glb.clouddn.com/2016-06-13-IMG_0254.jpg"
-               alt="Alex Lin" />
-          <p class="site-author-name" itemprop="name">Alex Lin</p>
-          <p class="site-description motion-element" itemprop="description">嗨，我是林天祥，iOS 开发者，专注移动开发。</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">57</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">84</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/chaoskyme" target="_blank" title="Github">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  Github
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/iwillcomeback" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.v2ex.com/member/error" target="_blank" title="V2EX">
-                  
-                    <i class="fa fa-fw fa-rocket"></i>
-                  
-                  V2EX
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://coding.net/u/chaosky" target="_blank" title="Coding">
-                  
-                    <i class="fa fa-fw fa-git"></i>
-                  
-                  Coding
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://music.163.com/#/user/home?id=684084" target="_blank" title="Music">
-                  
-                    <i class="fa fa-fw fa-music"></i>
-                  
-                  Music
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://www.linkedin.com/in/chaosky" target="_blank" title="Linkedin">
-                  
-                    <i class="fa fa-fw fa-linkedin"></i>
-                  
-                  Linkedin
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
       <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods-简介"><span class="nav-number">1.1.</span> <span class="nav-text">CocoaPods 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查Mac是否安装Ruby和gem"><span class="nav-number">1.2.</span> <span class="nav-text">检查Mac是否安装Ruby和gem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Ruby-环境"><span class="nav-number">1.3.</span> <span class="nav-text">安装 Ruby 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-CocoaPods"><span class="nav-number">1.4.</span> <span class="nav-text">安装 CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-CocoaPods"><span class="nav-number">1.5.</span> <span class="nav-text">使用 CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">1.6.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage"><span class="nav-number">2.</span> <span class="nav-text">Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Carthage-简介"><span class="nav-number">2.1.</span> <span class="nav-text">Carthage 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Homebrew"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Carthage"><span class="nav-number">2.3.</span> <span class="nav-text">安装 Carthage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Carthage"><span class="nav-number">2.4.</span> <span class="nav-text">使用Carthage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接-1"><span class="nav-number">2.5.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage与CocoaPods的不同"><span class="nav-number">3.</span> <span class="nav-text">Carthage与CocoaPods的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swift-Package-Manager"><span class="nav-number">4.</span> <span class="nav-text">Swift Package Manager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置"><span class="nav-number">4.1.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#macOS"><span class="nav-number">4.1.1.</span> <span class="nav-text">macOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu-Linux"><span class="nav-number">4.1.2.</span> <span class="nav-text">Ubuntu Linux</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始使用"><span class="nav-number">4.2.</span> <span class="nav-text">开始使用</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CocoaPods"><span class="nav-number">1.</span> <span class="nav-text">CocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CocoaPods-简介"><span class="nav-number">1.1.</span> <span class="nav-text">CocoaPods 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查Mac是否安装Ruby和gem"><span class="nav-number">1.2.</span> <span class="nav-text">检查Mac是否安装Ruby和gem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Ruby-环境"><span class="nav-number">1.3.</span> <span class="nav-text">安装 Ruby 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-CocoaPods"><span class="nav-number">1.4.</span> <span class="nav-text">安装 CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-CocoaPods"><span class="nav-number">1.5.</span> <span class="nav-text">使用 CocoaPods</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">1.6.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage"><span class="nav-number">2.</span> <span class="nav-text">Carthage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Carthage-简介"><span class="nav-number">2.1.</span> <span class="nav-text">Carthage 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Homebrew"><span class="nav-number">2.2.</span> <span class="nav-text">安装 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Carthage"><span class="nav-number">2.3.</span> <span class="nav-text">安装 Carthage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Carthage"><span class="nav-number">2.4.</span> <span class="nav-text">使用Carthage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接-1"><span class="nav-number">2.5.</span> <span class="nav-text">参考链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Carthage与CocoaPods的不同"><span class="nav-number">3.</span> <span class="nav-text">Carthage与CocoaPods的不同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swift-Package-Manager"><span class="nav-number">4.</span> <span class="nav-text">Swift Package Manager</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装配置"><span class="nav-number">4.1.</span> <span class="nav-text">安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#macOS"><span class="nav-number">4.1.1.</span> <span class="nav-text">macOS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ubuntu-Linux"><span class="nav-number">4.1.2.</span> <span class="nav-text">Ubuntu Linux</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始使用"><span class="nav-number">4.2.</span> <span class="nav-text">开始使用</span></a></li></ol></li></ol></div>
+      </div>
       <!--/noindex-->
-      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Alex Lin"
+    src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Alex Lin</p>
+  <div class="site-description" itemprop="description">嗨，我是林天祥，iOS 开发者，专注移动软件开发。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chaoskyme" title="GitHub &rarr; https://github.com/chaoskyme" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chaosky.me@gmail.com" title="E-Mail &rarr; mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ChaoskyX" title="Twitter &rarr; https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/chaosky" title="Telegram &rarr; https://t.me/chaosky" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://www.v2ex.com/member/error" title="V2EX &rarr; http://www.v2ex.com/member/error" rel="noopener" target="_blank"><i class="fa fa-fw fa-rocket"></i>V2EX</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://music.163.com/#/user/home?id=684084" title="Music &rarr; http://music.163.com/#/user/home?id=684084" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://macshuo.com/" title="http://macshuo.com/" rel="noopener" target="_blank">MacTalk</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.devtang.com" title="http://blog.devtang.com" rel="noopener" target="_blank">唐巧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://coolshell.cn" title="http://coolshell.cn" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.codingnow.com" title="http://blog.codingnow.com" rel="noopener" target="_blank">云风</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://axiaoxin.com" title="http://axiaoxin.com" rel="noopener" target="_blank">信妈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://huxos.me" title="http://huxos.me" rel="noopener" target="_blank">胡骏</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.h2ero.cn/" title="http://blog.h2ero.cn/" rel="noopener" target="_blank">h2ero</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://nleo.me" title="https://nleo.me" rel="noopener" target="_blank">胡中华</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.jianshu.com/u/bbf6898c0002" title="http://www.jianshu.com/u/bbf6898c0002" rel="noopener" target="_blank">jackfrued</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.exiatian.com/" title="http://www.exiatian.com/" rel="noopener" target="_blank">唐雷</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
 
     </div>
   </aside>
+  <div id="sidebar-dimmer"></div>
 
 
-        
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2014 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Alex Lin</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
-
-
         
 
-<div class="busuanzi-count">
-
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<div class="copyright">
   
-    <span class="site-uv"><i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
-  
-
-  
-    <span class="site-pv"><i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span></span>
-  
-  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alex Lin</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">270k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">4:05</span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
         
       </div>
     </footer>
-
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
   </div>
 
   
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  <script>
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','WVe9S1RCHgLaWK_3xm3y','2.0.0');
 </script>
 
 
@@ -964,215 +756,32 @@ CocoaPodsCocoaPods 简介CocoaPods是一个用来帮助我们管理第三方依�
 
 
 
-  
 
 
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
 
 
 
   
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
-
-  
-
-
-
-
-	
-
-		<script type="text/javascript">
-		_hcwp = window._hcwp || [];
-
-		_hcwp.push({widget:"Bloggerstream", widget_id: 83086, selector:".hc-comment-count", label: "{\%COUNT%\}" });
-
-		
-		_hcwp.push({widget:"Stream", widget_id: 83086, xid: "2016/11/13/Cocoa-Dependency-Manager/"});
-		
-
-		(function() {
-		if("HC_LOAD_INIT" in window)return;
-		HC_LOAD_INIT = true;
-		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/83086/"+lang+"/widget.js";
-		var s = document.getElementsByTagName("script")[0];
-		s.parentNode.insertBefore(hcc, s.nextSibling);
-		})();
-		</script>
-
-	
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-  <script>AV.initialize("eB68LUN0RozWUhG9EPHGOv7A-gzGzoHsz", "rVLoe96MWG2qWRXz9OJnGSpz");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '7468cea68feda45ca013',
+      clientSecret: 'ec0a5262da8e48c4393f7a3dac909e0e4d69d83b',
+      repo: 'chaoskyme.github.io',
+      owner: 'chaoskyme',
+      admin: ['chaoskyme'],
+      id: 'c6d940dd9cfaaec1378f57663b692867',
+        language: '',
+      distractionFreeMode: 'true'
     });
-  </script>
-
-
-
-  
-
-  
-
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
 </body>
 </html>
