@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://chaosky.tech/about/index.html</loc>
+    
+    <lastmod>2020-03-17T06:13:21.621Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://chaosky.tech/workspace/index.html</loc>
     
     <lastmod>2020-03-17T03:52:55.310Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://chaosky.tech/categories/index.html</loc>
     
     <lastmod>2020-03-16T07:31:28.425Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/about/index.html</loc>
-    
-    <lastmod>2020-03-16T07:31:28.346Z</lastmod>
     
   </url>
   
@@ -121,14 +121,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/11/07/Data-Analysis-With-R/</loc>
+    <loc>http://chaosky.tech/2016/11/11/Effective-Objective-C-2-0/</loc>
     
     <lastmod>2020-03-16T07:31:28.335Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/11/11/Effective-Objective-C-2-0/</loc>
+    <loc>http://chaosky.tech/2016/11/07/Data-Analysis-With-R/</loc>
     
     <lastmod>2020-03-16T07:31:28.335Z</lastmod>
     
@@ -156,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/09/26/Continuous-Integration/</loc>
+    <loc>http://chaosky.tech/2016/10/12/Check-Jailbroken/</loc>
     
     <lastmod>2020-03-16T07:31:28.331Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/10/12/Check-Jailbroken/</loc>
+    <loc>http://chaosky.tech/2016/09/26/Continuous-Integration/</loc>
     
     <lastmod>2020-03-16T07:31:28.331Z</lastmod>
     
