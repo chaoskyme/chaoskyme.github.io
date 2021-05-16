@@ -2,16 +2,170 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://chaosky.tech/about/index.html</loc>
+    <loc>http://chaosky.tech/2021/05/16/WebKit-iOS-14-adaptation-issues/</loc>
     
-    <lastmod>2020-03-17T06:13:21.621Z</lastmod>
+    <lastmod>2021-05-16T15:56:46.126Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/quotes/index.html</loc>
+    
+    <lastmod>2020-12-18T05:50:36.391Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://chaosky.tech/workspace/index.html</loc>
     
-    <lastmod>2020-03-17T03:52:55.310Z</lastmod>
+    <lastmod>2020-11-05T12:40:24.116Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/08/03/cocoapods-custom-swift-module/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/about/index.html</loc>
+    
+    <lastmod>2020-11-05T12:40:24.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/08/06/gitalk-comments-batch-initialize/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/07/28/swift-use-static-framework/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/09/08/Safari-Web-Inspector-For-iOS-WebView/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.112Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/04/20/optimize-xcode-build-time/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/10/12/Check-Jailbroken/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/10/26/Objective-C-Method-Swizzle/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2017/08/31/Objective-C-Block/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.111Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/04/05/Alcatraz/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.110Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/03/18/Bluetooth-Communication/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.110Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/09/24/Singteton-Class/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.110Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/02/18/UIScrollView-AutoLayout/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/02/18/iOS-Hardware/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.109Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2016/01/21/iOS-Payment/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.108Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2015/12/24/SVN-Git/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.107Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2014/08/19/Sublime-support-chinese-input/</loc>
+    
+    <lastmod>2020-11-05T12:40:24.106Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/05/24/jailbreak-user-guide/</loc>
+    
+    <lastmod>2020-05-25T07:26:12.424Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/05/01/Function-references-in-Swift-and-retain-cycles/</loc>
+    
+    <lastmod>2020-05-06T04:46:47.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/2020/05/04/fastlane-in-action-1/</loc>
+    
+    <lastmod>2020-05-06T04:46:47.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://chaosky.tech/skillmap/index.html</loc>
+    
+    <lastmod>2020-03-24T08:24:31.810Z</lastmod>
     
   </url>
   
@@ -37,20 +191,6 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/skillmap/index.html</loc>
-    
-    <lastmod>2020-03-16T07:31:28.435Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/quotes/index.html</loc>
-    
-    <lastmod>2020-03-16T07:31:28.434Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://chaosky.tech/categories/index.html</loc>
     
     <lastmod>2020-03-16T07:31:28.425Z</lastmod>
@@ -61,13 +201,6 @@
     <loc>http://chaosky.tech/2019/12/17/Apple-Developer-Program/</loc>
     
     <lastmod>2020-03-16T07:31:28.344Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2017/08/31/Objective-C-Block/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.343Z</lastmod>
     
   </url>
   
@@ -142,13 +275,6 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/10/26/Objective-C-Method-Swizzle/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.333Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://chaosky.tech/2016/10/24/dungeon2/</loc>
     
     <lastmod>2020-03-16T07:31:28.332Z</lastmod>
@@ -159,20 +285,6 @@
     <loc>http://chaosky.tech/2016/09/26/Continuous-Integration/</loc>
     
     <lastmod>2020-03-16T07:31:28.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2016/10/12/Check-Jailbroken/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.331Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2016/09/24/Singteton-Class/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.330Z</lastmod>
     
   </url>
   
@@ -268,14 +380,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/05/28/Linux-RaspberryPi/</loc>
+    <loc>http://chaosky.tech/2016/05/27/Develop-Platform/</loc>
     
     <lastmod>2020-03-16T07:31:28.313Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/05/27/Develop-Platform/</loc>
+    <loc>http://chaosky.tech/2016/05/28/Linux-RaspberryPi/</loc>
     
     <lastmod>2020-03-16T07:31:28.313Z</lastmod>
     
@@ -296,13 +408,6 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/04/05/Alcatraz/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.309Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://chaosky.tech/2016/03/18/iOS-Checklist/</loc>
     
     <lastmod>2020-03-16T07:31:28.308Z</lastmod>
@@ -310,37 +415,9 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/03/18/Bluetooth-Communication/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.307Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2016/02/18/iOS-Hardware/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2016/02/18/UIScrollView-AutoLayout/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.305Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://chaosky.tech/2016/01/30/iOS-Socket/</loc>
     
     <lastmod>2020-03-16T07:31:28.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2016/01/21/iOS-Payment/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.301Z</lastmod>
     
   </url>
   
@@ -369,13 +446,6 @@
     <loc>http://chaosky.tech/2015/12/28/i18n-l10n/</loc>
     
     <lastmod>2020-03-16T07:31:28.291Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2015/12/24/SVN-Git/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.290Z</lastmod>
     
   </url>
   
@@ -439,13 +509,6 @@
     <loc>http://chaosky.tech/2014/09/03/Windows-app-antivirus/</loc>
     
     <lastmod>2020-03-16T07:31:28.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://chaosky.tech/2014/08/19/Sublime-support-chinese-input/</loc>
-    
-    <lastmod>2020-03-16T07:31:28.273Z</lastmod>
     
   </url>
   

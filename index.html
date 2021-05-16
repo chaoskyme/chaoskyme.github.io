@@ -16,38 +16,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://chaosky.tech').hostname,
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chaosky.tech","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="Hi, I&#39;m an iOS engineer, focusing on mobile software development.">
 <meta property="og:type" content="website">
@@ -66,8 +40,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -120,19 +95,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Chaosky's Notes</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">Strategy, Execution, Communication.</h1>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -140,55 +102,102 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Chaosky's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Strategy, Execution, Communication.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">57</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">85</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">92</span></a>
 
   </li>
         <li class="menu-item menu-item-workspace">
 
-    <a href="/workspace/" rel="section"><i class="fa fa-fw fa-cubes"></i>工作空间</a>
+    <a href="/workspace/" rel="section"><i class="fa fa-cubes fa-fw"></i>工作空间</a>
 
   </li>
         <li class="menu-item menu-item-skillmap">
 
-    <a href="/skillmap/" rel="section"><i class="fa fa-fw fa-list"></i>技能树</a>
+    <a href="/skillmap/" rel="section"><i class="fa fa-list fa-fw"></i>技能树</a>
 
   </li>
         <li class="menu-item menu-item-quotes">
 
-    <a href="/quotes/" rel="section"><i class="fa fa-fw fa-quote-left"></i>引言</a>
+    <a href="/quotes/" rel="section"><i class="fa fa-quote-left fa-fw"></i>引言</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
-
 </nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -198,7 +207,7 @@
     <span>0%</span>
   </div>
 
-  <a href="https://github.com/chaoskyme" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="https://github.com/chaoskyx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -206,14 +215,1188 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2021/05/16/WebKit-iOS-14-adaptation-issues/">
 
-  <div class="posts-expand">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/16/WebKit-iOS-14-adaptation-issues/" class="post-title-link" itemprop="url">WebKit的iOS 14 适配问题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-16 22:20:24" itemprop="dateCreated datePublished" datetime="2021-05-16T22:20:24+08:00">2021-05-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近在做 iOS 14 的 WebKit API 适配遇到一些问题记录下。</p>
+<h3 id="Fatal-error-Bug-in-WebKit-Received-neither-result-or-failure-file-WebKit-WebKitSwiftOverlay-swift-line-66"><a href="#Fatal-error-Bug-in-WebKit-Received-neither-result-or-failure-file-WebKit-WebKitSwiftOverlay-swift-line-66" class="headerlink" title="Fatal error: Bug in WebKit: Received neither result or failure.: file WebKit/WebKitSwiftOverlay.swift, line 66"></a>Fatal error: Bug in WebKit: Received neither result or failure.: file WebKit/WebKitSwiftOverlay.swift, line 66</h3><h4 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">webView.evaluateJavaScript(<span class="string">"console.log('Hello World')"</span>, <span class="keyword">in</span>: <span class="literal">nil</span>, <span class="keyword">in</span>: .page) &#123; result <span class="keyword">in</span></span><br><span class="line">    <span class="built_in">print</span>(result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 iOS 14.0 的版本中执行以上的代码会产生crash  <code>Fatal error: Bug in WebKit: Received neither result or failure.: file WebKit/WebKitSwiftOverlay.swift, line 66</code> ，但是在最新版 14.5 不会崩溃。</p>
+<h4 id="定位问题"><a href="#定位问题" class="headerlink" title="定位问题"></a>定位问题</h4><p>在 WebKit 官方代码<a href="https://github.com/WebKit/WebKit/blob/debe8769281c735813e0e731a926773642d921e0/Source/WebKit/UIProcess/API/Cocoa/WebKitSwiftOverlay.swift#L66" target="_blank" rel="noopener">WebKit/WebKit</a> 中找到了这段产生crash的代码。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">makeResultHandler</span>&lt;Success, Failure&gt;<span class="params">(<span class="number">_</span> handler: @escaping <span class="params">(Result&lt;Success, Failure&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; (<span class="type">Success?</span>, <span class="type">Failure?</span>) -&gt; <span class="type">Void</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; success, failure <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> success = success &#123;</span><br><span class="line">            handler(.success(success))</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> <span class="keyword">let</span> failure = failure &#123;</span><br><span class="line">            handler(.failure(failure))</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">fatalError</span>(<span class="string">"Bug in WebKit: Received neither result or failure."</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>查看源码可知，当 JavaScript 执行没有返回值，也没有错误的时候就会产生fatalError，比如执行<code>console.log(&#39;Hello World&#39;)</code>。</p>
+<p>但是在 WebKit 的 main 分支最新代码中已经没有这段代码了，取而代之的是使用 <code>ObjCBlockConversion.boxingNilAsAnyForCompatibility</code>。</p>
+<p>为了找到是在哪次commit中修复了这个问题，通过查询<code>WebKitSwiftOverlay.swift</code>文件的git修改记录，找到有这么一次commit，里面记录了这个crash修复的过程，有兴趣的可以去看看。</p>
+<p><a href="https://github.com/WebKit/WebKit/commit/534def4b8414c5ca1bf3712272ad24eaf271b134#diff-93ac6a04946f8372bfaec900fdcab57ef95932e9f30f45e7115a9ea807b82e6c" target="_blank" rel="noopener">https://github.com/WebKit/WebKit/commit/534def4b8414c5ca1bf3712272ad24eaf271b134#diff-93ac6a04946f8372bfaec900fdcab57ef95932e9f30f45e7115a9ea807b82e6c</a></p>
+<p>问题已经找到，那就需要确定是在哪个版本的 iOS 中修复了这个问题。</p>
+<p>首先需要找到 iOS 版本对应的 WebKit 版本。</p>
+<p>在 Wikipedia 上有维护 <a href="https://en.wikipedia.org/wiki/Safari_version_history" target="_blank" rel="noopener">Safari version history</a> Safiri 版本和对应的 WebKit 版本，但是遗憾的是最新版本的 iOS 14 还没有该记录。</p>
+<p>那接下来如何找到 WebKit 版本呢？</p>
+<p>需要分为两部分，首先先确定Xcode里集成的 iOS 编译库，再确定老版本的 iOS，老版本的iOS可以从Xcode 的 Components 下载对应版本的Simulator。</p>
+<p>以 Xcode 12.5 为例。在 <code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/</code> 路径下找到 <code>iOS.simruntime</code>，再找到 WebKit <code>Contents/Resources/RuntimeRoot/System/Library/Frameworks/WebKit.framework/WebKit</code>。</p>
+<p>完整路径为：<code>/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS.simruntime/Contents/Resources/RuntimeRoot/System/Library/Frameworks/WebKit.framework</code>。</p>
+<p>通过 <code>otool -L</code> 命令找到对应的WebKit 版本。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> otool -L WebKit | grep WebKit                                      [23:42:54]</span></span><br><span class="line">WebKit:</span><br><span class="line">	/System/Library/Frameworks/WebKit.framework/WebKit (compatibility version 1.0.0, current version 611.1.21)</span><br><span class="line">	/System/Library/PrivateFrameworks/WebKitLegacy.framework/WebKitLegacy (compatibility version 1.0.0, current version 611.1.21, reexport)</span><br></pre></td></tr></table></figure>
+<p>其中 611.1.21 就是对应的 WebKit 的版本。</p>
+<p>Xcode 通过 Components 下载的 Simulator 版本路径在 <code>/Library/Developer/CoreSimulator/Profiles/Runtimes</code> 下，用同样的方式确定 iOS 版本的 WebKit 版本。</p>
+<table>
+<thead>
+<tr>
+<th>iOS 版本</th>
+<th>WebKit 版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>iOS 14.5</td>
+<td>611.1.21</td>
+</tr>
+<tr>
+<td>iOS 14.4</td>
+<td>610.4.3</td>
+</tr>
+<tr>
+<td>iOS 14.3</td>
+<td>610.3.7</td>
+</tr>
+<tr>
+<td>iOS 14.2</td>
+<td>610.2.11</td>
+</tr>
+</tbody></table>
+<p>最后在 <a href="https://github.com/WebKit/WebKit/blob/safari-610.2.11.0-branch/Source/WebKit/UIProcess/API/Cocoa/WebKitSwiftOverlay.swift" target="_blank" rel="noopener">WebKit/Webkit</a> 上确认对应的修复版本，最终确认修复的版本为 iOS 14.3。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>对 <code>evaluateJavaScript</code> 方法做兼容，不能直接使用 <code>#available(iOS 14.0, *)</code> 适配。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> #available(iOS <span class="number">14.3</span>, *) &#123;</span><br><span class="line">    webView.evaluateJavaScript(<span class="string">"console.log('Hello World')"</span>, <span class="keyword">in</span>: <span class="literal">nil</span>, <span class="keyword">in</span>: .page) &#123; result <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(result)</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    webView.evaluateJavaScript(<span class="string">"console.log('Hello World')"</span>) &#123; value, error <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(value)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/09/08/Safari-Web-Inspector-For-iOS-WebView/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/08/Safari-Web-Inspector-For-iOS-WebView/" class="post-title-link" itemprop="url">在 Mac 上使用 Safari 调试 iOS WebView</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-09-08 15:36:14" itemprop="dateCreated datePublished" datetime="2020-09-08T15:36:14+08:00">2020-09-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>965</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h3><h4 id="Safari-开启调试模式"><a href="#Safari-开启调试模式" class="headerlink" title="Safari 开启调试模式"></a>Safari 开启调试模式</h4><p>依次选择 <strong>偏好设置 &gt; 高级 &gt; 在菜单栏中显示“开发”菜单</strong>。</p>
+<img src="http://file.blog.chaosky.tech/2020/09/08/1599551644-image-20200908154443157.png" alt="image-20200908154443157" style="zoom: 33%;" />
+
+<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><h4 id="Safari-开启调试模式-1"><a href="#Safari-开启调试模式-1" class="headerlink" title="Safari 开启调试模式"></a>Safari 开启调试模式</h4><p>要远程调试 iOS Safari ，必须启用 Web 检查 功能，打开 iPhone 依次进入 <strong>设置 &gt; Safari &gt; 高级 &gt; Web 检查 &gt; 启用</strong>。</p>
+<img src="http://file.blog.chaosky.tech/2020/09/08/1599551655-IMG_19800580398B-1.jpeg" alt="IMG_19800580398B-1" style="zoom: 33%;" />
+
+<h2 id="开发调试"><a href="#开发调试" class="headerlink" title="开发调试"></a>开发调试</h2><h3 id="启动-Web-Inspector"><a href="#启动-Web-Inspector" class="headerlink" title="启动 Web Inspector"></a>启动 Web Inspector</h3><ol>
+<li>iPhone 使用 Safari 浏览器打开要调试的页面，或者 App 里打开要调试的页面</li>
+<li>Mac 打开 Safari 浏览器调试（菜单栏 &gt; 开发 &gt; iPhone 设备名 -&gt; 选择调试页面）</li>
+<li>在弹出的 Safari Developer Tools 中调试</li>
+</ol>
+<h3 id="调试菜单"><a href="#调试菜单" class="headerlink" title="调试菜单"></a>调试菜单</h3><p><img src="http://file.blog.chaosky.tech/2020/09/08/1599553103-640.jpeg" alt="img"></p>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h4><p>这个菜单用来显示当前网页中加载的资源，比如 HTML、JS、CSS、图片、字体等资源文件，并且可以对 JS 代码添加断点来调试代码。</p>
+<h5 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h5><p>Inspector 中的断点调试和 Xocde 的大同小异。</p>
+<h5 id="格式化代码"><a href="#格式化代码" class="headerlink" title="格式化代码"></a>格式化代码</h5><p>web 页面中的 JS、CSS、HTML 文件大多数都经过了压缩处理，以前 inspector 并不支持 HTML，这次可以格式化 HTML 文件了：<br><img src="http://file.blog.chaosky.tech/2020/09/08/1599553124-640-20200908161844693.jpeg" alt="img"></p>
+<h5 id="Local-overrides"><a href="#Local-overrides" class="headerlink" title="Local overrides"></a>Local overrides</h5><p>如果你想调试某个文件的时候，通常把改动好的代码推动服务端，然后通过浏览器访问，查看效果，整个过程可能会耗费很长时间。Local overrides 提供了一种能力，可以替换当前页面所加载的文件，这样只需要修改本地文件即可，当页面加载的时候会直接使用本地的文件，达到快速调试的作用。更多内容。<br><img src="http://file.blog.chaosky.tech/2020/09/08/1599553134-640.png" alt="img"></p>
+<h5 id="Bootstrap-Script"><a href="#Bootstrap-Script" class="headerlink" title="Bootstrap Script"></a>Bootstrap Script</h5><p>Bootstrap Script 也叫引导程序，通常是程序执行时第一个要执行的文件，在 Inspector 中可以创建一个这样的文件用来作为调试工具使用，比如替换某个函数的实现，给某个函数增加特殊的调试语句。在调试的时候，很多 JS 函数都经过了压缩处理，可通过这种方式把压缩的函数替换成未被压缩的函数，方便调试。<br>更多内容</p>
+<h4 id="Timelines"><a href="#Timelines" class="headerlink" title="Timelines"></a>Timelines</h4><p>Timelines 用来分享各种功能的加载时长。</p>
+<h4 id="Sotrage"><a href="#Sotrage" class="headerlink" title="Sotrage"></a>Sotrage</h4><p>storage 用来显示缓存的数据，比如 Local Storage、Session Storage、Indexed DataBase。</p>
+<h4 id="Layers"><a href="#Layers" class="headerlink" title="Layers"></a>Layers</h4><p>Layers 主要用来显示页面的绘制、布局。<br><img src="http://file.blog.chaosky.tech/2020/09/08/1599553147-640-20200908161907264.jpeg" alt="img"></p>
+<h4 id="Console"><a href="#Console" class="headerlink" title="Console"></a>Console</h4><p>console 就是打印日志的地方，也可以执行 JavaScript 代码。Console 的界面如下：</p>
+<p><img src="http://file.blog.chaosky.tech/2020/09/08/1599553155-640-20200908161914993.jpeg" alt="img"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/08/06/gitalk-comments-batch-initialize/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/06/gitalk-comments-batch-initialize/" class="post-title-link" itemprop="url">Gitalk 评论批量初始化</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-06 18:41:52" itemprop="dateCreated datePublished" datetime="2020-08-06T18:41:52+08:00">2020-08-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog/" itemprop="url" rel="index"><span itemprop="name">blog</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>第一次使用 Gitalk 时，之前的文章的评论都需要初始化一下，如果文章多的话，挺麻烦的。不过，有些博客有提供接口获取博客上所有文章的相关信息，那其实就可以通过脚本来完成之前文章的评论初始化。下面是一些已经写好的脚本，可以直接使用或参考。</p>
+<p><a href="https://github.com/gitalk/gitalk/wiki/评论初始化" target="_blank" rel="noopener">Gitalk 官方的 WiKi</a> 里记录的方法年久失修，已经不能使用，我重新整理了一份。</p>
+<h3 id="获得权限"><a href="#获得权限" class="headerlink" title="获得权限"></a>获得权限</h3><p>在使用该脚本之前首先要在 GitHub 创建一个新的 <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">Personal access tokens</a>，选择 Generate new token 后，在当前的页面中为 Token 添加所有 Repo 的权限。</p>
+<h3 id="自动化脚本"><a href="#自动化脚本" class="headerlink" title="自动化脚本"></a>自动化脚本</h3><h4 id="安装脚本依赖库"><a href="#安装脚本依赖库" class="headerlink" title="安装脚本依赖库"></a>安装脚本依赖库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gem install faraday activesupport sitemap-parser nokogiri</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用-sitemap-文件"><a href="#使用-sitemap-文件" class="headerlink" title="使用 sitemap 文件"></a>使用 sitemap 文件</h4><p>找到博客对应的 sitemap 文件，例如 <a href="https://chaosky.tech/sitemap.xml。">https://chaosky.tech/sitemap.xml。</a></p>
+<h4 id="使用脚本"><a href="#使用脚本" class="headerlink" title="使用脚本"></a>使用脚本</h4><p>在任意目录创建 <strong>comment.rb</strong>，将下面的代码粘贴到文件中：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'open-uri'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'faraday'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'active_support'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'active_support/core_ext'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'sitemap-parser'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'digest'</span></span><br><span class="line"><span class="keyword">require</span> <span class="string">'nokogiri'</span></span><br><span class="line"></span><br><span class="line">username = <span class="string">"chaoskyx"</span> <span class="comment"># GitHub 用户名</span></span><br><span class="line">token = <span class="string">"xxxxxx"</span>  <span class="comment"># GitHub Token</span></span><br><span class="line">repo_name = <span class="string">"chaoskyx.github.io"</span> <span class="comment"># 存放 issues</span></span><br><span class="line">sitemap_url = <span class="string">"https://chaosky.tech/sitemap.xml"</span> <span class="comment"># sitemap</span></span><br><span class="line">kind = <span class="string">"Gitalk"</span></span><br><span class="line"></span><br><span class="line">sitemap = SitemapParser.new sitemap_url</span><br><span class="line">urls = sitemap.to_a</span><br><span class="line"></span><br><span class="line">conn = Faraday.new(<span class="symbol">:url</span> =&gt; <span class="string">"https://api.github.com/repos/<span class="subst">#&#123;username&#125;</span>/<span class="subst">#&#123;repo_name&#125;</span>/issues"</span>) <span class="keyword">do</span> <span class="params">|conn|</span></span><br><span class="line">  conn.basic_auth(username, token)</span><br><span class="line">  conn.adapter Faraday.default_adapter</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">urls.each_with_index <span class="keyword">do</span> <span class="params">|url, index|</span></span><br><span class="line">  id = Digest::MD5.hexdigest URI(url).path</span><br><span class="line">  response = conn.get <span class="keyword">do</span> <span class="params">|req|</span></span><br><span class="line">    req.params[<span class="string">"labels"</span>] = [kind, id].join(<span class="string">','</span>)</span><br><span class="line">    req.headers[<span class="string">'Content-Type'</span>] = <span class="string">'application/json'</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  response_hash = JSON.load(response.body)</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span> response_hash.count == <span class="number">0</span></span><br><span class="line">    document = Nokogiri::HTML(open(url))</span><br><span class="line">    title = document.xpath(<span class="string">"//head/title/text()"</span>).to_s</span><br><span class="line">    desc = document.xpath(<span class="string">"//head/meta[@name='description']/@content"</span>).to_s</span><br><span class="line">    body = url + <span class="string">"\n\n"</span> + desc</span><br><span class="line">    puts title</span><br><span class="line">    response = conn.post <span class="keyword">do</span> <span class="params">|req|</span></span><br><span class="line">      req.body = &#123; <span class="symbol">body:</span> body, <span class="symbol">labels:</span> [kind, id], <span class="symbol">title:</span> title &#125;.to_json</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    puts response.body</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  sleep <span class="number">15</span> <span class="keyword">if</span> index % <span class="number">20</span> == <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里有 5 个配置项，分别是 GitHub 用户名、在上一步获得的 Token、存放 issues 的仓库、sitemap 的地址以及最后你在博客中使用了哪个评论插件，不同的插件拥有标签，可以选择 “Gitalk” 或者 “gitment”。</p>
+<h4 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ruby comment.rb</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ol>
+<li><a href="https://github.com/gitalk/gitalk/wiki/评论初始化" target="_blank" rel="noopener">https://github.com/gitalk/gitalk/wiki/评论初始化</a></li>
+<li><a href="https://draveness.me/git-comments-initialize/" target="_blank" rel="noopener">https://draveness.me/git-comments-initialize/</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/08/03/cocoapods-custom-swift-module/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/03/cocoapods-custom-swift-module/" class="post-title-link" itemprop="url">使用自定义 Module 解决 Objective-C 库的引用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-03 21:01:17" itemprop="dateCreated datePublished" datetime="2020-08-03T21:01:17+08:00">2020-08-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="LLVM-Module"><a href="#LLVM-Module" class="headerlink" title="LLVM Module"></a>LLVM Module</h2><blockquote>
+<p>A module is a single unit of code distribution—a framework or application that is built and shipped as a single unit and that can be imported by another module with Swift’s import keyword.</p>
+<p>Each build target (such as an app bundle or framework) in Xcode is treated as a separate module in Swift. If you group together aspects of your app’s code as a stand-alone framework—perhaps to encapsulate and reuse that code across multiple applications—then everything you define within that framework will be part of a separate module when it’s imported and used within an app, or when it’s used within another framework.</p>
+<p>As the docs indicate, the module is an application or a framework (library). If you create a project with classes A and B, they are part of the same module. Any other class in the same project can inherit from those classes. If you however import that project to another project, classes from that another project won’t be able to subclass A nor B. For that you would have to add open indicator before their declarations.</p>
+<p>Basically, if you work on a single app then you are working in one single module and unless declared as private or fileprivate, the classes can subclass each other.</p>
+</blockquote>
+<h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p>Module 是一种集成库的方式，在 Module 出现之前，开发者需要在引入库文件的同时引入需要使用的头文件，以保证编译的正常进行。但是每次引入库的时候都要导入一堆文件，看起来并不优雅。Module 和 Framework 的出现让开发者极大程度上告别了这些不优雅的工作。简单说就是用树形的结构化描述来取代以往的平坦式 <code>#include</code>， 例如传统的 <code>#include &lt;stdio.h&gt;</code> 现在变成了 <code>import std.io</code>。</p>
+<p>主要好处有：</p>
+<ol>
+<li>语义上完整描述了一个框架的作用</li>
+<li>提高编译时可扩展性，只编译或 include 一次。避免头文件多次引用，只解析一次头文件甚至不需要解析（类似预编译头文件）</li>
+<li>减少碎片化，每个 module 只处理一次，环境的变化不会导致不一致</li>
+<li>对工具友好，工具（语言编译器）可以获取更多关于 module 的信息，比如链接库，比如语言是 C++ 还是 C</li>
+</ol>
+<h3 id="modulemap-文件"><a href="#modulemap-文件" class="headerlink" title="modulemap 文件"></a>modulemap 文件</h3><p>module.map 文件就是对一个框架，一个库的所有头文件的结构化描述。通过这个描述，桥接了新语言特性和老的头文件。默认文件名是 module.modulemap，modulemap 其实是为了兼容老标准，不过现在 Xcode 里的还都是这个文件名，相信以后会改成新名字。</p>
+<p>文件的内容以 Module Map Language 描述，大概语法如下：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> MyLib &#123;</span><br><span class="line">  explicit <span class="keyword">module</span> A &#123;</span><br><span class="line">    header <span class="string">"A.h"</span></span><br><span class="line">    export *</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  explicit <span class="keyword">module</span> B &#123;</span><br><span class="line">    header <span class="string">"B.h"</span></span><br><span class="line">    export *</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>类似上面的语法，描述了 MyLib、MyLib.A、MyLib.B 这样的模块结构。</p>
+<p>官方文档中有更多相关内容，可以描述框架，描述系统头文件，控制导出的范围，描述依赖关系，链接参数等等。这里不多叙述，举个 libcurl 的例子：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> curl [system] [extern_c] &#123;</span><br><span class="line">    header <span class="string">"/usr/include/curl/curl.h"</span></span><br><span class="line">    link <span class="string">"curl"</span>    </span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将此 modulemap 文件放入任意文件夹，通过 Xcode 选项或者命令行参数，添加路径到 import search path （swift 的 -I 参数）。 然后就可以在 Swift 代码里直接通过 import curl 导入所有的接口函数、结构体、常量等。</p>
+<p>Xcode 选项位于 Build Settings 下面的 Swift Compiler - Search Paths 。添加路劲即可。</p>
+<p>每个Module中必须包涵一个umbrella头文件，这个文件用来import所有这个Module下的文件。</p>
+<p>大致关系为：import module -&gt; import umbrella header -&gt; other header</p>
+<p>使用 Module 库的调用方式：</p>
+<table>
+<thead>
+<tr>
+<th>项目类型</th>
+<th>OC库(GDTPackage)</th>
+<th>Swift库(GDTPackage)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>OC 项目</td>
+<td>#import &lt;GDTPackage/GDTPackage.h&gt;</td>
+<td>#import &lt;GDTPackage-Swift.h&gt;</td>
+</tr>
+<tr>
+<td>Swift 项目</td>
+<td>import GDTPackage</td>
+<td>import GDTPackage</td>
+</tr>
+</tbody></table>
+<p><code>GDTPackage.h</code> 其实就是 <code>umbrella header/master header</code>。</p>
+<h2 id="CocoaPods-自定义-Module"><a href="#CocoaPods-自定义-Module" class="headerlink" title="CocoaPods 自定义 Module"></a>CocoaPods 自定义 Module</h2><p>我们以桥接 GDTMobSDK 为例。</p>
+<h3 id="创建-GDTPackage-库"><a href="#创建-GDTPackage-库" class="headerlink" title="创建 GDTPackage 库"></a>创建 GDTPackage 库</h3><p>通过 CocoaPods 提供的命令行创建库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pod lib create GDTPackage</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="创建-module-modulemap-和-BridgeHeader-h"><a href="#创建-module-modulemap-和-BridgeHeader-h" class="headerlink" title="创建 module.modulemap 和 BridgeHeader.h"></a>创建 module.modulemap 和 BridgeHeader.h</h3><p>在项目中新建 <code>module.modulemap</code> 和 <code>BridgeHeader.h</code>，将它们放在同一个文件夹下 <code>GDTPackage/Module</code>。</p>
+<p><code>module.modulemap</code> 代码如下：</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> GDTPackageBridge &#123;</span><br><span class="line">    header <span class="string">"BridgeHeader.h"</span></span><br><span class="line">    export *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>BridgeHeader.h</code> 代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;GDTMobSDK&#x2F;GDTMobBannerView.h&gt;</span><br><span class="line">#import &lt;GDTMobSDK&#x2F;GDTRewardVideoAd.h&gt;</span><br><span class="line">#import &lt;GDTMobSDK&#x2F;GDTNativeExpressAd.h&gt;</span><br><span class="line">#import &lt;GDTMobSDK&#x2F;GDTNativeExpressAdView.h&gt;</span><br><span class="line">#import &lt;GDTMobSDK&#x2F;GDTMobInterstitial.h&gt;</span><br><span class="line">#import &lt;GDTMobSDK&#x2F;GDTSplashAd.h&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>GDTPackage.podspec</code> 部分代码：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  s.static_framework = <span class="literal">true</span></span><br><span class="line">  s.source_files = <span class="string">'GDTPackage/Classes/**/*'</span></span><br><span class="line">  </span><br><span class="line">  s.preserve_paths = [<span class="string">'GDTPackage/Module/module.modulemap'</span>, <span class="string">'GDTPackage/Module/BridgeHeader.h'</span>]</span><br><span class="line">  s.pod_target_xcconfig = &#123;</span><br><span class="line">    <span class="comment"># 路径根据实际情况进行引用，必须保证路径是正确的</span></span><br><span class="line">    <span class="string">'SWIFT_INCLUDE_PATHS'</span> =&gt; [<span class="string">'$(PODS_ROOT)/GDTPackage/Module'</span>, <span class="string">'$(PODS_TARGET_SRCROOT)/GDTPackage/Module'</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  s.dependency <span class="string">'GDTMobSDK'</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码中引用-GDTPackageBridge"><a href="#代码中引用-GDTPackageBridge" class="headerlink" title="代码中引用 GDTPackageBridge"></a>代码中引用 GDTPackageBridge</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> GDTPackageBridge</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GDTPackage</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="type">GDTSplashAd</span>.<span class="keyword">init</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p>如果已经在 <code>preserve_paths</code> 添加了 <code>modulemap</code> 和 <code>header</code>，可以不用在 <code>source_files</code> 里再加一遍，如果要在 <code>source_files</code> 里加也可以，记得指定 <code>public_header_files</code>。如果没有指定，你自己创建的 <code>modulemap</code> 也会当做 <code>public</code> 处理。这样 <code>lint</code> 的时候会报 <code>Include of non-modular header inside framework module</code>。</p>
+</li>
+<li><p><code>lint</code> 时遇到 <code>Include of non-modular header inside framework module</code> 错误，可以在后面添加 <code>--use-libraries</code>。虽然能验证和上传通过，但是其他项目引用的时候还是会有问题。</p>
+</li>
+<li><p><code>user_target_xcconfig</code> 是针对所有 <code>Pod</code> 的，可能和其他 <code>Pod</code> 存在冲突。<code>pod_target_xcconfig</code> 是针对当前 <code>Pod</code> 的。</p>
+</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a href="http://clang.llvm.org/docs/Modules.html" target="_blank" rel="noopener">Modules - Clang 12 documentation</a></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/07/28/swift-use-static-framework/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/28/swift-use-static-framework/" class="post-title-link" itemprop="url">CocoaPods 快速使用 Swift 静态库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-28 22:26:12" itemprop="dateCreated datePublished" datetime="2020-07-28T22:26:12+08:00">2020-07-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>919</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>想在项目中使用静态库功能，需要在 Podspec 显示指定 s.static_framework = true，对于多个 Pod 的项目来说，一个个改起来太麻烦了，也不现实。但是 CocoaPods 是 Ruby 写的，我们可以通过 patch CocoaPods 来实现在只写几行代码的情况下，把所有 pod 变成 Static Framework。</p>
+<p>通过分析 CocoaPods 的源代码发现，CocoaPods 会通过  Pod -&gt; Installer -&gt; Analyzer -&gt; determine_build_type 这个方法来决定每个 podspec 的 build type，我们可以通过 patch 这个方法来改写。</p>
+<p>在 Podfile 的同级目录创建 <code>patch_static_framework.rb</code></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Pod</span></span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Installer</span></span></span><br><span class="line">        <span class="class"><span class="keyword">class</span> <span class="title">Analyzer</span></span></span><br><span class="line">            <span class="function"><span class="keyword">def</span> <span class="title">determine_build_type</span><span class="params">(spec, target_definition_build_type)</span></span></span><br><span class="line">                <span class="keyword">if</span> target_definition_build_type.framework?</span><br><span class="line">                    <span class="comment"># 过滤掉只能动态库方式的framework，或者不确定的framework</span></span><br><span class="line">                    dynamic_frameworks = [<span class="string">'xxxxx'</span>]</span><br><span class="line">                    <span class="keyword">if</span> !dynamic_frameworks.<span class="keyword">include</span>?(spec.root.name)</span><br><span class="line">                        <span class="keyword">return</span> BuildType.static_framework</span><br><span class="line">                    <span class="keyword">end</span></span><br><span class="line">                    root_spec = spec.root</span><br><span class="line">                    root_spec.static_framework ? BuildType.static_framework : target_definition_build_type</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    BuildType.static_library</span><br><span class="line">                <span class="keyword">end</span></span><br><span class="line">            <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>在 Podfile 的最上面，引入该文件</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require_relative <span class="string">'patch_static_framework'</span></span><br></pre></td></tr></table></figure>
+
+<p>这样 patch 就会在 pod install 的时候生效，我们就不需要改每个 Pod 的 Podspec 就可以实现每个 Pod 都是 static_framework。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/05/24/jailbreak-user-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/24/jailbreak-user-guide/" class="post-title-link" itemprop="url">iOS 越狱指南</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-24 15:08:28" itemprop="dateCreated datePublished" datetime="2020-05-24T15:08:28+08:00">2020-05-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="越狱软件"><a href="#越狱软件" class="headerlink" title="越狱软件"></a>越狱软件</h2><h3 id="越狱软件统计（更新日期：2020-05-24）"><a href="#越狱软件统计（更新日期：2020-05-24）" class="headerlink" title="越狱软件统计（更新日期：2020-05-24）"></a>越狱软件统计（更新日期：2020-05-24）</h3><table>
+<thead>
+<tr>
+<th>越狱软件</th>
+<th>最新版本</th>
+<th>支持设备</th>
+<th>支持版本</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://unc0ver.dev" target="_blank" rel="noopener">unc0ver</a></td>
+<td>5.0.0</td>
+<td>A7 ~ A13</td>
+<td>iOS 11.0 ~ 13.5</td>
+<td><a href="https://github.com/pwn20wndstuff/Undecimus/" target="_blank" rel="noopener">https://github.com/pwn20wndstuff/Undecimus/</a></td>
+</tr>
+<tr>
+<td><a href="https://checkra.in" target="_blank" rel="noopener">checkra1n</a></td>
+<td>0.10.2 beta</td>
+<td>iPhone 5s ~ iPhone X</td>
+<td>iOS 12.3 ~</td>
+<td>未释放</td>
+</tr>
+<tr>
+<td><a href="https://chimera.sh" target="_blank" rel="noopener">Chimera</a></td>
+<td>1.4.0</td>
+<td>所有设备</td>
+<td>iOS 12 ~ 12.2 and 12.4，tvOS 12 ~ 12.2 and 12.4</td>
+<td><a href="https://github.com/coolstar/Chimera13" target="_blank" rel="noopener">https://github.com/coolstar/Chimera13</a></td>
+</tr>
+<tr>
+<td><a href="https://coolstar.org/electra/" target="_blank" rel="noopener">Electra</a></td>
+<td>1.3.2</td>
+<td>所有设备</td>
+<td>iOS 11.0 – 11.4.1</td>
+<td><a href="https://github.com/coolstar/electra" target="_blank" rel="noopener">https://github.com/coolstar/electra</a></td>
+</tr>
+<tr>
+<td><a href="https://meridian.sparkes.zone" target="_blank" rel="noopener">Meridian</a></td>
+<td>v0.9-007 Pre-Release</td>
+<td>所有64位设备</td>
+<td>iOS 10 ~ 10.3.3</td>
+<td><a href="https://github.com/PsychoTea/MeridianJB" target="_blank" rel="noopener">https://github.com/PsychoTea/MeridianJB</a></td>
+</tr>
+<tr>
+<td><a href="https://doubleh3lix.tihmstar.net" target="_blank" rel="noopener">Doubleh3lix</a></td>
+<td>RC8</td>
+<td>所有64位A7 ~ A9</td>
+<td>iOS 10.x</td>
+<td>无</td>
+</tr>
+<tr>
+<td><a href="https://yalu.qwertyoruiop.com" target="_blank" rel="noopener">yalu102</a></td>
+<td>beta7</td>
+<td>所有64位设备除了iPhone7</td>
+<td>iOS 10.x</td>
+<td><a href="https://github.com/kpwn/yalu102" target="_blank" rel="noopener">https://github.com/kpwn/yalu102</a></td>
+</tr>
+</tbody></table>
+<h3 id="越狱工具"><a href="#越狱工具" class="headerlink" title="越狱工具"></a>越狱工具</h3><ul>
+<li><a href="http://www.cydiaimpactor.com/" target="_blank" rel="noopener">Cydia Impactor</a><ol>
+<li>Note: This method requires an Apple developer account.</li>
+<li>Download <a href="http://www.cydiaimpactor.com/" target="_blank" rel="noopener">Cydia Impactor</a> for the applicable OS.</li>
+<li>Extract the application file, and open it.</li>
+<li>Connect your iOS device.</li>
+<li>Download the latest version of unc0ver from above.</li>
+<li>Drag the IPA file into the Impactor window.</li>
+<li>Enter your Apple ID and password (requires developer account). (Note: If you are using two factor authentication, generate an app specific password, and use that here.)</li>
+<li>On your iOS device, open Settings → General → Device Management and tap on your Apple ID.</li>
+<li>Trust unc0ver.</li>
+<li>Open unc0ver and jailbreak!</li>
+</ol>
+</li>
+<li><a href="https://www.altstore.io/" target="_blank" rel="noopener">AltStore</a><ol>
+<li>Download <a href="https://www.altstore.io/" target="_blank" rel="noopener">AltStore</a>. Use the link for your operating system.</li>
+<li>Unzip and move AltStore to your Applications folder.</li>
+<li>Launch the AltStore application.</li>
+<li>Click on the AltStore icon in the Menu Bar, and then click on the Install Mail Plug-in option.</li>
+<li>Open the Mail app, and click on Mail → Preferences in the menu bar.</li>
+<li>Open the General tab in mail preferences, click Manage Plug-ins, check AltPlugin, and apply and restart Mail.</li>
+<li>Connect your iOS device via USB.</li>
+<li>Click AltStore in the menu bar, then go to Install AltStore → (Your iOS Device)</li>
+<li>Login with your Apple ID when prompted and click install.</li>
+<li>On your iOS device, open Settings → General → Device Management and tap on your Apple ID.</li>
+<li>Trust AltStore.</li>
+<li>Tap the “Open in AltStore” button located above.</li>
+<li>AltStore will now install the app. Wait until it finishes.</li>
+<li>Open unc0ver and jailbreak!</li>
+</ol>
+</li>
+<li><a href="https://dantheman827.github.io/ios-app-signer/" target="_blank" rel="noopener">iOS App Signer</a><ol>
+<li>Install Xcode, open it, and agree to the license agreement.</li>
+<li>Plug in your iOS device and select it as the build target.</li>
+<li>Open Xcode and create a new iOS Application.</li>
+<li>Type a name and identifier.</li>
+<li>Xcode will complain about the lack of a provisioning profile. Click fix issue.</li>
+<li>Sign into an Apple ID when prompted.</li>
+<li>Download <a href="https://dantheman827.github.io/ios-app-signer/" target="_blank" rel="noopener">iOS App Signer</a></li>
+<li>Download the latest version of unc0ver from above.</li>
+<li>Open iOS App Signer.</li>
+<li>Select the ipa you just downloaded as an input file.</li>
+<li>Click start.</li>
+<li>Return to Xcode. Go to the menu bar. Click Window → Devices.</li>
+<li>Find your device, click the plus, and select the file created by iOS App Signer.</li>
+<li>Open unc0ver on your device and jailbreak!</li>
+</ol>
+</li>
+</ul>
+<h2 id="Cydia源-amp-常用软件"><a href="#Cydia源-amp-常用软件" class="headerlink" title="Cydia源&amp;常用软件"></a>Cydia源&amp;常用软件</h2><h3 id="BigBoss"><a href="#BigBoss" class="headerlink" title="BigBoss"></a>BigBoss</h3><p>源：<a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a></p>
+<ul>
+<li>OpenSSH</li>
+<li>FLEXing</li>
+<li>LookinLoader</li>
+<li>LocationFakerX</li>
+<li>AnyWhere!–虚拟定位</li>
+</ul>
+<h3 id="Binger"><a href="#Binger" class="headerlink" title="Binger"></a>Binger</h3><p>源：<a href="https://apt.bingner.com/" target="_blank" rel="noopener">https://apt.bingner.com/</a></p>
+<ul>
+<li>Class Dump</li>
+</ul>
+<h3 id="Frida"><a href="#Frida" class="headerlink" title="Frida"></a>Frida</h3><p>源：<a href="https://build.frida.re/" target="_blank" rel="noopener">https://build.frida.re/</a></p>
+<ul>
+<li>Frida</li>
+</ul>
+<h3 id="Chariz"><a href="#Chariz" class="headerlink" title="Chariz"></a>Chariz</h3><p>源：<a href="https://repo.chariz.com/" target="_blank" rel="noopener">https://repo.chariz.com/</a></p>
+<ul>
+<li>Cephei</li>
+<li>NewTerm</li>
+<li>QuitAll</li>
+</ul>
+<h3 id="TIGI-Software"><a href="#TIGI-Software" class="headerlink" title="TIGI Software"></a>TIGI Software</h3><p>源：<a href="https://tigisoftware.com/cydia/" target="_blank" rel="noopener">https://tigisoftware.com/cydia/</a></p>
+<ul>
+<li>Apps Manager</li>
+<li>Filza File Manager</li>
+</ul>
+<h3 id="Matchstic"><a href="#Matchstic" class="headerlink" title="Matchstic"></a>Matchstic</h3><p>源：<a href="https://repo.incendo.ws/" target="_blank" rel="noopener">https://repo.incendo.ws/</a></p>
+<ul>
+<li>ReProvision</li>
+</ul>
+<h3 id="雷锋源"><a href="#雷锋源" class="headerlink" title="雷锋源"></a>雷锋源</h3><p>源：<a href="https://apt.abcydia.com/" target="_blank" rel="noopener">https://apt.abcydia.com/</a></p>
+<ul>
+<li>AppStore++ 应用降级</li>
+<li>iCleaner Pro</li>
+<li>NetControl 联网控制</li>
+<li>Shadow 屏蔽越狱检测</li>
+<li>eSim+ 双卡增强</li>
+<li>FlyJB 屏蔽越狱检测</li>
+<li>NtSpeed 悬浮网速</li>
+<li>Filza File 文件管理器</li>
+<li>CacheClearerXI 缓存清理</li>
+<li>Snapper 2 智能截图</li>
+<li>CarBridge 汽车互联</li>
+<li>AudioRecorder XS 通话录音</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/05/04/fastlane-in-action-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/04/fastlane-in-action-1/" class="post-title-link" itemprop="url">Fastlane 实践（一）：自动化打包和发布</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-04 13:38:31" itemprop="dateCreated datePublished" datetime="2020-05-04T13:38:31+08:00">2020-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>20k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>18 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://docs.fastlane.tools/img/fastlane_text.png" alt=""></p>
+<blockquote>
+<p>fastlane is the easiest way to automate beta deployments and releases for your iOS and Android apps. 🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.</p>
+</blockquote>
+<p>fastlane 是自动化Beta部署和发布iOS和Android应用程序最简单方法。它可以处理所有繁琐的任务，例如生成屏幕截图，处理代码签名以及发布应用程序。</p>
+<h2 id="Fastlane-安装"><a href="#Fastlane-安装" class="headerlink" title="Fastlane 安装"></a>Fastlane 安装</h2><h3 id="安装-Xcode-command-line-tools"><a href="#安装-Xcode-command-line-tools" class="headerlink" title="安装 Xcode command line tools"></a>安装 Xcode command line tools</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> xcode-select --install</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> /usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-RVM"><a href="#安装-RVM" class="headerlink" title="安装 RVM"></a>安装 RVM</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.rvm/scripts/rvm</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 RVM 的 Ruby 安装源到 Ruby China 的 Ruby 镜像服务器，这样能提高安装速度。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"ruby_url=https://cache.ruby-china.org/pub/ruby"</span> &gt; ~/.rvm/user/db</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="安装Ruby-2-6-5"><a href="#安装Ruby-2-6-5" class="headerlink" title="安装Ruby 2.6.5"></a>安装Ruby 2.6.5</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rvm install 2.6.5</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rvm use 2.6.5 --default</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="更新-RubyGems-镜像"><a href="#更新-RubyGems-镜像" class="headerlink" title="更新 RubyGems 镜像"></a>更新 RubyGems 镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem sources -l</span></span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保只有 gems.ruby-china.org</span></span><br><span class="line">bundle config mirror.https://rubygems.org https://gems.ruby-china.org</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-CocoaPods-和-Fastlane"><a href="#安装-CocoaPods-和-Fastlane" class="headerlink" title="安装 CocoaPods 和 Fastlane"></a>安装 CocoaPods 和 Fastlane</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gem install cocoapods</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem install fastlane -NV</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem install bundle</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/05/04/fastlane-in-action-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/05/01/Function-references-in-Swift-and-retain-cycles/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/01/Function-references-in-Swift-and-retain-cycles/" class="post-title-link" itemprop="url">Swift 中函数的引用以及导致的循环引用场景</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-01 14:25:29" itemprop="dateCreated datePublished" datetime="2020-05-01T14:25:29+08:00">2020-05-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Swift 的函数作为一等公民，可以赋值给变量，柯里化，也可以作为参数传递（如果将函数作为参数传递给闭包，只要类型匹配，就可以将函数引用代替内联闭包）。我们可以将函数当作带有名称的特殊闭包，但是使用的时候需要当心。</p>
+<h2 id="0x01-问题"><a href="#0x01-问题" class="headerlink" title="0x01 问题"></a>0x01 问题</h2><p>最近遇到一个在 Swift 中将函数作为参数传递给闭包时，导致循环引用的场景。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassA</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> commandHandler: () -&gt; <span class="type">Void</span> = &#123; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"init ClassA"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">deinit</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"deinit ClassA"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">handle</span><span class="params">(commandHandler: @escaping <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.commandHandler = commandHandler</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassB</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> a: <span class="type">ClassA</span></span><br><span class="line">    <span class="keyword">init</span>(a: <span class="type">ClassA</span>) &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"init ClassB"</span>)</span><br><span class="line">        <span class="keyword">self</span>.a = a</span><br><span class="line">        a.handle(commandHandler: <span class="keyword">self</span>.commandAction)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">deinit</span> &#123;</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"deinit ClassB"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">commandAction</span><span class="params">()</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实例化ClassB，这个时候就会产生循环引用导致内存泄漏。</p>
+<h2 id="0x02-实例函数是柯里化类函数"><a href="#0x02-实例函数是柯里化类函数" class="headerlink" title="0x02 实例函数是柯里化类函数"></a>0x02 实例函数是柯里化类函数</h2><p>在Swift中，实例函数只是<a href="https://en.wikipedia.org/wiki/Currying" target="_blank" rel="noopener">柯里化</a>类函数，该类函数将实例作为第一个参数，并隐式地使第一个参数作为<code>self</code>可供函数体使用。 因此，以下两个是等价的：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]</span><br><span class="line">numbers.<span class="built_in">contains</span>(<span class="number">3</span>) <span class="comment">//true</span></span><br><span class="line"><span class="type">Array</span>.<span class="built_in">contains</span>(numbers)(<span class="number">3</span>) <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p>而且，这些也是等价的：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handler1 = <span class="keyword">self</span>.commandAction</span><br><span class="line"><span class="keyword">let</span> handler2 = <span class="keyword">self</span>.<span class="keyword">dynamicType</span>.commandAction(<span class="keyword">self</span>)</span><br><span class="line"><span class="keyword">let</span> handler3 = &#123; [<span class="keyword">unowned</span> <span class="keyword">self</span>] <span class="keyword">in</span> <span class="keyword">self</span>.commandAction() &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="0x03-可以通过泛型函数来管理内存"><a href="#0x03-可以通过泛型函数来管理内存" class="headerlink" title="0x03 可以通过泛型函数来管理内存"></a>0x03 可以通过泛型函数来管理内存</h2><p>如果我们要从上面的 <code>handler2</code> 中获取 <code>self.dynamicType.commandAction</code>，但是没有参数 <code>(self)</code>作为参数传递给了包装函数以便引用 <code>self</code>，我们改怎么办呢？ 我们可以通过<code>unowend</code>来引用，并将 <code>unowned</code> 实例引用传递给类函数获取一个实例函数，而且不会导致循环引用。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">unown</span>&lt;T: AnyObject, V&gt;<span class="params">(<span class="number">_</span> instance: T, <span class="number">_</span> classFunction: @escaping <span class="params">(T)</span></span></span> -&gt; (() -&gt; <span class="type">V</span>)) -&gt; () -&gt; <span class="type">V</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; [<span class="keyword">unowned</span> instance] <span class="keyword">in</span> classFunction(instance)() &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">unown</span>&lt;T: AnyObject, U, V&gt;<span class="params">(<span class="number">_</span> instance: T, <span class="number">_</span> classFunction: @escaping <span class="params">(T)</span></span></span> -&gt; ((<span class="type">U</span>) -&gt; <span class="type">V</span>)) -&gt; (<span class="type">U</span>) -&gt; <span class="type">V</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123; [<span class="keyword">unowned</span> instance] <span class="keyword">in</span> classFunction(instance)($<span class="number">0</span>) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的话，我们就可以通过以下方式来获取实例方法的引用，而且我们不会强引用<code>self</code>。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> handler4 = unown(<span class="keyword">self</span>, <span class="keyword">self</span>.<span class="keyword">dynamicType</span>.commandAction)</span><br></pre></td></tr></table></figure>
+
+<p>缺点是，函数每增加一个参数，我们就需要写一个泛型函数来管理内存。而且，由于使用的是<code>unowned</code>管理内存，如果使用不当会导致野指针访问导致崩溃。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
+<li><a href="https://sveinhal.github.io/2016/03/16/retain-cycles-function-references/" target="_blank" rel="noopener">https://sveinhal.github.io/2016/03/16/retain-cycles-function-references/</a></li>
+<li><a href="https://xebia.com/blog/function-references-in-swift-and-retain-cycles/" target="_blank" rel="noopener">https://xebia.com/blog/function-references-in-swift-and-retain-cycles/</a></li>
+<li><a href="https://forums.swift.org/t/implicit-retain-cycle/15238" target="_blank" rel="noopener">https://forums.swift.org/t/implicit-retain-cycle/15238</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/04/20/optimize-xcode-build-time/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/20/optimize-xcode-build-time/" class="post-title-link" itemprop="url">记录一次优化 Xcode 编译的过程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-20 09:48:18" itemprop="dateCreated datePublished" datetime="2020-04-20T09:48:18+08:00">2020-04-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>接触新项目后，发现没有改代码的情况下，每次编译基本上编译时间都在一分钟左右。就有了一个想法去解决这个问题，断断续续花了三天时间解决，解决过程中，学习到很多，记录下来。</p>
+<h2 id="0x01-发现问题"><a href="#0x01-发现问题" class="headerlink" title="0x01 发现问题"></a>0x01 发现问题</h2><h3 id="开启编译耗时显示"><a href="#开启编译耗时显示" class="headerlink" title="开启编译耗时显示"></a>开启编译耗时显示</h3><p>打开终端执行以下命令并重启Xcode：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编译-Build"><a href="#编译-Build" class="headerlink" title="编译 Build"></a>编译 Build</h3><p><img src="http://file.blog.chaosky.tech/2020/04/18/1587205361-WX20200418-182140@2x.png" alt="WX20200418-182140@2x"></p>
+<p>编译时长 56.3 s，其中耗时比较长的过程为以下：</p>
+<ul>
+<li><strong>Compile asset catalogs</strong>：23.5 s</li>
+<li><strong>[CP]Embed Pods Frameworks</strong>：7.4 s</li>
+<li><strong>[CP] Copy Pods Resources</strong>：17.6 s</li>
+</ul>
+<h2 id="0x02-分析-amp-解决问题"><a href="#0x02-分析-amp-解决问题" class="headerlink" title="0x02 分析&amp;解决问题"></a>0x02 分析&amp;解决问题</h2><h3 id="开始尝试优化-Xcode-编译速度"><a href="#开始尝试优化-Xcode-编译速度" class="headerlink" title="开始尝试优化 Xcode 编译速度"></a>开始尝试优化 Xcode 编译速度</h3><p>发现编译耗时集中在上面三个过程中，一开始主要关注于 Xcode 本身编译提升，看了很多关于提升 Xcode 编译速度的文章，比如这篇文章：<a href="https://elliotsomething.github.io/2018/05/23/XCodeBuild/" target="_blank" rel="noopener">https://elliotsomething.github.io/2018/05/23/XCodeBuild/</a></p>
+<h4 id="编译时长优化-Find-Implicit-Dependencies"><a href="#编译时长优化-Find-Implicit-Dependencies" class="headerlink" title="编译时长优化 Find Implicit Dependencies"></a>编译时长优化 Find Implicit Dependencies</h4><p>对所编译项目的Scheme进行配置 Product &gt; Scheme &gt; Edit Scheme &gt; Build Build Opitions选项中，去掉Find Implicit Dependencies。</p>
+<h4 id="编译线程数优化"><a href="#编译线程数优化" class="headerlink" title="编译线程数优化"></a>编译线程数优化</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> defaults write com.apple.dt.xcodebuild PBXNumberOfParallelBuildSubtasks `sysctl -n hw.ncpu`</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> defaults write com.apple.dt.xcodebuild IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> defaults write com.apple.dt.Xcode PBXNumberOfParallelBuildSubtasks `sysctl -n hw.ncpu`</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> defaults write com.apple.dt.Xcode IDEBuildOperationMaxNumberOfConcurrentCompileTasks `sysctl -n hw.ncpu`</span></span><br></pre></td></tr></table></figure>
+
+<p>其后的数字为指定的编译线程数。Xcode默认使用与CPU核数相同的线程来进行编译，但由于编译过程中的IO操作往往比CPU运算要多，因此适当的提升线程数可以在一定程度上加快编译速度。</p>
+<p>然后做完以上尝试后，优化了4s。😭</p>
+<p>远远没有达到优化的目的。</p>
+<h3 id="寻找另外的解决方向"><a href="#寻找另外的解决方向" class="headerlink" title="寻找另外的解决方向"></a>寻找另外的解决方向</h3><p>从 Xcode 的本身优化不能有任何的提升后，那问题只能出在工程本身，再次分析编译过程的时长发现和 Assets.xcassets 和 Pods 关系很大。先从 CocoaPods 开始分析 Podfile，发现工程的 Podfile 有如下代码：</p>
+<blockquote>
+<p>install! ‘cocoapods’, disable_input_output_paths: true</p>
+</blockquote>
+<p>去掉以后运行 <code>pod install</code>，出现编译出现错误：</p>
+<blockquote>
+<p>error: Multiple commands produce ‘/xxxxx/xxxxx/Assets.car’:</p>
+<p>1) Target ‘xxxx’ (project ‘xxx’) has compile command with input ‘/xxxx/xxxx/Assets.xcassets’</p>
+<p>2) That command depends on command in Target ‘xxx’ (project ‘xxx’): script phase “[CP] Copy Pods Resources”</p>
+</blockquote>
+<p>在 CocoaPods 上找到了这样一个 issue  <a href="https://github.com/CocoaPods/CocoaPods/issues/8122" target="_blank" rel="noopener">https://github.com/CocoaPods/CocoaPods/issues/8122</a>，里面提到主工程里 Assets.xcassets 和 Pods 里有同名的  Assets.xcassets，在 Xcode 10 之前进行编译是不会有问题的，Xcode 只是生成 Warning，但是在 Xcode 10 之后使用了 New Build System 会生成 Errror，提示重复生成 Assets.car。</p>
+<p>issue 里提到了4种解决方案：</p>
+<p>方案1：<a href="https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-424169508" target="_blank" rel="noopener">https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-424169508</a></p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install! <span class="string">'cocoapods'</span>, :<span class="function"><span class="params">disable_input_output_paths</span> =&gt;</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>这个方案会导致每次编译时长增加3x倍多。这也刚好是我们工程采用的方式。</p>
+<p>方案2：<a href="https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-424265887" target="_blank" rel="noopener">https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-424265887</a></p>
+<p> 使用  <code>Legacy Build System</code>  而不是 Xcode 11 的 <code>New Build System</code>。</p>
+<p>方案3：在 Podfile 中添加如下代码</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">project_path = <span class="string">'[YOUR_PROJ_NAME].xcodeproj'</span></span><br><span class="line">project = Xcodeproj::Project.open(project_path)</span><br><span class="line">project.targets.each <span class="keyword">do</span> <span class="params">|target|</span></span><br><span class="line">  build_phase = target.build_phases.find &#123; <span class="params">|bp|</span> bp.display_name == <span class="string">'[CP] Copy Pods Resources'</span> &#125;</span><br><span class="line"></span><br><span class="line">  assets_path = <span class="string">'$&#123;TARGET_BUILD_DIR&#125;/$&#123;UNLOCALIZED_RESOURCES_FOLDER_PATH&#125;/Assets.car'</span></span><br><span class="line">  <span class="keyword">if</span> build_phase.present? &amp;&amp; build_phase.input_paths.<span class="keyword">include</span>?(assets_path) == <span class="literal">false</span></span><br><span class="line">    build_phase.input_paths.push(assets_path)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>这种方案在 CocoaPods 1.8.0 之前可以的，但是在 1.8.0 之后 Input Files 变成了 xcfilelist，就无法直接使用了。</p>
+<p>方案4：<a href="https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-531726302" target="_blank" rel="noopener">https://github.com/CocoaPods/CocoaPods/issues/8122#issuecomment-531726302</a></p>
+<p>主要代码是在 <code>[CP] Copy Pods Resources</code>的 <code>Input Files</code> 或者 <code>Input File Lists</code> 中添加。</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">$ </span><span class="template-variable">&#123;TARGET_BUILD_DIR&#125;</span><span class="xml">/$</span><span class="template-variable">&#123;UNLOCALIZED_RESOURCES_FOLDER_PATH&#125;</span><span class="xml">/Assets.car</span></span><br></pre></td></tr></table></figure>
+
+<p>尝试了以上4种解决方案，只有方案4 符合预期。</p>
+<h2 id="0x03-解决方案"><a href="#0x03-解决方案" class="headerlink" title="0x03 解决方案"></a>0x03 解决方案</h2><p>使用这个 cocoapods 插件：<a href="https://github.com/dreampiggy/cocoapods-xcode-patch" target="_blank" rel="noopener">https://github.com/dreampiggy/cocoapods-xcode-patch</a></p>
+<p>使用 <a href="https://bundler.io/" target="_blank" rel="noopener">Bundler</a> 和 <a href="https://bundler.io/gemfile.html" target="_blank" rel="noopener">Gemfile</a> 添加这个插件：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source <span class="string">"https://rubygems.org"</span></span><br><span class="line"></span><br><span class="line">gem <span class="string">'cocoapods'</span></span><br><span class="line">gem <span class="string">'cocoapods-xcode-patch'</span>, :<span class="function"><span class="params">git</span> =&gt;</span> <span class="string">'https://github.com/dreampiggy/cocoapods-xcode-patch.git'</span></span><br></pre></td></tr></table></figure>
+
+<p>使用  <code>bundle exec pod install</code> 替代 <code>pod install</code> 来加载这个插件。</p>
+<h2 id="0x04-原因分析"><a href="#0x04-原因分析" class="headerlink" title="0x04 原因分析"></a>0x04 原因分析</h2><p>出现这个问题根本原因是因为 CocoaPods 有两种资源管理方式 <code>resource_bundles</code>  和 <code>resources</code> 。</p>
+<p>以下简单介绍下这两种资源管理方式：</p>
+<h3 id="resource-bundles（官方推荐）"><a href="#resource-bundles（官方推荐）" class="headerlink" title="resource_bundles（官方推荐）"></a>resource_bundles（官方推荐）</h3><blockquote>
+<p>This attribute allows to define the name and the file of the resource bundles which should be built for the Pod. They are specified as a hash where the keys represent the name of the bundles and the values the file patterns that they should include.</p>
+<p>For building the Pod as a static library, we strongly <strong>recommend</strong> library developers to adopt resource bundles as there can be name collisions using the resources attribute.</p>
+<p>The names of the bundles should at least include the name of the Pod to minimise the chance of name collisions.</p>
+<p>To provide different resources per platform namespaced bundles <em>must</em> be used.</p>
+</blockquote>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples:"></a>Examples:</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec.ios.resource_bundle</span> = &#123; <span class="string">'MapBox'</span> =&gt; <span class="string">'MapView/Map/Resources/*.png'</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spec.resource_bundles = &#123;</span><br><span class="line">    <span class="symbol">'MapBox'</span> =&gt; [<span class="symbol">'MapView</span>/<span class="type">Map</span>/<span class="type">Resources</span>/*.png'],</span><br><span class="line">    <span class="symbol">'MapBoxOtherResources'</span> =&gt; [<span class="symbol">'MapView</span>/<span class="type">Map</span>/<span class="type">OtherResources</span>/*.png']</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="resources"><a href="#resources" class="headerlink" title="resources"></a>resources</h3><blockquote>
+<p>A list of resources that should be copied into the target bundle.</p>
+<p>For building the Pod as a static library, we strongly <strong>recommend</strong> library developers to adopt <a href="https://guides.cocoapods.org/syntax/podspec.html#resource_bundles" target="_blank" rel="noopener">resource bundles</a> as there can be name collisions using the resources attribute. Moreover, resources specified with this attribute are copied directly to the client target and therefore they are not optimised by Xcode.</p>
+</blockquote>
+<h4 id="Examples-1"><a href="#Examples-1" class="headerlink" title="Examples:"></a>Examples:</h4><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec.resource</span> = <span class="string">'Resources/HockeySDK.bundle'</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spec.resources</span> = [<span class="string">'Images/*.png'</span>, <span class="string">'Sounds/*'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>由于组件化的原因，我们的某个组件采用了<code>Assets.xcassets</code> 和 Storyboard 需要拷贝到主工程中进行引用，Pod 库只能以 <code>resources</code> 的方式引用资源。经过这次优化编译速度有了很大提升。</p>
+<h2 id="0x05-后续：Pods-文件更改没有更新"><a href="#0x05-后续：Pods-文件更改没有更新" class="headerlink" title="0x05 后续：Pods 文件更改没有更新"></a>0x05 后续：Pods 文件更改没有更新</h2><p>优化了 Xcode 编译后，出现另外一个问题：更改 Pods 库后，Pods 库已编译但主工程没有使用最新的frameworks，导致动态链接的时候找不到对应的符号而产生崩溃。</p>
+<p>导致这个问题的原因是 <code>Build Phases</code> 中的 <code>[CP] Embed Pods Frameworks</code> 不是每次都执行，猜测可能是 Xcode 11 的 <code>New Build System</code> 做了优化，导致脚本没有执行。最终想了个办法来解决这个问题，追加命令来执行脚本 <code>find &quot;${PODS_ROOT}&quot; -type f -name *frameworks.sh -exec bash -c &quot;touch \&quot;{}\&quot;&quot; \;</code>，使得脚本每次能执行更新frameworks。</p>
+<p>因为 <code>[CP] Embed Pods Frameworks</code>的脚本是由 CocoaPods 进行修改的，所有我将上面的命令通过hook的方式来追加，具体使用方法可以查看 <a href="https://github.com/chaoskyx/cocoapods-xcode-patch" target="_blank" rel="noopener">https://github.com/chaoskyx/cocoapods-xcode-patch</a>。</p>
+<p>编译时间也有所增加，在工程中测试大概增加了20s左右，还有优化的空间，后续如果想到更好的解决办法再更新。</p>
+<h2 id="0x06-参考链接"><a href="#0x06-参考链接" class="headerlink" title="0x06 参考链接"></a>0x06 参考链接</h2><ul>
+<li><p><a href="https://elliotsomething.github.io/2018/05/23/XCodeBuild/" target="_blank" rel="noopener">https://elliotsomething.github.io/2018/05/23/XCodeBuild/</a></p>
+</li>
+<li><p><a href="https://github.com/CocoaPods/CocoaPods/issues/8122" target="_blank" rel="noopener">https://github.com/CocoaPods/CocoaPods/issues/8122</a></p>
+</li>
+<li><p><a href="https://guides.cocoapods.org/syntax/podspec.html#resource_bundles" target="_blank" rel="noopener">https://guides.cocoapods.org/syntax/podspec.html#resource_bundles</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2019/12/17/Apple-Developer-Program/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,42 +1417,33 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2019-12-17 10:29:18" itemprop="dateCreated datePublished" datetime="2019-12-17T10:29:18+08:00">2019-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
                 </span>
             </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
               <span>599</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
@@ -325,1073 +1499,10 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2017/08/31/Objective-C-Block/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/08/31/Objective-C-Block/" class="post-title-link" itemprop="url">Objective-C Block 分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-31 21:38:29" itemprop="dateCreated datePublished" datetime="2017-08-31T21:38:29+08:00">2017-08-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="分析工具：clang"><a href="#分析工具：clang" class="headerlink" title="分析工具：clang"></a>分析工具：clang</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">clang -rewrite-objc test.m</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> UIKit</span><br><span class="line">clang -x objective-c -rewrite-objc -isysroot <span class="regexp">/Applications/</span>Xcode.app<span class="regexp">/Contents/</span>Developer<span class="regexp">/Platforms/i</span>PhoneSimulator.platform<span class="regexp">/Developer/</span>SDKs<span class="regexp">/iPhoneSimulator.sdk xxxxx.m</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="block-的数据结构定义"><a href="#block-的数据结构定义" class="headerlink" title="block 的数据结构定义"></a>block 的数据结构定义</h2><p><img src="http://blog.devtang.com/images/block-struct.jpg" alt=""></p>
-<p>对应的结构体定义如下：</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Block_descriptor</span> &#123;</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="built_in">size</span>;</span><br><span class="line">    <span class="keyword">void</span> (*copy)(<span class="keyword">void</span> *dst, <span class="keyword">void</span> *src);</span><br><span class="line">    <span class="keyword">void</span> (*dispose)(<span class="keyword">void</span> *);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Block_layout</span> &#123;</span></span><br><span class="line">    <span class="keyword">void</span> *isa;</span><br><span class="line">    <span class="keyword">int</span> flags;</span><br><span class="line">    <span class="keyword">int</span> reserved;</span><br><span class="line">    <span class="keyword">void</span> (*invoke)(<span class="keyword">void</span> *, ...);</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Block_descriptor</span> *<span class="title">descriptor</span>;</span></span><br><span class="line">    <span class="comment">/* Imported variables. */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="block-的三种类型"><a href="#block-的三种类型" class="headerlink" title="block 的三种类型"></a>block 的三种类型</h2><ol>
-<li>_NSConcreteGlobalBlock 全局的静态 block，不会访问任何外部变量。</li>
-<li>_NSConcreteStackBlock 保存在栈中的 block，当函数返回时会被销毁。</li>
-<li>_NSConcreteMallocBlock 保存在堆中的 block，当引用计数为 0 时会被销毁。</li>
-</ol>
-<p><img src="http://file.blog.chaosky.tech/1155481-5436194b4c0899b8.png" alt=""></p>
-<p>block对变量的捕获规则：</p>
-<ol>
-<li><p>静态存储区的变量：例如全局变量、方法中的static变量<br> 引用，可修改。</p>
-</li>
-<li><p>block接受的参数<br> 传值，可修改，和一般函数的参数相同。</p>
-</li>
-<li><p>栈变量 (被捕获的上下文变量)<br> const，不可修改。 当block被copy后，block会对 id类型的变量产生强引用。<br> 每次执行block时,捕获到的变量都是最初的值。</p>
-</li>
-<li><p>栈变量 (有__block前缀)<br> 引用，可以修改。如果时id类型则不会被block retain,必须手动处理其内存管理。<br> 如果该类型是C类型变量，block被copy到heap后,该值也会被挪动到heap</p>
-</li>
-</ol>
-<h2 id="变量的复制"><a href="#变量的复制" class="headerlink" title="变量的复制"></a>变量的复制</h2><p>对于 block 外的变量引用，block 默认是将其复制到其数据结构中来实现访问的。</p>
-<p><img src="http://blog.devtang.com/images/block-capture-1.jpg" alt=""></p>
-<p>对于用 __block 修饰的外部变量引用，block 是复制其引用地址来实现访问的。</p>
-<p><img src="http://blog.devtang.com/images/block-capture-2.jpg" alt=""></p>
-<h2 id="嵌套block"><a href="#嵌套block" class="headerlink" title="嵌套block"></a>嵌套block</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setUpModel&#123;</span><br><span class="line">    XYModel *model = [XYModel new];</span><br><span class="line"></span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    model.dataChanged = ^(<span class="built_in">NSString</span> *title) &#123;</span><br><span class="line">        __<span class="keyword">strong</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) strongSelf = weakSelf;</span><br><span class="line">        strongSelf.titleLabel.text = title;</span><br><span class="line"></span><br><span class="line">        __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf2 = strongSelf;</span><br><span class="line">        strongSelf.model.dataChanged = ^(<span class="built_in">NSString</span> *title2) &#123;</span><br><span class="line">            __<span class="keyword">strong</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) strongSelf2 = weakSelf2;</span><br><span class="line">            strongSelf2.titleLabel.text = title2;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.model = model;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样，就避免的引用循环，总结一下，不管都多少个block嵌套，皆按此法</p>
-<h2 id="weakify-strongify-使用"><a href="#weakify-strongify-使用" class="headerlink" title="@weakify, @strongify 使用"></a>@weakify, @strongify 使用</h2><script src="https://gist.github.com/chaoskyme/041628148019749e13f49756010eea94.js"></script>
-
-<ol>
-<li><p>weakify(self)展开后是: *<em>weak typeof(self) *</em>weak_self = self;</p>
-</li>
-<li><p>strongify(self)展开后是：*<em>strong typeof(self) self = *</em>weak_self;</p>
-</li>
-<li><p>在block中使用strongify(self);的目的是确保在block作用域内self不会被其它线程释放掉</p>
-</li>
-<li><p>以前我们在block中直接使用__weak_self来解除循环引用。这本身没有问题，之所以还要加strongify(self)就是为了避免block中代码执行过程中由于其它线程释放了self导致block内执行的逻辑出现问题。例如：会出现执行前几句代码时访问self还是存在的，但后面的self调用已经变为nil了</p>
-</li>
-<li><p>如果是在block外部定义strongify(self)虽然在block中的self还是指向(跳转到定义)这个strongify(self)。但因为方法调用结束后strongify(self)定义的局部self变量被释放了，所以这种做法就回退到了[4]</p>
-</li>
-<li><p>由5可知，如果block中有多个嵌套的block异步调用，那么每一个block中都要再定义一个strongify(self);</p>
-</li>
-<li><p>虽然在多层嵌套的block中，定义weakify(self)也是可行的。但是不推荐这么做</p>
-</li>
-<li><p>swift中使用unowned和weak来解决循环引用问题，基本原理同OC。但unowned本质上是__unsafe_unretained即assign，所以使用起来要小心野指针。还是推荐无脑用weak</p>
-</li>
-<li><p>不过要达到[3]中的效果，就要在当前closure的作用域内retain下self，只不过有个小麻烦是没法像OC中写的那么自然——不能使用self了。例子如下：</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">obj.doSomething</span> &#123;[weak <span class="keyword">self] </span>in</span><br><span class="line">  <span class="meta">if</span> let <span class="keyword">strong_self </span>= <span class="keyword">self </span>&#123;</span><br><span class="line">      <span class="keyword">strong_self.Member_XXX</span></span><br><span class="line"><span class="keyword"> </span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>总结：多层嵌套的block，只需要对最外层block传入的<code>self</code>进行weak化即可。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ol>
-<li><a href="http://blog.devtang.com/2013/07/28/a-look-inside-blocks/" target="_blank" rel="noopener">谈Objective-C block的实现</a></li>
-<li><a href="https://www.zybuluo.com/MicroCai/note/51116" target="_blank" rel="noopener"> block没那么难（一）：block的实现</a></li>
-<li><a href="https://www.zybuluo.com/MicroCai/note/57603" target="_blank" rel="noopener"> block没那么难（二）：block和变量的内存管理</a></li>
-<li><a href="https://www.zybuluo.com/MicroCai/note/58470" target="_blank" rel="noopener"> block没那么难（三）：block和对象的内存管理</a></li>
-<li><a href="http://www.jianshu.com/p/ee9756f3d5f6#" target="_blank" rel="noopener">深入研究Block捕获外部变量和__block实现原理</a></li>
-<li><a href="http://www.jianshu.com/p/701da54bd78c" target="_blank" rel="noopener">深入研究Block用weakSelf、strongSelf、@weakify、@strongify解决循环引用</a></li>
-<li><a href="http://draveness.me/block-retain-object.html" target="_blank" rel="noopener">iOS 中的 block 是如何持有对象的</a></li>
-<li><a href="http://blog.ibireme.com/2013/11/27/objc-block/" target="_blank" rel="noopener">objc 中的 block</a></li>
-<li><a href="http://www.90159.com/2015/08/04/ios-block-ultimate/" target="_blank" rel="noopener">iOS开发之block终极篇</a></li>
-<li><a href="http://www.wangjiawen.com/ios/ios-block-usage-and-implementation" target="_blank" rel="noopener">iOS Block用法和实现原理</a></li>
-<li><a href="http://www.cnblogs.com/iOS-mt/p/4227336.html" target="_blank" rel="noopener">OC高级编程——深入block，如何捕获变量，如何存储在堆上</a></li>
-<li><a href="http://www.galloway.me.uk/2012/10/a-look-inside-blocks-episode-1/" target="_blank" rel="noopener">A look inside blocks: Episode 1</a></li>
-<li><a href="http://www.galloway.me.uk/2012/10/a-look-inside-blocks-episode-2/" target="_blank" rel="noopener">A look inside blocks: Episode 2</a></li>
-<li><a href="http://www.galloway.me.uk/2013/05/a-look-inside-blocks-episode-3-block-copy/" target="_blank" rel="noopener">A look inside blocks: Episode 3</a></li>
-<li><a href="http://www.cnblogs.com/biosli/archive/2013/05/29/iOS_Objective-C_Block.html" target="_blank" rel="noopener">对 Objective-C 中 Block 的追探</a></li>
-<li><a href="https://opensource.apple.com/source/libclosure/libclosure-63/" target="_blank" rel="noopener">LLVM 中 block 实现源码</a></li>
-<li><a href="http://blog.parse.com/2013/02/05/objective-c-blocks-quiz/" target="_blank" rel="noopener">objective-c-blocks-quiz</a></li>
-<li><a href="http://fuckingclangwarnings.com" target="_blank" rel="noopener">Which Clang Warning Is Generating This Message?</a></li>
-<li><a href="http://www.jianshu.com/p/bc15591784ce" target="_blank" rel="noopener">iOS 内存泄漏分析</a></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2017/02/23/Cocos2d-x-Install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/02/23/Cocos2d-x-Install/" class="post-title-link" itemprop="url">OS X Cocos2d-x 环境搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-02-23 22:32:32" itemprop="dateCreated datePublished" datetime="2017-02-23T22:32:32+08:00">2017-02-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏开发</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.2k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Cocos2d-x-引擎"><a href="#Cocos2d-x-引擎" class="headerlink" title="Cocos2d-x 引擎"></a>Cocos2d-x 引擎</h2><p>Cocos2d-x引擎可在 Cocos官网下载，其下载地址为：<a href="http://www.cocos.com/download/" target="_blank" rel="noopener">http://www.cocos.com/download/</a>。当然，亦可从Cocos2d-x的 GitHub 仓库拉取，仓库地址：<a href="https://github.com/cocos2d/cocos2d-x" target="_blank" rel="noopener">https://github.com/cocos2d/cocos2d-x</a>。下载完成后，引擎包的主要内容下。<br><img src="http://file.blog.chaosky.tech/2017-03-06-framework_architecture.jpg" alt="framework_architecture"></p>
-<ul>
-<li>AUTHORS：作者目录，包含所有给Cocos2d-x引擎贡献代码的开发者</li>
-<li>build：包含测试例子、cocos2d_lib的Xcode以及Visual Studio工程</li>
-<li>CHANGELOG：所有历史版本详细改动列表</li>
-<li>CMakeLists.txt：cmake配置文件</li>
-<li>cocos：Cocos2d-x引擎源代码</li>
-<li>CONTRIBUTING.md：贡献代码指南</li>
-<li>docs：包含JavaScript代码风格规范、当前发布说明和当前版本升级指南</li>
-<li>download-deps.py：下载第三方库的脚本</li>
-<li>extensions：第三方扩展</li>
-<li>external：存放第三方库的文件夹</li>
-<li>licenses：所有许可协议</li>
-<li>plugin：插件</li>
-<li>README.cmake：针对cmake用法的说明文件</li>
-<li>README.md：Cocos2d-x引擎简介</li>
-<li>setup.py：Cocos Console的安装脚本</li>
-<li>templates：Cocos Console创建项目时使用的模板</li>
-<li>tests：各分支的测试项目</li>
-<li>tools：工具文件夹</li>
-<li>—bindings-generator：脚本绑定工具</li>
-<li>—cocos2d-console：Cocos Console工具</li>
-<li>—tojs：JSB自动绑定配置文件以及生成脚本</li>
-<li>—tolua：Lua绑定配置文件以及生成脚本</li>
-<li>web：Cocos2d-JS游戏引擎</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/02/23/Cocos2d-x-Install/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2017/02/22/Team-Mode-Development-Process/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/02/22/Team-Mode-Development-Process/" class="post-title-link" itemprop="url">软件团队模式和开发流程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-02-22 18:11:12" itemprop="dateCreated datePublished" datetime="2017-02-22T18:11:12+08:00">2017-02-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">软件设计</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>6 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="软件团队的模式"><a href="#软件团队的模式" class="headerlink" title="软件团队的模式"></a>软件团队的模式</h2><h3 id="主治医师模式（Chief-Programmer-Team，Surgical-Team）"><a href="#主治医师模式（Chief-Programmer-Team，Surgical-Team）" class="headerlink" title="主治医师模式（Chief Programmer Team，Surgical Team）"></a>主治医师模式（Chief Programmer Team，Surgical Team）</h3><p>就像在手术台上那样，有一个主刀医师，其他人（麻醉，护士，器械）各司其职，为主刀医师服务。</p>
-<p>这样的软件团队中，有首席程序员（Chief Programmer），他/她负责处理主要模块的设计和编码，其他成员从各种角度支持他/她的工作（后备程序员、系统管理员、工具开发、编程语言专家、业务专家）。</p>
-<p>在一些学校里，软件工程的团队模式往往从这一模式退化为『一个学生干活，其余学生跟着打酱油』。</p>
-<h3 id="明星模式（Super-star-Model）"><a href="#明星模式（Super-star-Model）" class="headerlink" title="明星模式（Super-star Model）"></a>明星模式（Super-star Model）</h3><p>主治医师模式运用到极点，可以蜕化为明星模式，在这里，明星的光芒盖过了团队其他人的总和。明星也是人，也会受伤，犯错误，如何让团队的利益最大化，而不是明星的利益最大化？如何让团队的价值在明星陨落之后任然能够保持？是这个模式要解决的问题。</p>
-<h3 id="社区模式（Community-Model）"><a href="#社区模式（Community-Model）" class="headerlink" title="社区模式（Community Model）"></a>社区模式（Community Model）</h3><p>社区由很多志愿者参与，每个人参与自己感兴趣的项目，贡献力量，大部分人不拿报酬。这种模式的好处是『众人拾柴火焰高』，但是如果大家都只来烤火，不去拾柴；或者捡到的柴火质量太差，最后火也就熄灭了。<strong>『社区』并不意味着『随意』</strong>，一些成功社区项目（例如开发和维护Linux操作系统的社区），都有很严格的代码复审和签入的质量控制。</p>
-<h3 id="业余剧团模式（Amateur-Theater-Team）"><a href="#业余剧团模式（Amateur-Theater-Team）" class="headerlink" title="业余剧团模式（Amateur Theater Team）"></a>业余剧团模式（Amateur Theater Team）</h3><p>这样的团队在每一个项目中，不同的人会挑选不同的角色。在下一个项目中，这些人也许会换一个完全不同的角色类型。各人在团队中听从一个中央指挥（导演）的指导和安排。在学生实践项目或培训项目中，这样的事情经常发生。</p>
-<h3 id="秘密团队（Skunk-Work-Team）"><a href="#秘密团队（Skunk-Work-Team）" class="headerlink" title="秘密团队（Skunk Work Team）"></a>秘密团队（Skunk Work Team）</h3><p>一些软件项目在秘密状态下进行，别人不知道他们具体在做什么。这种模式的好处是：团队内部有极大的自由，没有外界的干扰（不用每周给别人介绍项目进展，听领导的最新指示，等等），团队成员有极大的投入。</p>
-<h3 id="特工团队（SWAT）"><a href="#特工团队（SWAT）" class="headerlink" title="特工团队（SWAT）"></a>特工团队（SWAT）</h3><p>软件行业的一些团队由一些有特殊技能的专业人士组成，负责解决一些棘手而有紧迫性的问题。</p>
-<h3 id="交响乐团模式（Orchestra）"><a href="#交响乐团模式（Orchestra）" class="headerlink" title="交响乐团模式（Orchestra）"></a>交响乐团模式（Orchestra）</h3><p>想象一下交响乐团的演奏，有下面的特点。</p>
-<ul>
-<li>家伙多，门类齐全。</li>
-<li>各司其职，各自有专门场地，演奏期间没有聊天、走动等现象。</li>
-<li>演奏都靠谱，同时看指挥的。</li>
-<li>演奏的都是练习过多次的曲目，重在执行。</li>
-</ul>
-<p>当某个软件领域处于稳定成长阶段的时候，众多大型软件公司的开发团队就会才去这种模式。</p>
-<h3 id="爵士乐模式（Jazz-Band）"><a href="#爵士乐模式（Jazz-Band）" class="headerlink" title="爵士乐模式（Jazz Band）"></a>爵士乐模式（Jazz Band）</h3><p>和交响乐团相比，这种模式有以下特点。</p>
-<ul>
-<li>不靠谱。他们演奏时都没有谱子。</li>
-<li>没有现场指挥，平时有编曲起到协调和指导作用。</li>
-<li>也有模式，架构师先吹出主题，然后他走到一旁抽烟去了，其余人员根据这个主题各自即兴发挥，最后迈尔斯加入，回应主题，像是对曲子的总结。</li>
-<li>人数较少。</li>
-</ul>
-<h3 id="功能团队模式（Feature-Team）"><a href="#功能团队模式（Feature-Team）" class="headerlink" title="功能团队模式（Feature Team）"></a>功能团队模式（Feature Team）</h3><p>很多软件公式的团队最后都演变成功能团队，简而言之，就是具备不同能力的同事们平等协作，共同完成一个功能。</p>
-<p>在这个功能完成之后，这些人又重新组织，和别的角色一起去完成下一个功能。他们之间没有管理和被管理的关系。大型软件公司里的不少团队都是采用这种模式。这些功能小组也称为Feature Crew，小组内的交流比较频繁。</p>
-<p>每个小组都由一到三个人组成，每个小组都是一个有自主权的单元，可以自由选用最有利于他们完成工作的任何技术。但是，每个小组必须与其他小组就编码规范达成一致。</p>
-<h3 id="官僚模式（Bureaucratic-Model）"><a href="#官僚模式（Bureaucratic-Model）" class="headerlink" title="官僚模式（Bureaucratic Model）"></a>官僚模式（Bureaucratic Model）</h3><p>这种模式脱胎于大机构的组织架构，几个人报告给一个小头目，几个小头目报告给中头目，依次而上。这种模式在软件开发中会出问题。因为成员之间不光有技术方面的合作和领导，同时还混进了组织上的领导和被领导关系。跨组织的合作变得比较困难，因为各自头顶上都有不同的老板。</p>
-<p>这种模式如果应用不好，最后会变成『老板驱动』的开发流程。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/02/22/Team-Mode-Development-Process/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2017/01/04/Xcode-Toolchain/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/01/04/Xcode-Toolchain/" class="post-title-link" itemprop="url">Xcode 工具链</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-04 16:54:40" itemprop="dateCreated datePublished" datetime="2017-01-04T16:54:40+08:00">2017-01-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>11k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>10 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p>虽然我们来自不同背景、有不同观点，经历不同；虽然我们做事动机不同，信念、偏见和意见使我们彼此分离，有一件事我们是在一起的：</p>
-<p><strong>不管好坏，我们都必须使用 Xcode。</strong></p>
-<p>Xcode 不仅仅只是一个应用程序，在 GUI 之下是一个应用程序和命令行工具的结合，它们与开发人员的工作流程一样是编辑器的核心。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2017/01/04/Xcode-Toolchain/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/12/30/iOS-vs-Android/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/30/iOS-vs-Android/" class="post-title-link" itemprop="url">iOS vs Android</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-30 19:05:56" itemprop="dateCreated datePublished" datetime="2016-12-30T19:05:56+08:00">2016-12-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>iOS系统分为可分为四级结构，由上至下分别为可触摸层（Cocoa Touch Layer）、媒体层（Media Layer）、核心服务层（Core Services Layer）、核心系统层（Core OS Layer），每个层级提供不同的服务。低层级结构提供基础服务如文件系统、内存管理、I/O操作等。高层级结构建立在低层级结构之上提供具体服务如UI控件、文件访问等。<br><img src="http://file.blog.chaosky.tech/2016-12-30-797918-71efb73f5f3ab3c6.png" alt="797918-71efb73f5f3ab3"></p>
-<h4 id="可触摸层（Cocoa-Touch-Layer）"><a href="#可触摸层（Cocoa-Touch-Layer）" class="headerlink" title="可触摸层（Cocoa Touch Layer）"></a>可触摸层（Cocoa Touch Layer）</h4><p>可触摸层主要提供用户交互相关的服务如界面控件、事件管理、通知中心、地图，包含以下框架：</p>
-<ul>
-<li>UIKit（界面相关）</li>
-<li>EventKit（日历事件提醒等）</li>
-<li>Notification Center（通知中心）</li>
-<li>MapKit（地图显示）</li>
-<li>Address Book（联系人）</li>
-<li>iAd（广告）</li>
-<li>Message UI（邮件与SMS显示）</li>
-<li>PushKit（iOS8新push机制）<br><img src="http://file.blog.chaosky.tech/2016-12-30-797918-486bd1393e7d908a.jpg" alt="797918-486bd1393e7d908a"></li>
-</ul>
-<h4 id="媒体层（Media-Layer）"><a href="#媒体层（Media-Layer）" class="headerlink" title="媒体层（Media Layer）"></a>媒体层（Media Layer）</h4><p>媒体层主要提供图像引擎、音频引擎、视频引擎框架。</p>
-<ul>
-<li>图像引擎（Core Graphics、Core Image、Core Animation、OpenGL ES）</li>
-<li>音频引擎 （Core Audio、 AV Foundation、OpenAL）</li>
-<li>视频引擎（AV Foundation、Core Media）<br><img src="http://file.blog.chaosky.tech/2016-12-30-797918-30e2f3470787b368.jpg" alt="797918-30e2f3470787b368"></li>
-</ul>
-<h4 id="核心服务层（Core-Services-Layer）"><a href="#核心服务层（Core-Services-Layer）" class="headerlink" title="核心服务层（Core Services Layer）"></a>核心服务层（Core Services Layer）</h4><p>核心服务层为程序提供基础的系统服务例如网络访问、浏览器引擎、定位、文件访问、数据库访问等，主要包含以下框架：</p>
-<ul>
-<li>CFNetwork（网络访问）</li>
-<li>Core Data（数据存储）</li>
-<li>Core Location（定位功能）</li>
-<li>Core Motion（重力加速度，陀螺仪）</li>
-<li>Foundation（基础功能如NSString）</li>
-<li>Webkit（浏览器引擎）</li>
-<li>JavaScript（JavaScript引擎）<br><img src="http://file.blog.chaosky.tech/2016-12-30-797918-cc0de0f6f45ff252.jpg" alt="797918-cc0de0f6f45ff252"></li>
-</ul>
-<h4 id="核心系统层（Core-OS-Layer）"><a href="#核心系统层（Core-OS-Layer）" class="headerlink" title="核心系统层（Core OS Layer）"></a>核心系统层（Core OS Layer）</h4><p>核心系统层提供为上层结构提供最基础的服务如操作系统内核服务、本地认证、安全、加速等。</p>
-<ul>
-<li>操作系统内核服务（BSD sockets、I/O访问、内存申请、文件系统、数学计算等）</li>
-<li>本地认证（指纹识别验证等）</li>
-<li>安全（提供管理证书、公钥、密钥等的接口）</li>
-<li>加速 (执行数学、大数字以及DSP运算,这些接口iOS设备硬件相匹配）<br><img src="http://file.blog.chaosky.tech/2016-12-30-797918-2965748e8e244c2e.jpg" alt="797918-2965748e8e244c2e"></li>
-</ul>
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>Andorid 大致可以分为四层结构：应用层、应用框架层、系统运行库层、Linux内核层。<br><img src="http://file.blog.chaosky.tech/2016-12-30-20140311140541765.jpeg" alt="20140311140541765"></p>
-<h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p>所有安装在手机上的应用程序都是属于这一层的，比如系统自带的联系人、短信等程序，或者是你从 Google Play 上下载的小游戏，当然还包括你自己开发的程序。</p>
-<h4 id="应用框架层"><a href="#应用框架层" class="headerlink" title="应用框架层"></a>应用框架层</h4><p>这一层主要提供了构建应用程序时可能用到的各种 API，Android 自带的一些核心应用就是使用这些 API 完成的，开发者也可以通过使用这些 API 来构建自己的应用程序。</p>
-<h4 id="系统运行库层"><a href="#系统运行库层" class="headerlink" title="系统运行库层"></a>系统运行库层</h4><p>这一层通过一些 C/C++ 库来为 Android 系统提供了主要的特性支持。如 SQLite 库提供了数据库的支持，OpenGL|ES 库提供了 3D 绘图的支持，WebKit 库提供了浏览器内核的支持等。</p>
-<h4 id="Linux-内核层"><a href="#Linux-内核层" class="headerlink" title="Linux 内核层"></a>Linux 内核层</h4><p>Android 系统是基于 Linux 内核的，这一层为 Android 设备的各种硬件提供了底层的驱动，如显示驱动、音频驱动、照相机驱动、蓝牙驱动、Wi-Fi 驱动、电源管理等。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/12/07/Cydia-Sources-and-Tweaks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/07/Cydia-Sources-and-Tweaks/" class="post-title-link" itemprop="url">Cydia 源 和 插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-07 11:52:20" itemprop="dateCreated datePublished" datetime="2016-12-07T11:52:20+08:00">2016-12-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Cydia-源"><a href="#Cydia-源" class="headerlink" title="Cydia 源"></a>Cydia 源</h2><ol>
-<li>JBnow Repo <a href="http://repo.jbnow.me/" target="_blank" rel="noopener">http://repo.jbnow.me/</a></li>
-<li>BigBoss Repo <a href="http://apt.thebigboss.org/repofiles/cydia/" target="_blank" rel="noopener">http://apt.thebigboss.org/repofiles/cydia/</a></li>
-<li>ModMyi Repo <a href="http://apt.modmyi.com/" target="_blank" rel="noopener">http://apt.modmyi.com/</a></li>
-<li>BiteYourApple Repo <a href="http://repo.biteyourapple.net/" target="_blank" rel="noopener">http://repo.biteyourapple.net/</a></li>
-<li>filippoBiga <a href="http://filippobiga.me/repo/" target="_blank" rel="noopener">http://filippobiga.me/repo/</a></li>
-<li>SINful iPhone Rep <a href="http://sinfuliphonerepo.com/" target="_blank" rel="noopener">http://sinfuliphonerepo.com/</a> </li>
-<li>ihacksrepo <a href="http://ihacksrepo.com/" target="_blank" rel="noopener">http://ihacksrepo.com/</a></li>
-<li>iNsanelyi Repo <a href="http://repo.insanelyi.com" target="_blank" rel="noopener">http://repo.insanelyi.com</a></li>
-<li>iHackStore Repo <a href="http://ihackstore.com/repo" target="_blank" rel="noopener">http://ihackstore.com/repo</a></li>
-<li>SinfuliPhone Repo <a href="http://sinfuliphonerepo.com/" target="_blank" rel="noopener">http://sinfuliphonerepo.com/</a></li>
-<li>iPhoneCake Repo <a href="http://cydia.iphonecake.com" target="_blank" rel="noopener">http://cydia.iphonecake.com</a></li>
-<li>威锋源 <a href="http://apt.so/" target="_blank" rel="noopener">http://apt.so/</a></li>
-<li>PP助手源 <a href="http://apt.25pp.com/" target="_blank" rel="noopener">http://apt.25pp.com/</a></li>
-<li>IAPCrazy <a href="http://apt.youyuanapp.com" target="_blank" rel="noopener">http://apt.youyuanapp.com</a></li>
-<li>小白源 <a href="http://apt.xbyy.cn" target="_blank" rel="noopener">http://apt.xbyy.cn</a></li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/07/Cydia-Sources-and-Tweaks/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/" class="post-title-link" itemprop="url">非官方iOS9.2-iOS9.3.3越狱图文教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-07 09:06:21" itemprop="dateCreated datePublished" datetime="2016-12-07T09:06:21+08:00">2016-12-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>997</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>本越狱教程在 Windows 和 Mac 上都可以。</p>
-<h2 id="越狱前须知"><a href="#越狱前须知" class="headerlink" title="越狱前须知"></a>越狱前须知</h2><ol>
-<li>备份，备份，备份</li>
-<li>支持设备: iPhone 5s iPhone 6 iPhone 6+ iPhone 6s iPhone 6s+ iPhone 5E iPod Touch 6G iPad Mini 2 iPad Mini 3 iPad Mini 4 iPad Air iPad Air 2 iPad Pro</li>
-<li>支持固件版本：iOS9.2 ~ iOS9.3.3</li>
-<li>电脑或者 Mac 安装iTunes，保证设备电量充足</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/11/13/Cocoa-Dependency-Manager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/13/Cocoa-Dependency-Manager/" class="post-title-link" itemprop="url">iOS 依赖库管理工具</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-13 20:31:44" itemprop="dateCreated datePublished" datetime="2016-11-13T20:31:44+08:00">2016-11-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a>CocoaPods</h2><h3 id="CocoaPods-简介"><a href="#CocoaPods-简介" class="headerlink" title="CocoaPods 简介"></a>CocoaPods 简介</h3><p>CocoaPods是一个用来帮助我们管理第三方依赖库的工具。它可以解决库与库之间的依赖关系，下载库的源代码，同时通过创建一个Xcode的workspace来将这些第三方库和我们的工程连接起来，供我们开发使用。</p>
-<p>使用CocoaPods的目的是让我们能自动化的、集中的、直观的管理第三方开源库。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/11/13/Cocoa-Dependency-Manager/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/11/11/Effective-Objective-C-2-0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/11/Effective-Objective-C-2-0/" class="post-title-link" itemprop="url">Effective Objective-C 2.0 要点</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-11 17:06:06" itemprop="dateCreated datePublished" datetime="2016-11-11T17:06:06+08:00">2016-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>8.7k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="第1章-熟悉-Objective-C"><a href="#第1章-熟悉-Objective-C" class="headerlink" title="第1章 熟悉 Objective-C"></a>第1章 熟悉 Objective-C</h2><h3 id="第1条-了解-Objective-C-语言的起源"><a href="#第1条-了解-Objective-C-语言的起源" class="headerlink" title="第1条 了解 Objective-C 语言的起源"></a>第1条 了解 Objective-C 语言的起源</h3><ul>
-<li>Objective-C 为C语言添加了面向对象特性，是其超集。Objective-C 使用动态绑定的消息结构，也就是说，在运行时才会检查对象类型。接收一条消息之后，究竟应执行何种代码，由运行期环境而非编译器来决定。</li>
-<li>理解C语言的核心概念有助于写好Objective-C程序。尤其要掌握内存模型与指针。</li>
-</ul>
-<h3 id="第2条-在类的头文件中尽量少引入其他头文件"><a href="#第2条-在类的头文件中尽量少引入其他头文件" class="headerlink" title="第2条 在类的头文件中尽量少引入其他头文件"></a>第2条 在类的头文件中尽量少引入其他头文件</h3><ul>
-<li>除非确有必要，否则不要引入头文件。一般来说，应在某个类的头文件中使用向前声明来提及别的类，并在实现文件中引入那些类的头文件。这样做可以尽量降低类之间的耦合。</li>
-<li>有时无法使用向前声明，比如要声明某个类遵循一项协议。这种情况下，尽量把『该类遵循某协议』的这条声明移至『class-continuation分类』中。如果不行的话，就把协议单独放在一个头文件中，然后将其引入。</li>
-</ul>
-<h3 id="第3条-多用字面量语法，少用与之等价的方法"><a href="#第3条-多用字面量语法，少用与之等价的方法" class="headerlink" title="第3条 多用字面量语法，少用与之等价的方法"></a>第3条 多用字面量语法，少用与之等价的方法</h3><ul>
-<li>应该使用字面量语法来创建字符串、数值、数组、字典。与创建此类对象的常规方法相比，这么做更加简明扼要。</li>
-<li>应该通过取下标操作来访问数组下标或字典中的键所对应的元素。</li>
-<li>用字面量语法创建数组或字典时，若值中有nil，则会抛出异常。因此，务必确保值里不含nil。</li>
-</ul>
-<h3 id="第4条-多用类型常量，少用-define-预处理指令"><a href="#第4条-多用类型常量，少用-define-预处理指令" class="headerlink" title="第4条 多用类型常量，少用 #define 预处理指令"></a>第4条 多用类型常量，少用 #define 预处理指令</h3><ul>
-<li>不要用预处理指令定义常量。这样定义出来的常量不含类型信息，编译器只是会在编译前据此执行查找与替换操作。即使有人重新定义了常量值，编译器也不会产生警告信息，这将导致应用程序中的常量值不一致。</li>
-<li>在实现文件中使用 static const 来定义『只在编译单元内可见的常量』（translation-unit-specific constant）。由于此类常量不在全局符号表中，所以无须为其名称加前缀。</li>
-<li>在头文件中使用 extern 来声明全局常量，并在相关实现文件中定义其值。这种常量要出现在全局符号表中，所有其名称应加以区隔，通常用与之相关的类名做前缀。</li>
-</ul>
-<h3 id="第5条-用枚举表示状态、选项、状态码"><a href="#第5条-用枚举表示状态、选项、状态码" class="headerlink" title="第5条 用枚举表示状态、选项、状态码"></a>第5条 用枚举表示状态、选项、状态码</h3><ul>
-<li>应该用枚举来表示状态机的状态、传递给方法的选项以及状态码等值，给这些值起个易懂的名字。</li>
-<li>如果把传递给某个方法的选项表示为枚举类型，而多个选项又可同时使用，那么就将各选项值定义为2的幂，以便通过按位或操作将其组合起来。</li>
-<li>用 NS_ENUM 与 NS_OPTIONS 宏来定义枚举类型，并指明其底层数据类型。这样做可以确保枚举是用开发者所选的底层数据类型实现出来的，而不会采用编译器所选的类型。</li>
-<li>在处理枚举类型的 switch 语句中不要实现 default 分支。这样的话，加入新枚举之后，编译器就会提示开发者：switch 语句并未处理所有枚举。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/11/11/Effective-Objective-C-2-0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1401,7 +1512,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -1459,49 +1570,42 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">92</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/chaoskyme" title="GitHub → https://github.com/chaoskyme" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/chaoskyx" title="GitHub → https://github.com/chaoskyx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:chaosky.me@gmail.com" title="E-Mail → mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:chaosky.me@gmail.com" title="E-Mail → mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/ChaoskyX" title="Twitter → https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+        <a href="https://twitter.com/ChaoskyX" title="Twitter → https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://t.me/chaosky" title="Telegram → https://t.me/chaosky" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://www.v2ex.com/member/error" title="V2EX → http://www.v2ex.com/member/error" rel="noopener" target="_blank"><i class="fa fa-fw fa-rocket"></i>V2EX</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://music.163.com/#/user/home?id=684084" title="Music → http://music.163.com/#/user/home?id=684084" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+        <a href="https://t.me/chaosky" title="Telegram → https://t.me/chaosky" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
       </span>
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       友情链接
     </div>
     <ul class="links-of-blogroll-list">
@@ -1551,51 +1655,35 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">蜀ICP备20000598号-1 </a>
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">蜀ICP备20000598号-1 </a>
       <img src="/images/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012402000434" rel="noopener" target="_blank">川公网安备 51012402000434号 </a>
   </div>
 
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
+      <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">270k</span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:05</span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -1631,14 +1719,8 @@
 
 
 
-  <script>
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','WVe9S1RCHgLaWK_3xm3y','2.0.0');
-</script>
+  
+<script src="/js/local-search.js"></script>
 
 
 

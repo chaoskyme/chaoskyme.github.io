@@ -1,10 +1,10 @@
 /* global NexT, CONFIG, Velocity */
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
   var isRight = CONFIG.sidebar.position === 'right';
   var SIDEBAR_WIDTH = CONFIG.sidebar.width || 320;
-  var SIDEBAR_DISPLAY_DURATION = 400;
+  var SIDEBAR_DISPLAY_DURATION = 200;
   var mousePos = {};
 
   var sidebarToggleLines = {

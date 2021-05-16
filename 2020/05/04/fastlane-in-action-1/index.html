@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
+  <meta name="google-site-verification" content="yGwNBR-9-6B60StDh4ueJp0Io9gjnzwX0IiXkPL4Pqc">
+  <meta name="msvalidate.01" content="562E828CD9FA60A6D3CDFE1BD31D3FF3">
+  <meta name="baidu-site-verification" content="iYaX85B5Bg">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chaosky.tech","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="fastlane is the easiest way to automate beta deployments and releases for your iOS and Android apps. 🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and rele">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fastlane 实践（一）：自动化打包和发布">
+<meta property="og:url" content="http://chaosky.tech/2020/05/04/fastlane-in-action-1/index.html">
+<meta property="og:site_name" content="Chaosky&#39;s Notes">
+<meta property="og:description" content="fastlane is the easiest way to automate beta deployments and releases for your iOS and Android apps. 🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and rele">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://docs.fastlane.tools/img/fastlane_text.png">
+<meta property="article:published_time" content="2020-05-04T05:38:31.000Z">
+<meta property="article:modified_time" content="2020-05-06T04:46:47.328Z">
+<meta property="article:author" content="Alex Lin">
+<meta property="article:tag" content="fastlane">
+<meta property="article:tag" content="CI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://docs.fastlane.tools/img/fastlane_text.png">
+
+<link rel="canonical" href="http://chaosky.tech/2020/05/04/fastlane-in-action-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Fastlane 实践（一）：自动化打包和发布 | Chaosky's Notes</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?QJ33ASIjWB";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Chaosky's Notes" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Chaosky's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Strategy, Execution, Communication.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">92</span></a>
+
+  </li>
+        <li class="menu-item menu-item-workspace">
+
+    <a href="/workspace/" rel="section"><i class="fa fa-cubes fa-fw"></i>工作空间</a>
+
+  </li>
+        <li class="menu-item menu-item-skillmap">
+
+    <a href="/skillmap/" rel="section"><i class="fa fa-list fa-fw"></i>技能树</a>
+
+  </li>
+        <li class="menu-item menu-item-quotes">
+
+    <a href="/quotes/" rel="section"><i class="fa fa-quote-left fa-fw"></i>引言</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/chaoskyx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2020/05/04/fastlane-in-action-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fastlane 实践（一）：自动化打包和发布
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-04 13:38:31" itemprop="dateCreated datePublished" datetime="2020-05-04T13:38:31+08:00">2020-05-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>20k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>18 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://docs.fastlane.tools/img/fastlane_text.png" alt=""></p>
+<blockquote>
+<p>fastlane is the easiest way to automate beta deployments and releases for your iOS and Android apps. 🚀 It handles all tedious tasks, like generating screenshots, dealing with code signing, and releasing your application.</p>
+</blockquote>
+<p>fastlane 是自动化Beta部署和发布iOS和Android应用程序最简单方法。它可以处理所有繁琐的任务，例如生成屏幕截图，处理代码签名以及发布应用程序。</p>
+<h2 id="Fastlane-安装"><a href="#Fastlane-安装" class="headerlink" title="Fastlane 安装"></a>Fastlane 安装</h2><h3 id="安装-Xcode-command-line-tools"><a href="#安装-Xcode-command-line-tools" class="headerlink" title="安装 Xcode command line tools"></a>安装 Xcode command line tools</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> xcode-select --install</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> /usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-RVM"><a href="#安装-RVM" class="headerlink" title="安装 RVM"></a>安装 RVM</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> curl -sSL https://get.rvm.io | bash -s stable --auto-dotfiles</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ~/.rvm/scripts/rvm</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 RVM 的 Ruby 安装源到 Ruby China 的 Ruby 镜像服务器，这样能提高安装速度。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"ruby_url=https://cache.ruby-china.org/pub/ruby"</span> &gt; ~/.rvm/user/db</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="安装Ruby-2-6-5"><a href="#安装Ruby-2-6-5" class="headerlink" title="安装Ruby 2.6.5"></a>安装Ruby 2.6.5</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> rvm install 2.6.5</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> rvm use 2.6.5 --default</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="更新-RubyGems-镜像"><a href="#更新-RubyGems-镜像" class="headerlink" title="更新 RubyGems 镜像"></a>更新 RubyGems 镜像</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem sources -l</span></span><br><span class="line">https://gems.ruby-china.org</span><br><span class="line"><span class="meta">#</span><span class="bash"> 确保只有 gems.ruby-china.org</span></span><br><span class="line">bundle config mirror.https://rubygems.org https://gems.ruby-china.org</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-CocoaPods-和-Fastlane"><a href="#安装-CocoaPods-和-Fastlane" class="headerlink" title="安装 CocoaPods 和 Fastlane"></a>安装 CocoaPods 和 Fastlane</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gem install cocoapods</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem install fastlane -NV</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gem install bundle</span></span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><ol>
+<li><p>进入 iOS App 的目录并运行：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastlane init</span><br></pre></td></tr></table></figure>
+
+<p> fastlane 会自动自动识别你的项目，并询问任何缺失的信息。</p>
+</li>
+<li><p><a href="https://docs.fastlane.tools/getting-started/ios/setup/" target="_blank" rel="noopener">fastlane Getting Started guide for iOS</a></p>
+</li>
+<li><p><a href="https://docs.fastlane.tools/getting-started/android/setup/" target="_blank" rel="noopener">fastlane Getting Started guide for Android</a></p>
+</li>
+</ol>
+<h2 id="Fastlane-进阶用法"><a href="#Fastlane-进阶用法" class="headerlink" title="Fastlane 进阶用法"></a>Fastlane 进阶用法</h2><p>随着公司项目的增多，每次都运行重复的Fastlane 命令进行配置会低效很多，所以急需一套可以满足所有App需求的配置。</p>
+<p>Fastlane 是由Ruby开发，所以也支持 dotenv 的功能。</p>
+<p>最终Fastlane生成目录结构如下：</p>
+<blockquote>
+<p>├── .env<br>├── Appfile<br>├── Deliverfile<br>├── Fastfile<br>├── Matchfile<br>├── Pluginfile<br>├── README.md<br>├── Scanfile<br>├── metadata<br>│   ├── app_icon.jpg<br>│   ├── copyright.txt<br>│   ├── primary_category.txt<br>│   ├── primary_first_sub_category.txt<br>│   ├── primary_second_sub_category.txt<br>│   ├── review_information<br>│   │   ├── demo_password.txt<br>│   │   ├── demo_user.txt<br>│   │   ├── email_address.txt<br>│   │   ├── first_name.txt<br>│   │   ├── last_name.txt<br>│   │   ├── notes.txt<br>│   │   └── phone_number.txt<br>│   ├── secondary_category.txt<br>│   ├── secondary_first_sub_category.txt<br>│   ├── secondary_second_sub_category.txt<br>│   ├── trade_representative_contact_information<br>│   │   ├── address_line1.txt<br>│   │   ├── address_line2.txt<br>│   │   ├── address_line3.txt<br>│   │   ├── city_name.txt<br>│   │   ├── country.txt<br>│   │   ├── email_address.txt<br>│   │   ├── first_name.txt<br>│   │   ├── is_displayed_on_app_store.txt<br>│   │   ├── last_name.txt<br>│   │   ├── phone_number.txt<br>│   │   ├── postal_code.txt<br>│   │   ├── state.txt<br>│   │   └── trade_name.txt<br>│   └── zh-Hans<br>│       ├── apple_tv_privacy_policy.txt<br>│       ├── description.txt<br>│       ├── keywords.txt<br>│       ├── marketing_url.txt<br>│       ├── name.txt<br>│       ├── privacy_url.txt<br>│       ├── promotional_text.txt<br>│       ├── release_notes.txt<br>│       ├── subtitle.txt<br>│       └── support_url.txt<br>└── pem<br>    ├── development_xxx.xxx.xxx.p12<br>    ├── development_xxx.xxx.xxx.pem<br>    ├── development_xxx.xxx.xxx.pkey<br>    ├── production_xxx.xxx.xxx.p12<br>    ├── production_xxx.xxx.xxx.pem<br>    ├── production_xxx.xxx.xxx.pkey</p>
+</blockquote>
+<h3 id="env"><a href="#env" class="headerlink" title=".env"></a>.env</h3><p>这个文件中放入的是需要引用的环境变量。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">FASTLANE_SKIP_UPDATE_CHECK=<span class="literal">true</span></span><br><span class="line">FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT=<span class="number">120</span></span><br><span class="line"></span><br><span class="line">APPLE_ID=<span class="string">"xxxx"</span>	<span class="comment"># Apple ID 账号</span></span><br><span class="line">TEAM_ID=<span class="string">"xxxx"</span>	<span class="comment"># Apple Team ID</span></span><br><span class="line">FASTLANE_PASSWORD=<span class="string">"xxx"</span>	<span class="comment"># Apple ID 密码</span></span><br><span class="line">FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD=<span class="string">"qwwe-tdpp-hdpc-fgzy"</span> <span class="comment"># Apple 应用程序特定密码，Apple ID 现在强制开启两步验证后，此密码是必须的</span></span><br><span class="line">ITC_TEAM_ID=<span class="string">"xxxx"</span>	<span class="comment"># iTunes Connect Team ID</span></span><br><span class="line"></span><br><span class="line">APP_IDENTIFIER=<span class="string">"xxx.xxx.xxx"</span></span><br><span class="line">SCHEME_NAME=<span class="string">"XXX"</span></span><br><span class="line">WORKSPACE_NAME=<span class="string">"XXX.xcworkspace"</span></span><br><span class="line">XCODEPROJ_NAME=<span class="string">"XXX.xcodeproj"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试环境</span></span><br><span class="line">DEV_APP_IDENTIFIER=<span class="string">"xxx.xxx.dev.xxx"</span></span><br><span class="line">DEV_APP_NAME=<span class="string">"XXX测试版"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 正式环境</span></span><br><span class="line">PROD_APP_IDENTIFIER=<span class="string">"xxx.xxx.xxx"</span></span><br><span class="line">PROD_APP_NAME=<span class="string">"XXX"</span></span><br><span class="line"></span><br><span class="line">MATCH_GIT_BRANCH=<span class="string">"XXX"</span></span><br><span class="line"></span><br><span class="line">DELIVER_METADATA_PATH=<span class="string">"./fastlane/metadata"</span></span><br><span class="line">DOWNLOAD_METADATA_PATH=<span class="string">"./metadata"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Appfile"><a href="#Appfile" class="headerlink" title="Appfile"></a>Appfile</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">app_identifier <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"APP_IDENTIFIER"</span>]&#125;</span>"</span> <span class="comment"># The bundle identifier of your app</span></span><br><span class="line">apple_id <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"APPLE_ID"</span>]&#125;</span>"</span> <span class="comment"># Your Apple email address</span></span><br><span class="line"></span><br><span class="line">team_id <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"TEAM_ID"</span>]&#125;</span>"</span> <span class="comment"># Developer Portal Team ID</span></span><br><span class="line">itc_team_id <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"ITC_TEAM_ID"</span>]&#125;</span>"</span> <span class="comment"># App Store Connect Team ID</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># you can even provide different app identifiers, Apple IDs and team names per lane:</span></span><br><span class="line"><span class="comment"># More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Deliverfile"><a href="#Deliverfile" class="headerlink" title="Deliverfile"></a>Deliverfile</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###################### More Options ######################</span></span><br><span class="line"><span class="comment"># If you want to have even more control, check out the documentation</span></span><br><span class="line"><span class="comment"># https://docs.fastlane.tools/actions/deliver</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">###################### Automatically generated ######################</span></span><br><span class="line"><span class="comment"># Feel free to remove the following line if you use fastlane (which you should)</span></span><br><span class="line"></span><br><span class="line">app_identifier <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"APP_IDENTIFIER"</span>]&#125;</span>"</span> <span class="comment"># The bundle identifier of your app</span></span><br><span class="line">username <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"APPLE_ID"</span>]&#125;</span>"</span> <span class="comment"># your Apple ID user</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Fastfile"><a href="#Fastfile" class="headerlink" title="Fastfile"></a>Fastfile</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Customise this file, documentation can be found here:</span></span><br><span class="line"><span class="comment"># https://docs.fastlane.tools/actions/</span></span><br><span class="line"><span class="comment"># All available actions: https://docs.fastlane.tools/actions</span></span><br><span class="line"><span class="comment"># can also be listed using the `fastlane actions` command</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Change the syntax highlighting to Ruby</span></span><br><span class="line"><span class="comment"># All lines starting with a # are ignored when running `fastlane`</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If you want to automatically update fastlane if a new version is available:</span></span><br><span class="line"><span class="comment"># update_fastlane</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># This is the minimum version number required.</span></span><br><span class="line"><span class="comment"># Update this, if you use features of a newer version</span></span><br><span class="line">fastlane_require <span class="string">"spaceship"</span></span><br><span class="line"></span><br><span class="line">fastlane_version <span class="string">"2.89.0"</span></span><br><span class="line"></span><br><span class="line">default_platform <span class="symbol">:ios</span></span><br><span class="line"></span><br><span class="line">platform <span class="symbol">:ios</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  base_path = Pathname::new(File::dirname(__FILE_<span class="number">_</span>)).realpath.parent</span><br><span class="line"></span><br><span class="line">  before_all <span class="keyword">do</span></span><br><span class="line">    <span class="comment"># ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."</span></span><br><span class="line">    <span class="comment"># cocoapods</span></span><br><span class="line">    <span class="comment"># carthage</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"生成 adhoc 测试版本，提交到蒲公英，参数 =&gt; type:'adhoc/development'，默认adhoc"</span></span><br><span class="line">  lane <span class="symbol">:pgyer_beta</span> <span class="keyword">do</span> <span class="params">|options|</span></span><br><span class="line"></span><br><span class="line">    type = String(options[<span class="symbol">:type</span>] <span class="params">||</span> <span class="string">"adhoc"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> type == <span class="string">"adhoc"</span></span><br><span class="line">      export_method = <span class="string">"ad-hoc"</span></span><br><span class="line">      match_type = <span class="string">"adhoc"</span></span><br><span class="line">      match_type_name = <span class="string">"AdHoc"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      export_method = <span class="string">"development"</span></span><br><span class="line">      match_type = <span class="string">"development"</span></span><br><span class="line">      match_type_name = <span class="string">"Development"</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">    git_reversion = sh(<span class="string">"git log -1 --pretty=format:'%h'"</span>)</span><br><span class="line">    version_number = get_info_plist_value(<span class="symbol">path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>, <span class="symbol">key:</span> <span class="string">"CFBundleShortVersionString"</span>)</span><br><span class="line">    build_number = number_of_commits(<span class="symbol">all:</span> <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># git log</span></span><br><span class="line">    git_log = sh(<span class="string">"git log --no-merges -1 --pretty=format:'# %ai%n# %B by %an'"</span>)</span><br><span class="line">    build_time = Time.new.strftime(<span class="string">"%Y-%m-%d_%H.%M.%S"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出目录</span></span><br><span class="line">    output_dir = <span class="string">"<span class="subst">#&#123;base_path&#125;</span>/Output/adhoc/<span class="subst">#&#123;build_time&#125;</span>"</span></span><br><span class="line">    output_name = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>_v<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>).ipa"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新badge</span></span><br><span class="line">    add_badge(<span class="symbol">shield:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>-<span class="subst">#&#123;build_number&#125;</span>-orange"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新 build number</span></span><br><span class="line">    increment_build_number(<span class="symbol">build_number:</span> build_number)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新 product bundle identifier</span></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># 更新display名称，PS: 不能用来更新bundle identifier</span></span><br><span class="line">    update_info_plist(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">block:</span> proc <span class="keyword">do</span> <span class="params">|plist|</span></span><br><span class="line">        plist[<span class="string">"CFBundleDisplayName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"CFBundleName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"GIT_REVISION"</span>] = git_reversion</span><br><span class="line">        plist[<span class="string">"BUILD_TIME"</span>] = build_time</span><br><span class="line">        plist[<span class="string">"APP_CHANNEL"</span>] = <span class="string">"pgyer"</span></span><br><span class="line">        urlScheme = plist[<span class="string">"CFBundleURLTypes"</span>].find&#123;<span class="params">|scheme|</span> scheme[<span class="string">"CFBundleURLName"</span>] == <span class="string">"weixin"</span>&#125;</span><br><span class="line">        urlScheme[<span class="symbol">:CFBundleURLSchemes</span>] = [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_WEIXIN_APPID"</span>]&#125;</span>"</span>]</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新Notification Service Extension plist</span></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"NOTIFICATIONSERVICE_SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"<span class="subst">#&#123;match_type&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span>], </span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    gym(</span><br><span class="line">      <span class="symbol">export_method:</span> <span class="string">"<span class="subst">#&#123;export_method&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">include_bitcode:</span> <span class="literal">false</span>,</span><br><span class="line">      <span class="symbol">scheme:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">configuration:</span> <span class="string">"AdHoc"</span>,</span><br><span class="line">      <span class="symbol">export_options:</span> &#123;</span><br><span class="line">        <span class="symbol">compileBitcode:</span> <span class="literal">false</span>,</span><br><span class="line">        <span class="symbol">uploadBitcode:</span> <span class="literal">false</span>,</span><br><span class="line">        <span class="symbol">provisioningProfiles:</span> &#123;</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span> =&gt; <span class="string">"match <span class="subst">#&#123;match_type_name&#125;</span> <span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span> =&gt; <span class="string">"match <span class="subst">#&#123;match_type_name&#125;</span> <span class="subst">#&#123;ENV[<span class="string">"DEV_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="symbol">output_directory:</span> output_dir,</span><br><span class="line">      <span class="symbol">output_name:</span> output_name</span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># pilot</span></span><br><span class="line">    upload_ipa(<span class="symbol">type:</span> <span class="string">'gxm'</span>, <span class="symbol">log:</span> git_log)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 上传 dsym 文件到 bugly</span></span><br><span class="line">    bugly(<span class="symbol">app_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_BUGLY_APPID"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">app_key:</span><span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_BUGLY_APPKEY"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">symbol_type:</span> <span class="number">2</span>,</span><br><span class="line">      <span class="symbol">bundle_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">product_version:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>,</span><br><span class="line">      <span class="symbol">channel:</span> <span class="string">'pgyer'</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    copy_dsym(<span class="symbol">tpye:</span> <span class="string">'adhoc'</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"生成 adhoc 预发版本，提交到蒲公英"</span></span><br><span class="line">  lane <span class="symbol">:pgyer_release</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    git_reversion = sh(<span class="string">"git log -1 --pretty=format:'%h'"</span>)</span><br><span class="line">    build_time = Time.new.strftime(<span class="string">"%Y-%m-%d_%H.%M.%S"</span>)</span><br><span class="line">    version_number = get_info_plist_value(<span class="symbol">path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>, <span class="symbol">key:</span> <span class="string">"CFBundleShortVersionString"</span>)</span><br><span class="line">    build_number = number_of_commits(<span class="symbol">all:</span> <span class="literal">false</span>)</span><br><span class="line">    git_log = sh(<span class="string">"git log --no-merges -1 --pretty=format:'# %ai%n# %B by %an'"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出目录</span></span><br><span class="line">    output_dir = <span class="string">"<span class="subst">#&#123;base_path&#125;</span>/Output/release/<span class="subst">#&#123;build_time&#125;</span>"</span></span><br><span class="line">    output_name = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>_v<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>).ipa"</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新badge</span></span><br><span class="line">    add_badge(<span class="symbol">shield:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>-<span class="subst">#&#123;build_number&#125;</span>-orange"</span>, <span class="symbol">alpha:</span> <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新 build number</span></span><br><span class="line">    increment_build_number(<span class="symbol">build_number:</span> build_number)</span><br><span class="line"></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_info_plist(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">block:</span> proc <span class="keyword">do</span> <span class="params">|plist|</span></span><br><span class="line">        plist[<span class="string">"CFBundleDisplayName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"CFBundleName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"GIT_REVISION"</span>] = git_reversion</span><br><span class="line">        plist[<span class="string">"BUILD_TIME"</span>] = build_time</span><br><span class="line">        plist[<span class="string">"APP_CHANNEL"</span>] = <span class="string">"pgyer"</span></span><br><span class="line">        urlScheme = plist[<span class="string">"CFBundleURLTypes"</span>].find&#123;<span class="params">|scheme|</span> scheme[<span class="string">"CFBundleURLName"</span>] == <span class="string">"weixin"</span>&#125;</span><br><span class="line">        urlScheme[<span class="symbol">:CFBundleURLSchemes</span>] = [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_WEIXIN_APPID"</span>]&#125;</span>"</span>]</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新Notification Service Extension plist</span></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"NOTIFICATIONSERVICE_SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"adhoc"</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span>], </span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_project_provisioning(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">target_filter:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">profile:</span>ENV[<span class="string">"sigh_<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>_adhoc_profile-path"</span>],</span><br><span class="line">      <span class="symbol">build_configuration:</span> <span class="string">"Release"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_project_provisioning(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">target_filter:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"NOTIFICATIONSERVICE_SCHEME_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">profile:</span>ENV[<span class="string">"sigh_<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>_adhoc_profile-path"</span>],</span><br><span class="line">      <span class="symbol">build_configuration:</span> <span class="string">"Release"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    gym(</span><br><span class="line">      <span class="symbol">export_method:</span> <span class="string">"ad-hoc"</span>, </span><br><span class="line">      <span class="symbol">scheme:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">configuration:</span> <span class="string">"Release"</span>,</span><br><span class="line">      <span class="symbol">export_options:</span> &#123;</span><br><span class="line">        <span class="symbol">compileBitcode:</span> <span class="literal">false</span>,</span><br><span class="line">        <span class="symbol">uploadBitcode:</span> <span class="literal">false</span>,</span><br><span class="line">        <span class="symbol">provisioningProfiles:</span> &#123;</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span> =&gt; <span class="string">"match AdHoc <span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span> =&gt; <span class="string">"match AdHoc <span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="symbol">output_directory:</span> output_dir,</span><br><span class="line">      <span class="symbol">output_name:</span> output_name</span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># pilot</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 上传蒲公英</span></span><br><span class="line">    upload_ipa(<span class="symbol">type:</span> <span class="string">'gxm'</span>, <span class="symbol">log:</span> <span class="string">"App Store 包上传：<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 上传 dsym 文件到 bugly</span></span><br><span class="line">    bugly(<span class="symbol">app_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPID"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">app_key:</span><span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPKEY"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">symbol_type:</span> <span class="number">2</span>,</span><br><span class="line">      <span class="symbol">bundle_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">product_version:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>,</span><br><span class="line">      <span class="symbol">channel:</span> <span class="string">'pgyer'</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    copy_dsym(<span class="symbol">tpye:</span> <span class="string">'release'</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"生成 appstore 版本，发布到 App Store"</span></span><br><span class="line">  lane <span class="symbol">:appstore_release</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    git_reversion = sh(<span class="string">"git log -1 --pretty=format:'%h'"</span>)</span><br><span class="line">    build_time = Time.new.strftime(<span class="string">"%Y-%m-%d_%H.%M.%S"</span>)</span><br><span class="line">    version_number = get_info_plist_value(<span class="symbol">path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>, <span class="symbol">key:</span> <span class="string">"CFBundleShortVersionString"</span>)</span><br><span class="line">    build_number = number_of_commits(<span class="symbol">all:</span> <span class="literal">false</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输出目录</span></span><br><span class="line">    output_dir = <span class="string">"<span class="subst">#&#123;base_path&#125;</span>/Output/appstore/<span class="subst">#&#123;build_time&#125;</span>"</span></span><br><span class="line">    output_name = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>_v<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>).ipa"</span></span><br><span class="line"></span><br><span class="line">    clear_derived_data</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新 build number</span></span><br><span class="line">    increment_build_number(<span class="symbol">build_number:</span> build_number)</span><br><span class="line"></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_info_plist(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">block:</span> proc <span class="keyword">do</span> <span class="params">|plist|</span></span><br><span class="line">        plist[<span class="string">"CFBundleDisplayName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"CFBundleName"</span>] = <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_NAME"</span>]&#125;</span>"</span></span><br><span class="line">        plist[<span class="string">"GIT_REVISION"</span>] = git_reversion</span><br><span class="line">        plist[<span class="string">"BUILD_TIME"</span>] = build_time</span><br><span class="line">        plist[<span class="string">"APP_CHANNEL"</span>] = <span class="string">"appstore"</span></span><br><span class="line">        urlScheme = plist[<span class="string">"CFBundleURLTypes"</span>].find&#123;<span class="params">|scheme|</span> scheme[<span class="string">"CFBundleURLName"</span>] == <span class="string">"weixin"</span>&#125;</span><br><span class="line">        urlScheme[<span class="symbol">:CFBundleURLSchemes</span>] = [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_WEIXIN_APPID"</span>]&#125;</span>"</span>]</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 更新Notification Service Extension plist</span></span><br><span class="line">    update_app_identifier(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">plist_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"NOTIFICATIONSERVICE_SCHEME_NAME"</span>]&#125;</span>/Info.plist"</span>,</span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"appstore"</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span>], </span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_project_provisioning(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">target_filter:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">profile:</span>ENV[<span class="string">"sigh_<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>_appstore_profile-path"</span>],</span><br><span class="line">      <span class="symbol">build_configuration:</span> <span class="string">"AppStore"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    update_project_provisioning(</span><br><span class="line">      <span class="symbol">xcodeproj:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"XCODEPROJ_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">target_filter:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"NOTIFICATIONSERVICE_SCHEME_NAME"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">profile:</span>ENV[<span class="string">"sigh_<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>_appstore_profile-path"</span>],</span><br><span class="line">      <span class="symbol">build_configuration:</span> <span class="string">"AppStore"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># snapshot</span></span><br><span class="line"></span><br><span class="line">    gym(</span><br><span class="line">      <span class="symbol">export_method:</span> <span class="string">"app-store"</span>, </span><br><span class="line">      <span class="symbol">scheme:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">configuration:</span> <span class="string">"AppStore"</span>,</span><br><span class="line">      <span class="symbol">export_options:</span> &#123;</span><br><span class="line">        <span class="symbol">provisioningProfiles:</span> &#123;</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span> =&gt; <span class="string">"match AppStore <span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">          <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span> =&gt; <span class="string">"match AppStore <span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="symbol">output_directory:</span> output_dir,</span><br><span class="line">      <span class="symbol">output_name:</span> output_name</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 上传 dsym 文件到 bugly</span></span><br><span class="line">    bugly(<span class="symbol">app_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPID"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">app_key:</span><span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPKEY"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">symbol_type:</span> <span class="number">2</span>,</span><br><span class="line">      <span class="symbol">bundle_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">product_version:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>,</span><br><span class="line">      <span class="symbol">channel:</span> <span class="string">'appstore'</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 上传蒲公英</span></span><br><span class="line">    upload_ipa(<span class="symbol">type:</span> <span class="string">'gxm'</span>, <span class="symbol">log:</span> <span class="string">"App Store 包上传：<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>)</span><br><span class="line"></span><br><span class="line">    copy_dsym(<span class="symbol">type:</span> <span class="string">'appstore'</span>)</span><br><span class="line"></span><br><span class="line">    deliver(</span><br><span class="line">      <span class="symbol">metadata_path:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DELIVER_METADATA_PATH"</span>]&#125;</span>"</span>,</span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># frameit</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"上传 AppStore DSYM 文件到 Bugly，参数 =&gt; version:[latest]"</span></span><br><span class="line">  lane <span class="symbol">:upload_appstore_dsyms</span> <span class="keyword">do</span> <span class="params">|options|</span></span><br><span class="line">    version = String(options[<span class="symbol">:version</span>] <span class="params">||</span> <span class="string">"latest"</span>)</span><br><span class="line">    download_dsyms(<span class="symbol">version:</span> version)</span><br><span class="line">    dsym_paths = lane_context[SharedValues::DSYM_PATHS]</span><br><span class="line">    <span class="keyword">for</span> dsym_path <span class="keyword">in</span> dsym_paths</span><br><span class="line">      <span class="comment"># 解析DSYM文件版本</span></span><br><span class="line">      split_strs = dsym_path.split(<span class="regexp">/\//</span>).last.split(<span class="regexp">/-/</span>)</span><br><span class="line">      version_number = split_strs[<span class="number">1</span>]</span><br><span class="line">      build_number = split_strs[<span class="number">2</span>].split(<span class="regexp">/\./</span>)[<span class="number">0</span>]</span><br><span class="line">      <span class="comment"># 上传 dsym 文件到 bugly</span></span><br><span class="line">      bugly(<span class="symbol">app_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPID"</span>]&#125;</span>"</span>,</span><br><span class="line">        <span class="symbol">app_key:</span><span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_BUGLY_APPKEY"</span>]&#125;</span>"</span>,</span><br><span class="line">        <span class="symbol">symbol_type:</span> <span class="number">2</span>,</span><br><span class="line">        <span class="symbol">bundle_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>,</span><br><span class="line">        <span class="symbol">product_version:</span> <span class="string">"<span class="subst">#&#123;version_number&#125;</span>(<span class="subst">#&#123;build_number&#125;</span>)"</span>,</span><br><span class="line">        <span class="symbol">channel:</span> <span class="string">'appstore'</span>,</span><br><span class="line">        <span class="symbol">dsym:</span> dsym_path</span><br><span class="line">      )</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    clean_build_artifacts</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"手动批量添加设备到profile"</span></span><br><span class="line">  lane <span class="symbol">:add_devices_manual</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    UI.header <span class="string">"Add Device"</span></span><br><span class="line">    device_hash = &#123;&#125;</span><br><span class="line">    device_sum = UI.input(<span class="string">"Device Sum: "</span>).to_i</span><br><span class="line">    <span class="keyword">if</span> device_sum == <span class="number">0</span></span><br><span class="line">      <span class="keyword">next</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> index &lt; device_sum <span class="keyword">do</span></span><br><span class="line">      device_name = UI.input(<span class="string">"Device Name: "</span>)</span><br><span class="line">      device_udid = UI.input(<span class="string">"Device UDID: "</span>)</span><br><span class="line">      device_hash[device_name] = device_udid</span><br><span class="line">      index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    </span><br><span class="line">    register_devices(</span><br><span class="line">        <span class="symbol">devices:</span> device_hash</span><br><span class="line">    )</span><br><span class="line">    refresh_profiles</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"文件批量添加设备到profile"</span></span><br><span class="line">  lane <span class="symbol">:add_devices_file</span> <span class="keyword">do</span></span><br><span class="line">    register_devices(</span><br><span class="line">      <span class="symbol">devices_file:</span> <span class="string">"fastlane/devices.txt"</span></span><br><span class="line">    )</span><br><span class="line">    refresh_profiles</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"批量导出设备"</span></span><br><span class="line">  lane <span class="symbol">:export_devices</span> <span class="keyword">do</span></span><br><span class="line">    password = UI.password(<span class="string">"输入 <span class="subst">#&#123;ENV[<span class="string">"APPLE_ID"</span>]&#125;</span> 账号密码: "</span>)</span><br><span class="line">    Spaceship::Portal.login(<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"APPLE_ID"</span>]&#125;</span>"</span>, password)</span><br><span class="line">    Spaceship::Portal.select_team(<span class="symbol">team_id:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"TEAM_ID"</span>]&#125;</span>"</span>)</span><br><span class="line">    devices = Spaceship.device.all</span><br><span class="line">    File.open(<span class="string">"<span class="subst">#&#123;base_path&#125;</span>/fastlane/devices.txt"</span>, <span class="string">"wb"</span>) <span class="keyword">do</span> <span class="params">|f|</span></span><br><span class="line">      f.puts <span class="string">"Device ID\tDevice Name"</span></span><br><span class="line">      devices.each <span class="keyword">do</span> <span class="params">|device|</span></span><br><span class="line">        f.puts <span class="string">"<span class="subst">#&#123;device.udid&#125;</span>\t<span class="subst">#&#123;device.name&#125;</span>"</span></span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># You can define as many lanes as you want</span></span><br><span class="line">  desc <span class="string">"更新 provisioning profiles"</span></span><br><span class="line">  lane <span class="symbol">:refresh_profiles</span> <span class="keyword">do</span></span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"development"</span>,</span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>,</span><br><span class="line">      <span class="symbol">force_for_new_devices:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"adhoc"</span>,</span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>,</span><br><span class="line">      <span class="symbol">force_for_new_devices:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"appstore"</span>,</span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>,</span><br><span class="line">      <span class="symbol">force_for_new_devices:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"同步 certificates 和 provisioning profiles"</span></span><br><span class="line">  lane <span class="symbol">:sync_cert_profiles</span> <span class="keyword">do</span></span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"development"</span>,</span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"adhoc"</span>,</span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">    match(</span><br><span class="line">      <span class="symbol">type:</span> <span class="string">"appstore"</span>,</span><br><span class="line">      <span class="symbol">readonly:</span> <span class="literal">true</span></span><br><span class="line">    )</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"移除本地描述文件"</span></span><br><span class="line">  lane <span class="symbol">:remove_local_profiles</span> <span class="keyword">do</span></span><br><span class="line">    app_identifiers = [<span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_NOTIFICATION_SERVICE"</span>]&#125;</span>"</span>]</span><br><span class="line">    types = [<span class="string">"development"</span>, <span class="string">"adhoc"</span>, <span class="string">"appstore"</span>]</span><br><span class="line">    app_identifiers.each <span class="keyword">do</span> <span class="params">|app_identifier|</span></span><br><span class="line">      types.each <span class="keyword">do</span> <span class="params">|type|</span></span><br><span class="line">        remove_provisioning_profile(<span class="symbol">app_identifier:</span> app_identifier, <span class="symbol">type:</span> type)    </span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"revoke 证书和描述文件"</span></span><br><span class="line">  private_lane <span class="symbol">:revoke_cert_profiles</span> <span class="keyword">do</span></span><br><span class="line">    ENV[<span class="string">"MATCH_SKIP_CONFIRMATION"</span>] = <span class="string">"1"</span></span><br><span class="line">    sh(<span class="string">"fastlane match nuke development"</span>)</span><br><span class="line">    sh(<span class="string">"fastlane match nuke distribution"</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"生成APNs证书"</span></span><br><span class="line">  lane <span class="symbol">:generate_apns_cert</span> <span class="keyword">do</span></span><br><span class="line">    pem(</span><br><span class="line">      <span class="symbol">development:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">p12_password:</span> <span class="string">"GXM"</span>, <span class="symbol">output_path:</span> <span class="string">"fastlane/pem"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    pem(</span><br><span class="line">      <span class="symbol">development:</span> <span class="literal">false</span>, </span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"DEV_APP_IDENTIFIER"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">p12_password:</span> <span class="string">"GXM"</span>, <span class="symbol">output_path:</span> <span class="string">"fastlane/pem"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    pem(</span><br><span class="line">      <span class="symbol">development:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">p12_password:</span> <span class="string">"GXM"</span>, <span class="symbol">output_path:</span> <span class="string">"fastlane/pem"</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    pem(</span><br><span class="line">      <span class="symbol">development:</span> <span class="literal">false</span>, </span><br><span class="line">      <span class="symbol">force:</span> <span class="literal">true</span>, </span><br><span class="line">      <span class="symbol">app_identifier:</span> <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"PROD_APP_IDENTIFIER"</span>]&#125;</span>"</span>, </span><br><span class="line">      <span class="symbol">p12_password:</span> <span class="string">"GXM"</span>, <span class="symbol">output_path:</span> <span class="string">"fastlane/pem"</span></span><br><span class="line">    )</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"同步 metadata"</span></span><br><span class="line">  lane <span class="symbol">:sync_metadata</span> <span class="keyword">do</span></span><br><span class="line">    ENV[<span class="string">"DELIVER_FORCE_OVERWRITE"</span>] = <span class="string">"1"</span></span><br><span class="line">    sh(<span class="string">"fastlane deliver download_metadata --metadata_path <span class="subst">#&#123;ENV[<span class="string">"DOWNLOAD_METADATA_PATH"</span>]&#125;</span>"</span>)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"拷贝 dSYM"</span></span><br><span class="line">  private_lane <span class="symbol">:copy_dsym</span> <span class="keyword">do</span> <span class="params">|options|</span></span><br><span class="line">    type = String(options[<span class="symbol">:type</span>] <span class="params">||</span> <span class="string">"adhoc"</span>)</span><br><span class="line">    dsym_path = lane_context[SharedValues::DSYM_OUTPUT_PATH]</span><br><span class="line">    share_dir = File.join(ENV[<span class="string">'HOME'</span>],<span class="string">'/Public/iOS'</span>, <span class="string">"<span class="subst">#&#123;ENV[<span class="string">"SCHEME_NAME"</span>]&#125;</span>"</span>, <span class="string">"<span class="subst">#&#123;type&#125;</span>"</span>)</span><br><span class="line">    FileUtils.mkdir_p(share_dir)</span><br><span class="line">    FileUtils.cp_r(File.join(dsym_path), share_dir)</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  desc <span class="string">"上传 ipa，type: [pgyer,gxm], log: desc"</span></span><br><span class="line">  private_lane <span class="symbol">:upload_ipa</span> <span class="keyword">do</span> <span class="params">|options|</span></span><br><span class="line">    type = options[<span class="symbol">:type</span>] <span class="params">||</span> <span class="string">'pgyer'</span></span><br><span class="line">    log = options[<span class="symbol">:log</span>] <span class="params">||</span> <span class="string">''</span></span><br><span class="line">    log = String</span><br><span class="line">    <span class="keyword">if</span> type == <span class="string">"pgyer"</span></span><br><span class="line">      pgyer(</span><br><span class="line">        <span class="symbol">api_key:</span> <span class="string">'0098b94391ff417d86837343597789a9'</span>,</span><br><span class="line">        <span class="symbol">user_key:</span> <span class="string">'4ca1278171177f624ba3f3cc39eb2d73'</span>,</span><br><span class="line">        <span class="symbol">update_description:</span> log</span><br><span class="line">      )</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      sh(<span class="string">"curl -X 'POST' 'https://fabu.guoxiaomei.com/api/apps/5dca5121f3920d001f71e42d/upload' -H 'Content-Type: multipart/form-data' -H 'accept: application/json' -H 'apikey: 07a0840834294e7b89c41ab9c302c852' -F 'file=@<span class="subst">#&#123;lane_context[SharedValues::IPA_OUTPUT_PATH]&#125;</span>'"</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  after_all <span class="keyword">do</span> <span class="params">|lane|</span></span><br><span class="line">    <span class="comment"># This block is called, only if the executed lane was successful</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># slack(</span></span><br><span class="line">    <span class="comment">#   message: "Successfully deployed new App Update."</span></span><br><span class="line">    <span class="comment"># )</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  error <span class="keyword">do</span> <span class="params">|lane, exception|</span></span><br><span class="line">    <span class="comment"># slack(</span></span><br><span class="line">    <span class="comment">#   message: exception.message,</span></span><br><span class="line">    <span class="comment">#   success: false</span></span><br><span class="line">    <span class="comment"># )</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md</span></span><br><span class="line"><span class="comment"># All available actions: https://docs.fastlane.tools/actions</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># fastlane reports which actions are used. No personal data is recorded. </span></span><br><span class="line"><span class="comment"># Learn more at https://github.com/fastlane/fastlane#metrics</span></span><br></pre></td></tr></table></figure>
+
+<p>以上 fastlane 满足基本的功能需求。</p>
+
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div>天下大事，必作于细！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/WeChatPay.png" alt="Alex Lin 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/AliPay.png" alt="Alex Lin 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Alex Lin
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://chaosky.tech/2020/05/04/fastlane-in-action-1/" title="Fastlane 实践（一）：自动化打包和发布">http://chaosky.tech/2020/05/04/fastlane-in-action-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/fastlane/" rel="tag"><i class="fa fa-tag"></i> fastlane</a>
+              <a href="/tags/CI/" rel="tag"><i class="fa fa-tag"></i> CI</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/01/Function-references-in-Swift-and-retain-cycles/" rel="prev" title="Swift 中函数的引用以及导致的循环引用场景">
+      <i class="fa fa-chevron-left"></i> Swift 中函数的引用以及导致的循环引用场景
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/24/jailbreak-user-guide/" rel="next" title="iOS 越狱指南">
+      iOS 越狱指南 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fastlane-安装"><span class="nav-number">1.</span> <span class="nav-text">Fastlane 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Xcode-command-line-tools"><span class="nav-number">1.1.</span> <span class="nav-text">安装 Xcode command line tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Homebrew"><span class="nav-number">1.2.</span> <span class="nav-text">安装 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-RVM"><span class="nav-number">1.3.</span> <span class="nav-text">安装 RVM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Ruby-2-6-5"><span class="nav-number">1.3.1.</span> <span class="nav-text">安装Ruby 2.6.5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新-RubyGems-镜像"><span class="nav-number">1.3.2.</span> <span class="nav-text">更新 RubyGems 镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-CocoaPods-和-Fastlane"><span class="nav-number">1.3.3.</span> <span class="nav-text">安装 CocoaPods 和 Fastlane</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开始"><span class="nav-number">2.</span> <span class="nav-text">快速开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fastlane-进阶用法"><span class="nav-number">3.</span> <span class="nav-text">Fastlane 进阶用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#env"><span class="nav-number">3.1.</span> <span class="nav-text">.env</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Appfile"><span class="nav-number">3.2.</span> <span class="nav-text">Appfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deliverfile"><span class="nav-number">3.3.</span> <span class="nav-text">Deliverfile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fastfile"><span class="nav-number">3.4.</span> <span class="nav-text">Fastfile</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Alex Lin"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Alex Lin</p>
+  <div class="site-description" itemprop="description">Hi, I'm an iOS engineer, focusing on mobile software development.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">92</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/chaoskyx" title="GitHub → https://github.com/chaoskyx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:chaosky.me@gmail.com" title="E-Mail → mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/ChaoskyX" title="Twitter → https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://t.me/chaosky" title="Telegram → https://t.me/chaosky" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://macshuo.com/" title="http://macshuo.com/" rel="noopener" target="_blank">MacTalk</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.devtang.com" title="http://blog.devtang.com" rel="noopener" target="_blank">唐巧</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://coolshell.cn" title="http://coolshell.cn" rel="noopener" target="_blank">酷壳</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.codingnow.com" title="http://blog.codingnow.com" rel="noopener" target="_blank">云风</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://axiaoxin.com" title="http://axiaoxin.com" rel="noopener" target="_blank">信妈</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://huxos.me" title="http://huxos.me" rel="noopener" target="_blank">胡骏</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://blog.h2ero.cn/" title="http://blog.h2ero.cn/" rel="noopener" target="_blank">h2ero</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://nleo.me" title="https://nleo.me" rel="noopener" target="_blank">胡中华</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.jianshu.com/u/bbf6898c0002" title="http://www.jianshu.com/u/bbf6898c0002" rel="noopener" target="_blank">jackfrued</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.exiatian.com/" title="http://www.exiatian.com/" rel="noopener" target="_blank">唐雷</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">蜀ICP备20000598号-1 </a>
+      <img src="/images/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012402000434" rel="noopener" target="_blank">川公网安备 51012402000434号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 2014 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Alex Lin</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">310k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:42</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '7468cea68feda45ca013',
+      clientSecret: 'ec0a5262da8e48c4393f7a3dac909e0e4d69d83b',
+      repo        : 'chaoskyx.github.io',
+      owner       : 'chaoskyx',
+      admin       : ['chaoskyx'],
+      id          : '357bbc5835019ab67d06436a6a29de91',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

@@ -16,38 +16,12 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    hostname: new URL('http://chaosky.tech').hostname,
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.7.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
-    copycode: {"enable":true,"show_result":true,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"chaosky.tech","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="Hi, I&#39;m an iOS engineer, focusing on mobile software development.">
 <meta property="og:type" content="website">
@@ -66,8 +40,9 @@
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -120,19 +95,6 @@
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Chaosky's Notes</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <h1 class="site-subtitle" itemprop="description">Strategy, Execution, Communication.</h1>
-      
-  </div>
-
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
@@ -140,55 +102,102 @@
       <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Chaosky's Notes</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Strategy, Execution, Communication.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">57</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">66</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">85</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">92</span></a>
 
   </li>
         <li class="menu-item menu-item-workspace">
 
-    <a href="/workspace/" rel="section"><i class="fa fa-fw fa-cubes"></i>工作空间</a>
+    <a href="/workspace/" rel="section"><i class="fa fa-cubes fa-fw"></i>工作空间</a>
 
   </li>
         <li class="menu-item menu-item-skillmap">
 
-    <a href="/skillmap/" rel="section"><i class="fa fa-fw fa-list"></i>技能树</a>
+    <a href="/skillmap/" rel="section"><i class="fa fa-list fa-fw"></i>技能树</a>
 
   </li>
         <li class="menu-item menu-item-quotes">
 
-    <a href="/quotes/" rel="section"><i class="fa fa-fw fa-quote-left"></i>引言</a>
+    <a href="/quotes/" rel="section"><i class="fa fa-quote-left fa-fw"></i>引言</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
-
 </nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
@@ -198,7 +207,7 @@
     <span>0%</span>
   </div>
 
-  <a href="https://github.com/chaoskyme" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <a href="https://github.com/chaoskyx" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
 
     <main class="main">
@@ -206,14 +215,880 @@
         <div class="content-wrap">
           
 
-          <div class="content">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/11/04/ARC-Best-Practices/">
 
-  <div class="posts-expand">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/04/ARC-Best-Practices/" class="post-title-link" itemprop="url">【译】ARC 最佳实践</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-04 09:06:04" itemprop="dateCreated datePublished" datetime="2016-11-04T09:06:04+08:00">2016-11-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>英文原文出处：<a href="http://amattn.com/p/arc_best_practices.html" target="_blank" rel="noopener">http://amattn.com/p/arc_best_practices.html</a></p>
+<h2 id="一些可选背景故事："><a href="#一些可选背景故事：" class="headerlink" title="一些可选背景故事："></a>一些可选背景故事：</h2><ul>
+<li>相关文档：<a href="https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html" target="_blank" rel="noopener">迁移至ARC版本说明</a></li>
+<li>Mike Ash 在他的 <a href="http://www.mikeash.com/pyblog/friday-qa-2011-09-30-automatic-reference-counting.html" target="_blank" rel="noopener">Friday Q&amp;As</a> 也有一篇关于ARC的文章。</li>
+<li>深入的技术文档在 LLVM 项目的 <a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html" target="_blank" rel="noopener">CLANG 网站</a>上。</li>
+</ul>
+<p>假设你正在使用 iOS 5 或者更高版本，而不是 4。实际上，弱指针是 ARC 中的一个重要工具，所以我不建议在 iOS 4 中使用 ARC。</p>
+<h2 id="更新注意事项"><a href="#更新注意事项" class="headerlink" title="更新注意事项"></a>更新注意事项</h2><p>这份文件自从2011年发布以来，一直在不断更新。最后一次微小的修订是在 2013年发布 iOS 7。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/11/04/ARC-Best-Practices/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/10/26/Objective-C-Method-Swizzle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/26/Objective-C-Method-Swizzle/" class="post-title-link" itemprop="url">Objective-C Method Swizzle</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-26 21:05:50" itemprop="dateCreated datePublished" datetime="2016-10-26T21:05:50+08:00">2016-10-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>453</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Method Swizzle（方法调配、方法混合、方法调和、方法混写） 是 Objective-C 运行时的黑魔法之一。我们可以通过 Swizzle 的手段，在运行时对某些方法的实现进行替换，这是 Objective-C 甚至说 Cocoa 开发中最为华丽，同时也是最为危险的技巧之一。Swizzle 使用了 Objective-C 的动态派发，对于 NSObject 的子类是可以直接使用的。</p>
+<p>通过此方案，可以为那些『完全不知道其具体实现的』黑盒方法增加日志记录功能，这非常有助于程序调试。然而，次做法只在调试程序时有用。很少有人在调试程序之外的场合用上述『Method Swillze』来永久改动某个类的功能。不能仅仅因为Objective-C 语言里有这个特性就一定要用它。若是滥用，反而会令代码变得不易读懂且难于维护。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/10/26/Objective-C-Method-Swizzle/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/10/24/dungeon2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/24/dungeon2/" class="post-title-link" itemprop="url">地下城堡2：黑暗觉醒</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-24 16:20:17" itemprop="dateCreated datePublished" datetime="2016-10-24T16:20:17+08:00">2016-10-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%8E%A9%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">玩游戏</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>15</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="地下城堡2：黑暗觉醒转职一览表"><a href="#地下城堡2：黑暗觉醒转职一览表" class="headerlink" title="地下城堡2：黑暗觉醒转职一览表"></a>地下城堡2：黑暗觉醒转职一览表</h2><p><img src="http://file.blog.chaosky.tech/2016-10-24-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E5%A0%A12%EF%BC%9A%E9%BB%91%E6%9A%97%E8%A7%89%E9%86%92%E8%BD%AC%E8%81%8C%E4%B8%80%E8%A7%88%E8%A1%A8.png" alt="地下城堡2：黑暗觉醒转职一览表"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/10/12/Check-Jailbroken/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/12/Check-Jailbroken/" class="post-title-link" itemprop="url">越狱检测</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-12 11:53:53" itemprop="dateCreated datePublished" datetime="2016-10-12T11:53:53+08:00">2016-10-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>8</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>代码详情查看以下</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/10/12/Check-Jailbroken/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/09/26/Continuous-Integration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/26/Continuous-Integration/" class="post-title-link" itemprop="url">iOS 持续集成</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-26 23:00:51" itemprop="dateCreated datePublished" datetime="2016-09-26T23:00:51+08:00">2016-09-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>137</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>持续集成主要有两大好处：一是省去手动构建部署的繁琐，二是每一个提交都有自动跑测试保证质量。</p>
+<p>本文主要介绍两大持续集成工具：TravisCI 和 Jenkins。</p>
+<h2 id="TravisCI"><a href="#TravisCI" class="headerlink" title="TravisCI"></a>TravisCI</h2><p>Travis CI 可以和 Github 无缝集成，每次push都可以触发相应的操作，跑测试、自动部署都能完成。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/09/24/Singteton-Class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/24/Singteton-Class/" class="post-title-link" itemprop="url">单例类</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-24 20:09:24" itemprop="dateCreated datePublished" datetime="2016-09-24T20:09:24+08:00">2016-09-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>354</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>单例模式（Singleton Pattern）最简单的设计模式之一。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。</p>
+<p>这种模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
+<p>注意：</p>
+<p>1、单例类只能有一个实例。</p>
+<p>2、单例类必须自己创建自己的唯一实例。</p>
+<p>3、单例类必须给所有其他对象提供这一实例。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/24/Singteton-Class/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/09/21/Official-Accounts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/21/Official-Accounts/" class="post-title-link" itemprop="url">我关注的公众号</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-21 15:47:09" itemprop="dateCreated datePublished" datetime="2016-09-21T15:47:09+08:00">2016-09-21</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h2><h3 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h3><h4 id="iOS开发"><a href="#iOS开发" class="headerlink" title="iOS开发"></a>iOS开发</h4><p>微信号：iOSDevTip</p>
+<p>功能介绍：最新iOS、iPhone资讯，万名iOS开发者、swift开发、果粉聚集，参与技术讨论，整理开发技巧，分享创业经验！享受生活、热爱编程！</p>
+<h4 id="CocoaChina"><a href="#CocoaChina" class="headerlink" title="CocoaChina"></a>CocoaChina</h4><p>微信号: cocoachinabbs</p>
+<p>功能介绍: CocoaChina苹果开发中文社区官方微信，提供教程资源、app推广营销、招聘、外包及培训信息、各类沙龙交流活动以及更多开发者服务。</p>
+<h4 id="Crossin的编程教室"><a href="#Crossin的编程教室" class="headerlink" title="Crossin的编程教室"></a>Crossin的编程教室</h4><p>微信号: crossincode</p>
+<p>功能介绍: 每天5分钟，学点简单的编程，用新的思维方式看世界。</p>
+<h4 id="待字闺中"><a href="#待字闺中" class="headerlink" title="待字闺中"></a>待字闺中</h4><p>微信号: daiziguizhongren</p>
+<p>功能介绍: 深度分析大数据、深度学习、人工智能等技术，切中实际应用场景，为大家授业解惑。间或，也会介绍国内外相关领域有趣的面试题。</p>
+<h4 id="程序人生"><a href="#程序人生" class="headerlink" title="程序人生"></a>程序人生</h4><p>微信号: programmer_life</p>
+<p>功能介绍: 十年漫漫程序人生，打过各种杂，也做过让我骄傲的软件；管理过十多人的团队，还带领一班兄弟姐妹创过业。关注程序人生，了解程序猿，学做程序猿，让我们的人生不再屌丝化。</p>
+<h4 id="唐巧——iOS开发"><a href="#唐巧——iOS开发" class="headerlink" title="唐巧——iOS开发"></a>唐巧——iOS开发</h4><p>微信号: iosDevTips</p>
+<p>功能介绍: 我叫唐巧，InfoQ 编辑，《iOS开发进阶》作者，现在在猿题库创业。本账号主要分享我精选的 iOS 开发文章和一些创业感悟。</p>
+<h4 id="利器"><a href="#利器" class="headerlink" title="利器"></a>利器</h4><p>微信号：liqiio</p>
+<p>功能介绍：创造者和他们的工具.</p>
+<h4 id="论码农的自我修养"><a href="#论码农的自我修养" class="headerlink" title="论码农的自我修养"></a>论码农的自我修养</h4><p>微信号：bit_tiger</p>
+<p>功能介绍：“有趣,有用,有效”.刷项目,做实战,捅破技术的那层纸.</p>
+<h4 id="Pinapps"><a href="#Pinapps" class="headerlink" title="Pinapps"></a>Pinapps</h4><p>微信号：Pinapps</p>
+<p>功能介绍：我推荐的不仅是apps,更是一种态度!</p>
+<h4 id="ThoughtWorks"><a href="#ThoughtWorks" class="headerlink" title="ThoughtWorks"></a>ThoughtWorks</h4><p>微信号：ThoughtWorks</p>
+<p>功能介绍：最新技术雷达/各类技术干货/精选职位招聘/精彩活动预告/经典案例故事,就在ThoughtWorks.</p>
+<h3 id="人文"><a href="#人文" class="headerlink" title="人文"></a>人文</h3><h4 id="不止读书"><a href="#不止读书" class="headerlink" title="不止读书"></a>不止读书</h4><p>微信号: buzhidushu</p>
+<p>功能介绍: 不止读书，读书不止。推荐好书。</p>
+<h4 id="伯乐在线"><a href="#伯乐在线" class="headerlink" title="伯乐在线"></a>伯乐在线</h4><p>微信号: jobbole</p>
+<p>功能介绍：关注职业资讯；学习各类职业感悟、心得和经验分享，扩大职业视野；体会求职、工作和创业的历程 - 就在JobBole.com 伯乐在线</p>
+<h4 id="槽边往事"><a href="#槽边往事" class="headerlink" title="槽边往事"></a>槽边往事</h4><p>微信号: bitsea</p>
+<p>功能介绍: 和菜头的微信Blog，用于分享各种新鲜资讯</p>
+<h4 id="鬼脚七"><a href="#鬼脚七" class="headerlink" title="鬼脚七"></a>鬼脚七</h4><p>微信号: taobaoguijiaoqi</p>
+<p>功能介绍: 鬼脚七，真名文德，自媒体人。做自己，爱生活！</p>
+<h4 id="懒人在思考"><a href="#懒人在思考" class="headerlink" title="懒人在思考"></a>懒人在思考</h4><p>微信号：lazy-thought</p>
+<p>功能介绍：以黑客那种邪气看待世界.而你,务必保持自己的独立思维. By 余弦</p>
+<h4 id="老鹰说"><a href="#老鹰说" class="headerlink" title="老鹰说"></a>老鹰说</h4><p>微信号：joeytalks</p>
+<p>功能介绍：创业就是典当灵魂,成功者才能将灵魂赎回.老鹰在这里与你分享赎回灵魂路上的点点滴滴.</p>
+<h4 id="连岳"><a href="#连岳" class="headerlink" title="连岳"></a>连岳</h4><p>微信号：ilianyue</p>
+<p>功能介绍：连岳文字，当今中国最活跃的专栏作家之一,著名专栏《我爱问连岳》</p>
+<h4 id="罗辑思维"><a href="#罗辑思维" class="headerlink" title="罗辑思维"></a>罗辑思维</h4><p>微信号：luojisw</p>
+<p>功能介绍：罗胖每天早上60秒语音,用文字回复语音中的关键词可阅读文章.</p>
+<h4 id="MacTalk"><a href="#MacTalk" class="headerlink" title="MacTalk"></a>MacTalk</h4><p>微信号：sagacity-mac</p>
+<p>功能介绍：MacTalk 开通于2012年末,内容起于 Mac 而不止 Mac,内容覆盖了技术、创业、产品和人文思考.文风有趣,又有一点力量.相关图书《MacTalk·人生元编程》《MacTalk·跨越边界》</p>
+<h4 id="厉哥——虚拟机"><a href="#厉哥——虚拟机" class="headerlink" title="厉哥——虚拟机"></a>厉哥——虚拟机</h4><p>微信号：mintshow</p>
+<p>功能介绍：毫无悬念最值得关注的账号.世界上牛人有无数,而厉哥只有一个.</p>
+<h4 id="三表龙门阵"><a href="#三表龙门阵" class="headerlink" title="三表龙门阵"></a>三表龙门阵</h4><p>微信号：sanbiao1984</p>
+<p>功能介绍：负责吐槽一切!互联网大喷壶,大嘴善喷喷天下可喷之事!</p>
+<h4 id="神秘的程序员们"><a href="#神秘的程序员们" class="headerlink" title="神秘的程序员们"></a>神秘的程序员们</h4><p>微信号：coderstory</p>
+<p>功能介绍：作为一个程序员星人,在地球上工作生活时,你是否会感到孤独呢? 这里有来自程序员母星的亲切问候和地球漫游指南.国内首部以程序员文化、技术主题、项目管理及互联网创业的为主题漫画,诞生于09年.主创:西乔、…</p>
+<h4 id="Tiny4Voice"><a href="#Tiny4Voice" class="headerlink" title="Tiny4Voice"></a>Tiny4Voice</h4><p>微信号：tiny4voice</p>
+<p>功能介绍：一天一条来自 Tinyfool 的语音鸡汤,暖胃暖心,让我们一起在漫漫长夜里面默默前行,在死之前,没有终点,不会停歇.</p>
+<h4 id="图灵访谈"><a href="#图灵访谈" class="headerlink" title="图灵访谈"></a>图灵访谈</h4><p>微信号：ituring_interview</p>
+<p>功能介绍：对话国外知名技术作者,讲述国内码农精彩人生.你听得见他们,他们也听得见你.</p>
+<h4 id="图灵教育"><a href="#图灵教育" class="headerlink" title="图灵教育"></a>图灵教育</h4><p>微信号：turingbooks</p>
+<p>功能介绍：是好书,把我们联系在一起</p>
+<h4 id="歪理邪说"><a href="#歪理邪说" class="headerlink" title="歪理邪说"></a>歪理邪说</h4><p>微信号：wxieshuo</p>
+<p>功能介绍：一切关于未来的故事在实现之前都是歪理邪说.</p>
+<h4 id="我和世界之间"><a href="#我和世界之间" class="headerlink" title="我和世界之间"></a>我和世界之间</h4><p>微信号：between_world_and_me</p>
+<p>功能介绍：更有品位 · 更有智慧 Better Taste · Wiser Life</p>
+<h4 id="小道消息"><a href="#小道消息" class="headerlink" title="小道消息"></a>小道消息</h4><p>微信号：WebNotes</p>
+<p>功能介绍：在这里,我想为你呈现一副中国互联网的清明上河图.冯大辉,丁香园技术产品负责人.</p>
+<h4 id="余晟以为"><a href="#余晟以为" class="headerlink" title="余晟以为"></a>余晟以为</h4><p>微信号：yurii-says</p>
+<p>功能介绍：我是这么以为的,当然你也可以那么以为</p>
+<h3 id="资讯"><a href="#资讯" class="headerlink" title="资讯"></a>资讯</h3><h4 id="桂辉最久"><a href="#桂辉最久" class="headerlink" title="桂辉最久"></a>桂辉最久</h4><p>微信号: queendrunk</p>
+<p>功能介绍: 原创+精选的科技类账号，干货分享TMT领域的行业热点、产品设计、大数据、市场趋势、商业模式、创业的深度分析和经典案例。第一大自媒体联盟WeMedia成员。</p>
+<h4 id="InfoQ"><a href="#InfoQ" class="headerlink" title="InfoQ"></a>InfoQ</h4><p>微信号: infoqchina</p>
+<p>功能介绍: 有内容的技术社区媒体</p>
+<h4 id="极客公园"><a href="#极客公园" class="headerlink" title="极客公园"></a>极客公园</h4><p>微信号: geekpark</p>
+<p>功能介绍: 科技创新者的大本营。汇聚优秀的产品报道、评测视频和高质量的线下活动。</p>
+<h4 id="极客邦科技Geekbang"><a href="#极客邦科技Geekbang" class="headerlink" title="极客邦科技Geekbang"></a>极客邦科技Geekbang</h4><p>微信号: geekbang01</p>
+<p>功能介绍: 极客邦科技是一家IT技术学习服务综合提供商，使命是帮助技术人和企业成长，旗下运营InfoQ技术媒体、EGO社交网络、StuQ在线教育、GIT企业培训等四大业务品牌，通过帮助技术人成长来推动企业发展。</p>
+<h4 id="可能吧"><a href="#可能吧" class="headerlink" title="可能吧"></a>可能吧</h4><p>微信号: knbknb</p>
+<p>功能介绍: 「可能吧」是一个诞生于2007年的博客，在2009年获得搜狐 IT 新闻奖、2010年获得德国之声最佳中文博客奖之后，因为众所周知的原因无法在中国访问。现在，它以另一种姿态存在。「可能吧」更新频率不高，文章一般不怎么客观，请谨慎关注。</p>
+<h4 id="PingWest中文网"><a href="#PingWest中文网" class="headerlink" title="PingWest中文网"></a>PingWest中文网</h4><p>微信号：wepingwest</p>
+<p>功能介绍：有品好玩的科技,一切与你有关。科技博客PingWest中文网(pingwest.com)</p>
+<h4 id="商业价值"><a href="#商业价值" class="headerlink" title="商业价值"></a>商业价值</h4><p>微信号：bvmagazine</p>
+<p>功能介绍：中国最好的技术商业杂志,关注更创新,更智慧,更可持续的商业,专为变革者打造.</p>
+<h4 id="深圳湾"><a href="#深圳湾" class="headerlink" title="深圳湾"></a>深圳湾</h4><p>微信号：shenzhenware</p>
+<p>功能介绍：深圳湾(ShenzhenWare)关注软件、硬件、以及软硬结合的生态系统.</p>
+<h4 id="100offer说"><a href="#100offer说" class="headerlink" title="100offer说"></a>100offer说</h4><p>微信号：shuo100offer</p>
+<p>功能介绍：有关互联网人才流动和发展,我们触摸得到真实客观的跳槽数据,我们感受得到有血有肉的故事.我们在观察,我们也在思考,我们在这里「说」</p>
+<h4 id="36氪"><a href="#36氪" class="headerlink" title="36氪"></a>36氪</h4><p>微信号：wow36kr</p>
+<p>功能介绍：36氪(36kr.com)是中国最具影响力的互联网创投媒体,提供最新锐最具深度的商业报道.我们强调趋势与价值,我们的slogan是:让一部分人先看到未来.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/21/Official-Accounts/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/09/09/SNS-Platform/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/09/SNS-Platform/" class="post-title-link" itemprop="url">第三方登录和分享常见问题集锦</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-09 17:17:36" itemprop="dateCreated datePublished" datetime="2016-09-09T17:17:36+08:00">2016-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index"><span itemprop="name">iOS</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>480</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="新浪微博"><a href="#新浪微博" class="headerlink" title="新浪微博"></a>新浪微博</h2><h3 id="iOS-sso-package-or-sign-error"><a href="#iOS-sso-package-or-sign-error" class="headerlink" title="iOS sso package or sign error"></a>iOS sso package or sign error</h3><p>出现这个问题是因为在新浪微博开放平台上申请的应用的<code>Bundle ID</code>和你项目的<code>Bundle ID</code>不一致或者未设置。  </p>
+<p>解决方法：更改新浪微博开发平台上应用的<code>Bundle ID</code></p>
+<h3 id="error-redirect-uri-mismatch"><a href="#error-redirect-uri-mismatch" class="headerlink" title="error:redirect_uri_mismatch"></a>error:redirect_uri_mismatch</h3><p>在程序中设置的<code>Redirect URL</code>和新浪微博开放平台申请的应用的<code>授权回调页</code>URL不一致。</p>
+<p>解决方法：在新浪微博开放平台 ——&gt; 应用信息 ——&gt; 高级信息 ——&gt; OAuth2.0 授权设置 ——&gt; 授权回调页，设置和程序的<code>Redirect URL</code>一致。</p>
+<h3 id="新浪微博登录授权失败，responseCode等于5051"><a href="#新浪微博登录授权失败，responseCode等于5051" class="headerlink" title="新浪微博登录授权失败，responseCode等于5051"></a>新浪微博登录授权失败，responseCode等于5051</h3><p>在项目中集成友盟第三方登录，新浪微博登录，登录授权失败，返回状态码为5051（获取账户失败）。</p>
+<p>原因：App在测试阶段(未上线)，授权的微博账号和开通开放平台的微博账号不是同一账号。</p>
+<p>解决办法：在新浪微博开放平台中，选择我的应用——对应应用——应用信息——测试信息，选择编辑，添加测试账号。</p>
+<h2 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h2><h3 id="scope参数错误或没有scope权限"><a href="#scope参数错误或没有scope权限" class="headerlink" title="scope参数错误或没有scope权限"></a>scope参数错误或没有scope权限</h3><ol>
+<li>没有相关的权限</li>
+<li>账号没有认证，没有相关的权限</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/09/05/Unix-Art/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Alex Lin">
+      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chaosky's Notes">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/05/Unix-Art/" class="post-title-link" itemprop="url">Unix 编程艺术</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-05 15:55:51" itemprop="dateCreated datePublished" datetime="2016-09-05T15:55:51+08:00">2016-09-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">软件设计</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>《Unix 编程艺术》：这本书在模块化、文本化、配置、接口、复杂度、优化、可移植性等方面，都提供了Unix/Linux世界所积累的宝贵经验。好的程序可以经受时间、平台与用户的考验，好的编程思想可以经受实践的检验。</p>
+<blockquote>
+<p>读书笔记摘录自 《Unix 编程艺术》</p>
+</blockquote>
+<h2 id="Unix-设计原则"><a href="#Unix-设计原则" class="headerlink" title="Unix 设计原则"></a>Unix 设计原则</h2><p>所有的 Unix 哲学浓缩为一条铁律，『KISS』原则：Keep It Simple, Stupid!</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2016/09/05/Unix-Art/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/08/05/Design-Inspiration/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,42 +1109,33 @@
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2016-08-05 09:19:13" itemprop="dateCreated datePublished" datetime="2016-08-05T09:19:13+08:00">2016-08-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
+                <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UI%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">UI设计</span>
-                  </a>
+                  <a href="/categories/UI%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">UI设计</span></a>
                 </span>
             </span>
 
           <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
               <span>768</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
@@ -308,935 +1174,10 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/07/29/macOS-Setup-Guide-Setting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/29/macOS-Setup-Guide-Setting/" class="post-title-link" itemprop="url">macOS 开发配置手册——设置篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-29 13:14:54" itemprop="dateCreated datePublished" datetime="2016-07-29T13:14:54+08:00">2016-07-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/macOS/" itemprop="url" rel="index">
-                    <span itemprop="name">macOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>工欲善其事，必先利其器。—— 设置篇</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/29/macOS-Setup-Guide-Setting/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/07/29/macOS-Setup-Guide-Tools/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/29/macOS-Setup-Guide-Tools/" class="post-title-link" itemprop="url">macOS 开发配置手册——工具篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-29 13:08:28" itemprop="dateCreated datePublished" datetime="2016-07-29T13:08:28+08:00">2016-07-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/macOS/" itemprop="url" rel="index">
-                    <span itemprop="name">macOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>9.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>9 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>工欲善其事，必先利其器。—— 工具篇</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/29/macOS-Setup-Guide-Tools/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/07/27/iOS-Security-Defense-Reveal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/27/iOS-Security-Defense-Reveal/" class="post-title-link" itemprop="url">使用Reveal分析别人App的UI布局</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-27 13:43:53" itemprop="dateCreated datePublished" datetime="2016-07-27T13:43:53+08:00">2016-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="越狱iOS设备"><a href="#越狱iOS设备" class="headerlink" title="越狱iOS设备"></a>越狱iOS设备</h3><ol>
-<li>如何越狱可以参考<a href="http://www.pangu.io" target="_blank" rel="noopener">盘古越狱</a>的相关文章，具体详情参见链接：<a href="http://jailbreak.25pp.com/ppjailbreak/?from=25pp_00119" target="_blank" rel="noopener">http://jailbreak.25pp.com/ppjailbreak/?from=25pp_00119</a>，最新iOS越狱可以支持iOS 9.3.3，也可以看我整理的<a href="http://chaosky.me/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/" target="_blank" rel="noopener">非官方的越狱文章</a>。</li>
-<li>在Cydia源中安装OpenSSH、MobileSubstrate等工具，之后的文章会讲到其他工具</li>
-</ol>
-<h3 id="macOS-本地安装Reveal"><a href="#macOS-本地安装Reveal" class="headerlink" title="macOS 本地安装Reveal"></a>macOS 本地安装Reveal</h3><p>具体安装及使用可以参见我之前的文章：<a href="http://chaosky.me/2016/07/27/Reveal" target="_blank" rel="noopener">http://chaosky.me/2016/07/27/Reveal</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/27/iOS-Security-Defense-Reveal/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/07/27/Reveal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/27/Reveal/" class="post-title-link" itemprop="url">使用Reveal调试和分析iOS应用UI</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-27 13:38:54" itemprop="dateCreated datePublished" datetime="2016-07-27T13:38:54+08:00">2016-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>7.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Reveal是分析、调试iOS应用UI的利器。</p>
-<p>Reveal能够在运行时调试和修改iOS应用程序。它能连接到应用程序，并允许开发者编辑各种用户界面参数，这反过来会立即反应在程序的UI上。就像用FireBug调试HTML页面一样，在不需要重写代码、重新构建和重新部署应用程序的情况下就能够调试和修改iOS用户界面。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/27/Reveal/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/07/23/macOS-setup-rtmp-server/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/23/macOS-setup-rtmp-server/" class="post-title-link" itemprop="url">macOS 搭建 RTMP 直播服务器</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-23 12:13:06" itemprop="dateCreated datePublished" datetime="2016-07-23T12:13:06+08:00">2016-07-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/macOS/" itemprop="url" rel="index">
-                    <span itemprop="name">macOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>直播开发流程:<br>数据采集→ 数据编码 → 数据传输(流媒体服务器) → 解码数据 → 播放显示<br>本文主要介绍如何搭建RTMP直播服务器以及测试流媒体服务器是否搭建成功。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/07/23/macOS-setup-rtmp-server/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/06/30/Design-Pattern/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/06/30/Design-Pattern/" class="post-title-link" itemprop="url">设计模式 （Design Pattern）</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-06-30 15:45:48" itemprop="dateCreated datePublished" datetime="2016-06-30T15:45:48+08:00">2016-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">软件设计</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>27k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>25 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="面向过程和面向对象"><a href="#面向过程和面向对象" class="headerlink" title="面向过程和面向对象"></a>面向过程和面向对象</h2><ol>
-<li><p>面向过程是祈使句，面向对象是主谓（宾）结构。</p>
-</li>
-<li><p>面向过程注重数据的存储和操作，面向对象注重用程序模拟生活逻辑。</p>
-</li>
-<li><p>面向过程数据和操作数据的过程是分离的，没有逻辑上的必然联系；面向对象中数据和操作数据的方法是逻辑上的整体，称之为对象。</p>
-</li>
-</ol>
-<h2 id="面向对象的基本概念"><a href="#面向对象的基本概念" class="headerlink" title="面向对象的基本概念"></a>面向对象的基本概念</h2><ul>
-<li><p>对象：现实世界中的对象是我们认识世界的基本单元，世界就是由这些基本单元组成的。一切皆为对象；每个对象都是独一无二的；对象都有属性和行为；对象都属于某个类。</p>
-</li>
-<li><p>类：类是对一组具有共同属性和行为的对象的抽象，它是对象的蓝图和模板。</p>
-</li>
-<li><p>消息：对象与对象之间存在着一定的联系，这种联系通过消息的传递来实现。程序中的一切操作都通过向对象发送消息来实现，对象接收到消息后，调用有关对象的行为来完成相应的操作。</p>
-</li>
-</ul>
-<h2 id="面向对象的3个基本要素"><a href="#面向对象的3个基本要素" class="headerlink" title="面向对象的3个基本要素"></a>面向对象的3个基本要素</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装是把一个事物包装起来，使外界不了解它的内部的具体情况。在面向对象的程序设计中，封装就是把相关的数据和代码结合成一个有机的整体，形成数据和操作代码的封装体，对外只提供一个可以控制的接口，内部大部分的实现细节对外隐蔽，达到对数据访问权的合理控制。封装使程序中个部分之间的相互联系达到最小，提高了程序的安全性，简化了程序代码的编写工作。</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>继承是从已有的类创建新类的过程，提供继承信息的称为父类，得到继承信息的称为子类，子类和父类之间是IS-A关系，继承使得类与类之间形成一个层次结构。</p>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态是不同结构的对象可以以各自不同的方式响应同一个消息，或者说同一个消息可以根据发送消息的对象的不同而采用多种不同的操作行为，这是面向对象最精髓的部分。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/06/30/Design-Pattern/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/06/24/AppStore-Review-Guidelines/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/06/24/AppStore-Review-Guidelines/" class="post-title-link" itemprop="url">App Store 审核指南——2016.6</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-06-24 15:15:57" itemprop="dateCreated datePublished" datetime="2016-06-24T15:15:57+08:00">2016-06-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>14k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>13 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="提交应用之前的检查列表"><a href="#提交应用之前的检查列表" class="headerlink" title="提交应用之前的检查列表"></a>提交应用之前的检查列表</h2><p>为了帮助你的应用能够尽可能顺利的过审，请查看下面列出来的可能降低审核速度或者被拒绝的常见失误。本清单无法代替审核条款，但你需要确保你已经达到了清单的要求作为良好的开始。</p>
-<p><strong>确保你已经：</strong></p>
-<ul>
-<li><p>测试你的应用程序，保证它不会发生崩溃和错误</p>
-</li>
-<li><p>确保你的应用程序的信息和应用内容保持完整和准确</p>
-</li>
-<li><p>保证联系人信息始终有效，审核团队可以及时联系到你</p>
-</li>
-<li><p>提供一个有效的测试帐号以及登录信息，并提供测试功能必要的的硬件和资源（例如，一个测试用的二维码）</p>
-</li>
-<li><p>保证后台服务在审核期间运行正常</p>
-</li>
-<li><p>如果应用的某些功能和应用内付费隐藏较深，需提供详细的描述文档和支持文档。如果因为地域的原因我们无法正常使用该功能，请提供该功能的描述视频链接。</p>
-</li>
-<li><p>请检查你的应用程序是否符合其他规范，包括（注意文中部分内容也有对应的条款和说明，请注意查看）</p>
-<p>开发指南<br><a href="https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072" target="_blank" rel="noopener">应用程序编程指南（App Programming Guide）</a><br><a href="https://developer.apple.com/library/mac/documentation/General/Conceptual/ExtensibilityPG/" target="_blank" rel="noopener">应用扩展编程指南（App Extension Programming Guide）</a><br><a href="https://developer.apple.com/icloud/documentation/data-storage/index.html" target="_blank" rel="noopener">iOS数据存储条款（iOS Data Storage Guidelines）</a><br><a href="https://developer.apple.com/library/mac/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40010672" target="_blank" rel="noopener">Mac OS X文件系统文档（Mac OS X File System Documentation）</a><br><a href="https://developer.apple.com/library/safari/documentation/Tools/Conceptual/SafariExtensionGuide/Introduction/Introduction.html" target="_blank" rel="noopener">Safari扩展开发指南（Safari Extensions Development Guide）</a><br><a href="https://developer.apple.com/library/ios/iTunesConnectGuide/" target="_blank" rel="noopener">iTunes Connect开发指南（iTunes Connect Developer Guide）</a></p>
-<p>设计指南<br><a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/MobileHIG/" target="_blank" rel="noopener">iOS人机交互界面条款（iOS Human Interface Guidelines）</a><br><a href="https://developer.apple.com/library/mac/documentation/UserExperience/Conceptual/OSXHIGuidelines/" target="_blank" rel="noopener">Mac OS人机交互界面条款（Mac OS Human Interface Guidelines）</a><br><a href="https://developer.apple.com/tvos/human-interface-guidelines/" target="_blank" rel="noopener">tvOS人机交互界面条款（tvOS Human Interface Guidelines）</a><br><a href="https://developer.apple.com/watch/human-interface-guidelines/" target="_blank" rel="noopener">watchOS人机交互界面条款（watchOS Human Interface Guidelines）</a></p>
-<p>品牌营销指南<br><a href="https://developer.apple.com/app-store/marketing/guidelines/" target="_blank" rel="noopener">App Store市场营销条款（App Store Marketing Guidelines）</a><br><a href="https://developer.apple.com/apple-pay/Apple-Pay-Identity-Guidelines.pdf" target="_blank" rel="noopener">苹果支付身份条款（Apple Pay Identity Guidelines）</a><br><a href="https://developer.apple.com/wallet/Add-to-Apple-Wallet-Guidelines.pdf" target="_blank" rel="noopener">加入苹果支付许可条款（Add to Apple Wallet Guidelines）</a><br><a href="http://www.apple.com/legal/intellectual-property/guidelinesfor3rdparties.html" target="_blank" rel="noopener">使用Apple商标和版权的条款（Guidelines for Using Apple Trademarks and Copyrights）</a></p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/06/24/AppStore-Review-Guidelines/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/06/13/iOS-Common-Crypto/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/06/13/iOS-Common-Crypto/" class="post-title-link" itemprop="url">iOS 密码技术</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-06-13 12:27:03" itemprop="dateCreated datePublished" datetime="2016-06-13T12:27:03+08:00">2016-06-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>15k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>14 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="转码技术"><a href="#转码技术" class="headerlink" title="转码技术"></a>转码技术</h2><h3 id="URL转码（百分号转码）"><a href="#URL转码（百分号转码）" class="headerlink" title="URL转码（百分号转码）"></a>URL转码（百分号转码）</h3><p>URL：只有字母和数字[0-9a-zA-Z]、一些特殊符号<code>$-_.+!*&#39;(),[不包括双引号]</code>、以及某些保留字，才可以不经过编码直接用于URL。</p>
-<h4 id="URL-编码实现"><a href="#URL-编码实现" class="headerlink" title="URL 编码实现"></a>URL 编码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 废弃接口</span><br><span class="line">- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)encoding</span><br><span class="line">&#x2F;&#x2F; iOS 7 之后</span><br><span class="line">- (NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters</span><br></pre></td></tr></table></figure>
-
-<h4 id="URL-解码实现"><a href="#URL-解码实现" class="headerlink" title="URL 解码实现"></a>URL 解码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 废弃接口</span><br><span class="line">- (NSString *)stringByReplacingPercentEscapesUsingEncoding:(NSStringEncoding)encoding</span><br><span class="line">&#x2F;&#x2F; iOS 7 之后</span><br><span class="line">@property(readonly, copy) NSString *stringByRemovingPercentEncoding</span><br></pre></td></tr></table></figure>
-
-<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ul>
-<li><a href="http://www.w3school.com.cn/tags/html_ref_urlencode.html" target="_blank" rel="noopener">http://www.w3school.com.cn/tags/html_ref_urlencode.html</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/百分号编码" target="_blank" rel="noopener">维基百科</a></li>
-<li><a href="http://tool.oschina.net/encode?type=4" target="_blank" rel="noopener">在线工具</a></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/06/13/iOS-Common-Crypto/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://chaosky.tech/2016/05/28/Linux-RaspberryPi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="Alex Lin">
-      <meta itemprop="description" content="Hi, I'm an iOS engineer, focusing on mobile software development.">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chaosky's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/05/28/Linux-RaspberryPi/" class="post-title-link" itemprop="url">Linux RaspberryPi</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-05-28 20:35:13" itemprop="dateCreated datePublished" datetime="2016-05-28T20:35:13+08:00">2016-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 15:31:28" itemprop="dateModified" datetime="2020-03-16T15:31:28+08:00">2020-03-16</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unix-Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Unix/Linux</span>
-                  </a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>199</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Using Ubuntu</span><br><span class="line">curl -sL http<span class="variable">s:</span>//<span class="keyword">deb</span>.nodesource.<span class="keyword">com</span>/setup_6.<span class="keyword">x</span> | sudo -E bash -</span><br><span class="line">sudo apt-<span class="built_in">get</span> install -<span class="keyword">y</span> nodejs</span><br><span class="line"></span><br><span class="line"># Using Debian, <span class="keyword">as</span> root</span><br><span class="line">curl -sL http<span class="variable">s:</span>//<span class="keyword">deb</span>.nodesource.<span class="keyword">com</span>/setup_6.<span class="keyword">x</span> | bash -</span><br><span class="line">apt-<span class="built_in">get</span> install -<span class="keyword">y</span> nodejs</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-  </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1246,7 +1187,7 @@
 
 <script>
   window.addEventListener('tabs:register', () => {
-    let activeClass = CONFIG.comments.activeClass;
+    let { activeClass } = CONFIG.comments;
     if (CONFIG.comments.storage) {
       activeClass = localStorage.getItem('comments_active') || activeClass;
     }
@@ -1304,49 +1245,42 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">66</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">85</span>
+        <span class="site-state-item-count">92</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/chaoskyme" title="GitHub → https://github.com/chaoskyme" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+        <a href="https://github.com/chaoskyx" title="GitHub → https://github.com/chaoskyx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:chaosky.me@gmail.com" title="E-Mail → mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="mailto:chaosky.me@gmail.com" title="E-Mail → mailto:chaosky.me@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://twitter.com/ChaoskyX" title="Twitter → https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+        <a href="https://twitter.com/ChaoskyX" title="Twitter → https://twitter.com/ChaoskyX" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://t.me/chaosky" title="Telegram → https://t.me/chaosky" rel="noopener" target="_blank"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://www.v2ex.com/member/error" title="V2EX → http://www.v2ex.com/member/error" rel="noopener" target="_blank"><i class="fa fa-fw fa-rocket"></i>V2EX</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="http://music.163.com/#/user/home?id=684084" title="Music → http://music.163.com/#/user/home?id=684084" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>Music</a>
+        <a href="https://t.me/chaosky" title="Telegram → https://t.me/chaosky" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
       </span>
   </div>
 
 
   <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
       友情链接
     </div>
     <ul class="links-of-blogroll-list">
@@ -1396,51 +1330,35 @@
     <footer class="footer">
       <div class="footer-inner">
         
-  <div class="beian"><a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">蜀ICP备20000598号-1 </a>
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn" rel="noopener" target="_blank">蜀ICP备20000598号-1 </a>
       <img src="/images/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=51012402000434" rel="noopener" target="_blank">川公网安备 51012402000434号 </a>
   </div>
 
 <div class="copyright">
   
   &copy; 2014 – 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Alex Lin</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
+      <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">270k</span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:05</span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
@@ -1476,14 +1394,8 @@
 
 
 
-  <script>
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install','WVe9S1RCHgLaWK_3xm3y','2.0.0');
-</script>
+  
+<script src="/js/local-search.js"></script>
 
 
 
