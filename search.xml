@@ -6444,13 +6444,23 @@ _   底线
 
 <p>版本和时间都有，2019-04-16 的版本，但是 M1 是 2020 年出来的，不一定适配了新的架构。</p>
 <p>那我们就必须得确认当前ruby的真实架构。我们可以通过一段代码获取 <code>arch.rb</code>：</p>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rbconfig'</span></span><br><span class="line"></span><br><span class="line">OSVERSION = RbConfig::CONFIG[<span class="string">'host_os'</span>]</span><br><span class="line">CPU = RbConfig::CONFIG[<span class="string">'host_cpu'</span>]</span><br><span class="line">ARCH = RbConfig::CONFIG[<span class="string">'arch'</span>]</span><br><span class="line"></span><br><span class="line">puts <span class="string">"OS: <span class="subst">#&#123;OSVERSION&#125;</span>"</span></span><br><span class="line">puts <span class="string">"CPU: <span class="subst">#&#123;CPU&#125;</span>"</span></span><br><span class="line">puts <span class="string">"Arch: <span class="subst">#&#123;ARCH&#125;</span>"</span></span><br><span class="line"><span class="string">``</span><span class="string">`   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">输出结果：</span></span><br></pre></td></tr></table></figure>
-<p>OS: darwin20<br>CPU: x86_64<br>Arch: universal-darwin20</p>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">诡异的一幕出现了，CPU架构却是x86_64而不是arm64，也就是说造成ffi无法运行的原因是ruby版本不支持 arm64。</span><br><span class="line"></span><br><span class="line">问题找到了那接下来这个问题就好解决了，安装最新的ruby版本。</span><br><span class="line"></span><br><span class="line">可以通过 `brew install ruby`，也可以通过 rbenv 或者 rvm 来安装。</span><br><span class="line"></span><br><span class="line">我使用 `brew install ruby` 来安装最新的版本。</span><br><span class="line"></span><br><span class="line">通过 brew 安装的 ruby 并不会生效，需要添加到环境变量中 `echo 'export PATH=<span class="string">"/opt/homebrew/opt/ruby/bin:$PATH"</span>' &gt;&gt; ~/.zshrc`。</span><br><span class="line"></span><br><span class="line">为了验证是否有效我们先测试下新版本的架构，先设置当前shell的环境变量 `export PATH=<span class="string">"/opt/homebrew/opt/ruby/bin:$PATH"</span>`。</span><br><span class="line"></span><br><span class="line">执行 `ruby --version`：</span><br></pre></td></tr></table></figure>
-<p>ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [arm64-darwin20]</p>
-<figure class="highlight autohotkey"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">执行 `ruby arch.rb`：</span><br></pre></td></tr></table></figure>
-<p>OS: darwin20<br>CPU: arm64<br>Arch: arm64-darwin20</p>
-<p>```</p>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">'rbconfig'</span></span><br><span class="line"></span><br><span class="line">OSVERSION = RbConfig::CONFIG[<span class="string">'host_os'</span>]</span><br><span class="line">CPU = RbConfig::CONFIG[<span class="string">'host_cpu'</span>]</span><br><span class="line">ARCH = RbConfig::CONFIG[<span class="string">'arch'</span>]</span><br><span class="line"></span><br><span class="line">puts <span class="string">"OS: <span class="subst">#&#123;OSVERSION&#125;</span>"</span></span><br><span class="line">puts <span class="string">"CPU: <span class="subst">#&#123;CPU&#125;</span>"</span></span><br><span class="line">puts <span class="string">"Arch: <span class="subst">#&#123;ARCH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>ruby arch.rb</code>：</p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">OS:</span> darwin20</span><br><span class="line"><span class="symbol">CPU:</span> x86_64</span><br><span class="line"><span class="symbol">Arch:</span> universal-darwin20</span><br></pre></td></tr></table></figure>
+
+<p>诡异的一幕出现了，CPU架构却是x86_64而不是arm64，也就是说造成ffi无法运行的原因是ruby版本不支持 arm64。</p>
+<p>问题找到了那接下来这个问题就好解决了，安装最新的ruby版本。</p>
+<p>可以通过 <code>brew install ruby</code>，也可以通过 rbenv 或者 rvm 来安装。</p>
+<p>我使用 <code>brew install ruby</code> 来安装最新的版本。</p>
+<p>通过 brew 安装的 ruby 并不会生效，需要添加到环境变量中 <code>echo &#39;export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc</code>。</p>
+<p>为了验证是否有效我们先测试下新版本的架构，先设置当前shell的环境变量 <code>export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;</code>。</p>
+<p>执行 <code>ruby --version</code>：</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">ruby <span class="number">3.0</span><span class="number">.1</span>p64 (<span class="number">2021</span><span class="number">-04</span><span class="number">-05</span> revision <span class="number">0f</span>b782ee38) [arm64-darwin20]</span><br></pre></td></tr></table></figure>
+
+<p>执行 <code>ruby arch.rb</code>：</p>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">OS: darwi<span class="symbol">n20</span></span><br><span class="line">CPU: ar<span class="name">m64</span></span><br><span class="line">Arch: ar<span class="name">m64</span>-darwi<span class="symbol">n20</span></span><br></pre></td></tr></table></figure>
+
 <p>CPU 架构正确，继续安装 CocoaPods <code>gem install cocoapods</code>。</p>
 <p>成功！！！</p>
 ]]></content>
