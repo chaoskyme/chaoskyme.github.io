@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://chaosky.tech/2021/06/17/missing-arch-in-ffi/</loc>
+    
+    <lastmod>2021-06-17T11:12:09.010Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://chaosky.tech/2021/05/16/WebKit-iOS-14-adaptation-issues/</loc>
     
     <lastmod>2021-05-16T15:56:46.126Z</lastmod>
@@ -44,14 +51,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2020/07/28/swift-use-static-framework/</loc>
+    <loc>http://chaosky.tech/2020/09/08/Safari-Web-Inspector-For-iOS-WebView/</loc>
     
     <lastmod>2020-11-05T12:40:24.112Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2020/09/08/Safari-Web-Inspector-For-iOS-WebView/</loc>
+    <loc>http://chaosky.tech/2020/07/28/swift-use-static-framework/</loc>
     
     <lastmod>2020-11-05T12:40:24.112Z</lastmod>
     
@@ -149,14 +156,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2020/05/01/Function-references-in-Swift-and-retain-cycles/</loc>
+    <loc>http://chaosky.tech/2020/05/04/fastlane-in-action-1/</loc>
     
     <lastmod>2020-05-06T04:46:47.328Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2020/05/04/fastlane-in-action-1/</loc>
+    <loc>http://chaosky.tech/2020/05/01/Function-references-in-Swift-and-retain-cycles/</loc>
     
     <lastmod>2020-05-06T04:46:47.328Z</lastmod>
     
@@ -233,14 +240,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/</loc>
+    <loc>http://chaosky.tech/2016/12/07/Cydia-Sources-and-Tweaks/</loc>
     
     <lastmod>2020-03-16T07:31:28.338Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/12/07/Cydia-Sources-and-Tweaks/</loc>
+    <loc>http://chaosky.tech/2016/12/07/Jailbreak-Using-Pangu-and-Cydia-Impactor/</loc>
     
     <lastmod>2020-03-16T07:31:28.338Z</lastmod>
     
@@ -254,14 +261,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/11/07/Data-Analysis-With-R/</loc>
+    <loc>http://chaosky.tech/2016/11/11/Effective-Objective-C-2-0/</loc>
     
     <lastmod>2020-03-16T07:31:28.335Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2016/11/11/Effective-Objective-C-2-0/</loc>
+    <loc>http://chaosky.tech/2016/11/07/Data-Analysis-With-R/</loc>
     
     <lastmod>2020-03-16T07:31:28.335Z</lastmod>
     
@@ -457,14 +464,14 @@
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2015/11/03/Openfire-install/</loc>
+    <loc>http://chaosky.tech/2014/11/05/QtWebKit-decrease-memory/</loc>
     
     <lastmod>2020-03-16T07:31:28.285Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://chaosky.tech/2014/11/05/QtWebKit-decrease-memory/</loc>
+    <loc>http://chaosky.tech/2015/11/03/Openfire-install/</loc>
     
     <lastmod>2020-03-16T07:31:28.285Z</lastmod>
     
